@@ -87,7 +87,6 @@ export default function App() {
         onClose={handleCloseDetail}
         title={detailModal.title}
         contentHtml={detailModal.html}
-        latexSource={detailModal.latexSource}
       />
 
       <SettingsModal

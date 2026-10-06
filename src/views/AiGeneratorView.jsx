@@ -8,11 +8,13 @@ import {
   Play, 
   Printer, 
   Loader2, 
-  Clock 
+  Clock,
+  FileText
 } from "lucide-react";
 import { generateExam } from "../services/aiService";
 import { storage } from "../services/storage";
 import KaTeXRenderer from "../components/KaTeXRenderer";
+import { exportToWord, printCleanDocument } from "../utils/exportUtils";
 
 export default function AiGeneratorView({ onStartExam }) {
   const [subject, setSubject] = useState("math");
@@ -169,14 +171,27 @@ export default function AiGeneratorView({ onStartExam }) {
             <KaTeXRenderer html={currentExam.fullExamContent} />
           </div>
 
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             {currentExam.quizQuestions && currentExam.quizQuestions.length > 0 && (
               <button className="btn-primary" onClick={() => onStartExam(currentExam)}>
                 <Play size={16} /> Làm bài thi thử ngay ({currentExam.quizQuestions.length} câu)
               </button>
             )}
-            <button className="btn-outline" onClick={() => window.print()}>
-              <Printer size={16} /> In / Tải PDF
+            <button 
+              className="btn-outline" 
+              onClick={() => printCleanDocument(currentExam.fullExamContent, currentExam.title)}
+              style={{ display: "flex", alignItems: "center", gap: "6px" }}
+              title="Xuất riêng phần nội dung đề thi ra file PDF chuẩn A4 (không in trang web)"
+            >
+              <Printer size={16} /> 🖨️ Xuất PDF Đề Thi
+            </button>
+            <button 
+              className="btn-outline" 
+              onClick={() => exportToWord(currentExam.title, currentExam.fullExamContent)}
+              style={{ display: "flex", alignItems: "center", gap: "6px" }}
+              title="Tải đề thi về dưới dạng file Word (.doc) để chỉnh sửa và in ấn"
+            >
+              <FileText size={16} color="var(--primary)" /> 📄 Tải file Word (.doc)
             </button>
           </div>
         </div>
