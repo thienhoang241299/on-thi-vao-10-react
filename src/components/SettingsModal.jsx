@@ -75,8 +75,18 @@ export default function SettingsModal({ isOpen, onClose }) {
 
           {/* Google Gemini API Key */}
           <div className="form-group">
-            <label className="form-label" style={{ fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
-              <Sparkles size={16} color="var(--primary)" /> Gemini API Key (Tùy chọn nâng cao):
+            <label className="form-label" style={{ fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <Sparkles size={16} color="var(--primary)" /> Gemini API Key:
+              </span>
+              <a 
+                href="https://aistudio.google.com/app/apikey" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ fontSize: "0.82rem", color: "var(--primary)", textDecoration: "underline", fontWeight: 600 }}
+              >
+                Lấy Key miễn phí tại Google AI Studio ↗
+              </a>
             </label>
             <input
               type="password"
@@ -85,8 +95,8 @@ export default function SettingsModal({ isOpen, onClose }) {
               onChange={(e) => setApiKey(e.target.value)}
               placeholder="AIzaSy..."
             />
-            <small style={{ color: "var(--text-muted)", display: "block", marginTop: 4 }}>
-              Hệ thống đã có sẵn <strong>Bộ Smart Generator Offline</strong> tạo đề có sẵn hình vẽ vector SVG cực đẹp không tốn mạng. Nếu muốn AI Gemini sinh đề trực tuyến độc nhất, hãy dán API Key tại đây.
+            <small style={{ color: "var(--text-muted)", display: "block", marginTop: 6, lineHeight: 1.5 }}>
+              💡 <strong>Yêu cầu API Key:</strong> Lấy từ <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: "var(--primary)" }}>Google AI Studio</a> (hoàn toàn miễn phí, định dạng bắt đầu bằng chữ <code>AIzaSy...</code>). Nếu không có API Key, thầy/cô chỉ cần chọn chế độ <strong>📐 Smart Matrix</strong> để tạo đề miễn phí 100% không cần key!
             </small>
           </div>
         </div>

@@ -703,28 +703,70 @@ async function generateViaGemini(apiKey, subject, level, examType, provinceStyle
   const subjectName = subject === 'math' ? 'Toán học' : (subject === 'eng' ? 'Tiếng Anh' : 'Ngữ Văn');
   const prompt = buildStrictMatrixPrompt(subject, level, examType, provinceStyle);
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { responseMimeType: "application/json" }
-    })
-  });
+  // Danh sách model ưu tiên của Google AI Studio
+  const candidateModels = [
+    "gemini-1.5-flash",
+    "gemini-2.0-flash",
+    "gemini-1.5-pro"
+  ];
 
-  if (!res.ok) throw new Error("API failed with status " + res.status);
-  const data = await res.json();
-  const text = data.candidates[0].content.parts[0].text;
-  const exam = JSON.parse(text);
-  exam.id = "ai-gen-" + Date.now();
-  exam.subject = subject;
-  exam.subjectName = subjectName;
-  exam.province = provinceStyle;
-  exam.durationMinutes = subject === 'eng' ? 60 : 120;
-  exam.createdAt = new Date().toISOString();
-  exam.generationMethod = "gemini";
-  exam.generatorLabel = "Google Gemini AI (API Key)";
-  return exam;
+  let lastError = null;
+
+  for (const model of candidateModels) {
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey.trim()}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { 
+            responseMimeType: "application/json",
+            temperature: 0.7
+          }
+        })
+      });
+
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        const rawMsg = errJson.error?.message || `HTTP ${res.status}`;
+        
+        if (res.status === 400 || rawMsg.includes("API_KEY_INVALID") || rawMsg.includes("not valid")) {
+          throw new Error("Mã API Key không hợp lệ. Vui lòng kiểm tra lại Key lấy từ Google AI Studio (bắt đầu bằng AIzaSy...).");
+        }
+        if (res.status === 429 || rawMsg.includes("RESOURCE_EXHAUSTED")) {
+          throw new Error("API Key này đã tạm thời hết hạn mức (Quota) miễn phí của Google. Vui lòng thử lại sau hoặc chuyển sang chế độ 'Ma Trận Chuẩn'.");
+        }
+        
+        lastError = new Error(`Lỗi từ Google (${model}): ${rawMsg}`);
+        continue; // thử model tiếp theo
+      }
+
+      const data = await res.json();
+      let text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text) throw new Error("Google không trả về nội dung đề thi.");
+
+      // Xử lý loại bỏ bọc markdown ```json ... ``` nếu có
+      text = text.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();
+      const exam = JSON.parse(text);
+
+      exam.id = "ai-gen-" + Date.now();
+      exam.subject = subject;
+      exam.subjectName = subjectName;
+      exam.province = provinceStyle;
+      exam.durationMinutes = subject === 'eng' ? 60 : 120;
+      exam.createdAt = new Date().toISOString();
+      exam.generationMethod = "gemini";
+      exam.generatorLabel = `Google Gemini AI (${model})`;
+      return exam;
+    } catch (err) {
+      if (err.message.includes("API Key") || err.message.includes("hạn mức")) {
+        throw err;
+      }
+      lastError = err;
+    }
+  }
+
+  throw lastError || new Error("Không thể kết nối đến máy chủ Google Gemini. Vui lòng kiểm tra lại API Key.");
 }
 
 function generateViaSmartMatrix(subject, level, examType, provinceStyle) {
