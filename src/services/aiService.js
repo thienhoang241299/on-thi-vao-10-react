@@ -612,19 +612,96 @@ export async function generateExam({ subject, level, examType, provinceStyle, pr
   return localExam;
 }
 
+function buildStrictMatrixPrompt(subject, level, examType, provinceStyle) {
+  const subjectName = subject === 'math' ? 'Toán học' : (subject === 'eng' ? 'Tiếng Anh' : 'Ngữ Văn');
+
+  if (subject === 'math') {
+    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT của Sở GD&ĐT ${provinceStyle}.
+Nhiệm vụ: Biên soạn 1 bộ đề thi tuyển sinh vào lớp 10 môn Toán học, mức độ "${level}", hình thức "${examType}".
+
+YÊU CẦU BẮT BUỘC: ĐỀ THI PHẢI TUÂN THỦ NGHIÊM NGẶT MA TRẬN 5 BÀI CHUẨN BỘ GD&ĐT VÀ SỞ GD&ĐT ${provinceStyle.toUpperCase()} (THỜI GIAN 120 PHÚT - THANG ĐIỂM 10):
+
+• BÀI 1 (2,0 điểm) - Số học & Căn thức đại số:
+  1. (1,0đ): Thực hiện phép tính số học chứa căn bậc hai (khai căn, trục căn thức, rút gọn căn đồng dạng).
+  2. (1,0đ): Rút gọn biểu thức đại số chứa biến x (điều kiện xác định cho trước) và câu hỏi phụ: so sánh giá trị biểu thức với một số, hoặc tìm x để biểu thức nhận giá trị nguyên / thỏa mãn bất phương trình.
+
+• BÀI 2 (2,0 điểm) - Hệ phương trình & Phương trình bậc hai - Vi-ét:
+  1. (1,0đ): Giải hệ phương trình bậc nhất hai ẩn (hoặc phương trình quy về bậc hai).
+  2. (1,0đ): Cho phương trình bậc hai chứa tham số m. Chứng minh phương trình luôn có hai nghiệm phân biệt với mọi m và tìm tất cả giá trị của m để hai nghiệm x1, x2 thỏa mãn một biểu thức đại số cho trước (liên hệ Vi-ét).
+
+• BÀI 3 (1,5 điểm) - Bài toán thực tế / Giải bài toán bằng cách lập phương trình hoặc hệ phương trình:
+  - Một bài toán thực tế quen thuộc trong đời sống: Năng suất công việc của 2 tổ công nhân làm chung/riêng, chuyển động ca nô xuôi - ngược dòng hoặc ô tô, bài toán tỉ lệ phần trăm kế hoạch trồng cây/sản xuất, hoặc bài toán thống kê - xác suất thực nghiệm.
+
+• BÀI 4 (3,5 điểm) - Hình học (Toán thực tế không gian & Hình học phẳng đường tròn):
+  1. (1,0đ): TOÁN HÌNH HỌC KHÔNG GIAN THỰC TẾ: Một vật thể có dạng hình nón (nón lá, đống cát), hình trụ (bồn nước inox, lon sữa), hoặc hình cầu. Tính thể tích hoặc diện tích xung quanh theo yêu cầu.
+     >>> BẮT BUỘC NHÚNG THẺ HÌNH VẼ VECTOR SVG 3D: <svg viewBox="0 0 180 140" width="160" height="120" xmlns="http://www.w3.org/2000/svg">...</svg> vẽ hình nón hoặc hình trụ với đường cao h, bán kính R, đường sinh l, đáy elip và nét đứt trục quay rõ nét.
+  2. (2,5đ): HÌNH HỌC PHẲNG ĐƯỜNG TRÒN: Cho đường tròn (O; R) và điểm ngoài đường tròn, hai tiếp tuyến và cát tuyến (hoặc tam giác nhọn nội tiếp có 3 đường cao và trực tâm H). Gồm 3 ý:
+     a) Chứng minh tứ giác nội tiếp một đường tròn.
+     b) Chứng minh hệ thức tích hình học / hai tam giác đồng dạng.
+     c) Chứng minh 3 điểm thẳng hàng, đường thẳng vuông góc, hoặc số đo góc không đổi khi điểm di chuyển.
+     >>> BẮT BUỘC NHÚNG THẺ HÌNH VẼ VECTOR SVG: <svg viewBox="0 0 340 240" width="300" height="210" xmlns="http://www.w3.org/2000/svg">...</svg> thể hiện đầy đủ các điểm A, B, C, D, M, O, H..., đường tròn, tiếp tuyến, nét đứt đường phụ.
+
+• BÀI 5 (1,0 điểm) - Bất đẳng thức & Cực trị đại số (Câu phân loại điểm 9 - 10):
+  - Cho các số thực dương thỏa mãn điều kiện tổng (như a + b <= 2 hoặc a + b + c = 3). Tìm giá trị nhỏ nhất (GTNN) hoặc lớn nhất (GTLN) của biểu thức đại số, áp dụng BĐT Cauchy (AM-GM) hoặc Cauchy-Schwarz.
+
+QUY CÁCH TRẢ VỀ:
+- Mọi công thức Toán viết bằng chuẩn LaTeX $...$ hoặc $$...$$.
+- Lời giải phải chi tiết kèm thang điểm từng bước (0,25đ; 0,5đ; 1,0đ).
+- Trả về JSON thuần túy (không bọc markdown \`\`\`json):
+{
+  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Toán - Sở GD&ĐT ${provinceStyle} (Mã đề: TS10-${Math.floor(100 + Math.random()*900)})",
+  "fullExamContent": "HTML đề thi đầy đủ 5 bài, thẻ SVG hình vẽ nhúng trực tiếp",
+  "solutionHtml": "HTML hướng dẫn giải và thang điểm barem chi tiết",
+  "latexSource": "Mã LaTeX .tex đầy đủ"
+}`;
+  } else if (subject === 'lit') {
+    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT môn Ngữ Văn của Sở GD&ĐT ${provinceStyle}.
+Nhiệm vụ: Biên soạn 1 bộ đề thi môn Ngữ Văn vào lớp 10, mức độ "${level}".
+
+YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI NGỮ VĂN VÀO LỚP 10 (THỜI GIAN 120 PHÚT - THANG ĐIỂM 10):
+• PHẦN I (3,0 điểm) - ĐỌC HIỂU:
+  - Một đoạn trích ngữ liệu văn bản giàu giá trị nhân văn (ý chí vượt khó, lòng biết ơn, sự sẻ chia, tình yêu gia đình quê hương).
+  - Gồm 4 câu hỏi:
+    1. (0,5đ) Nhận biết phương thức biểu đạt chính / thể thơ / phong cách ngôn ngữ.
+    2. (0,5đ) Tìm chi tiết, hình ảnh hoặc biện pháp tu từ trong ngữ liệu.
+    3. (1,0đ) Nêu cách hiểu về một câu nói/nhận định trong đoạn trích.
+    4. (1,0đ) Rút ra thông điệp hoặc bài học ý nghĩa nhất đối với bản thân.
+• PHẦN II (2,0 điểm) - NGHỊ LUẬN XÃ HỘI:
+  - Viết đoạn văn (khoảng 200 chữ) trình bày suy nghĩ về vấn đề tư tưởng đạo lý hoặc hiện tượng đời sống được gợi ra từ phần Đọc hiểu.
+• PHẦN III (5,0 điểm) - NGHỊ LUẬN VĂN HỌC:
+  - Phân tích hoặc cảm nhận một đoạn trích trong các tác phẩm văn học lớp 9 trọng tâm (Đồng chí, Bài thơ về tiểu đội xe không kính, Mùa xuân nho nhỏ, Viếng lăng Bác, Sang thu, Lặng lẽ Sa Pa, Chiếc lược ngà...).
+
+Trả về JSON thuần túy:
+{
+  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Ngữ Văn - Sở GD&ĐT ${provinceStyle} (Mã đề: NV-${Math.floor(100 + Math.random()*900)})",
+  "fullExamContent": "HTML đề thi đầy đủ 3 phần",
+  "solutionHtml": "HTML đáp án và thang điểm chi tiết",
+  "latexSource": "Mã LaTeX .tex"
+}`;
+  } else {
+    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT môn Tiếng Anh của Sở GD&ĐT ${provinceStyle}.
+Nhiệm vụ: Biên soạn 1 bộ đề thi môn Tiếng Anh vào lớp 10, mức độ "${level}".
+
+YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI TIẾNG ANH (THỜI GIAN 60 PHÚT - 40 CÂU):
+• PHẦN I: Phonetics (Phát âm -s/-es, -ed, nguyên âm và Trọng âm từ 2-3 âm tiết).
+• PHẦN II: Language Focus & Grammar (Thì động từ, câu điều kiện, câu bị động, mạo từ, phrasal verbs, giới từ, liên từ, từ vựng theo chủ đề lớp 9).
+• PHẦN III: Communication & Sign Reading (Tình huống giao tiếp hàng ngày và biển báo công cộng).
+• PHẦN IV: Reading Comprehension (1 bài Cloze test điền từ + 1 bài Đọc hiểu văn bản trả lời 5 câu hỏi).
+• PHẦN V: Writing & Sentence Transformation (Viết lại câu hoàn chỉnh giữ nguyên nghĩa với từ gợi ý: câu gián tiếp, câu ước wish, so sánh, câu bị động, mệnh đề quan hệ).
+
+Trả về JSON thuần túy:
+{
+  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Tiếng Anh - Sở GD&ĐT ${provinceStyle} (Mã đề: ENG-${Math.floor(100 + Math.random()*900)})",
+  "fullExamContent": "HTML đề thi đầy đủ các phần",
+  "solutionHtml": "HTML đáp án chi tiết",
+  "latexSource": "Mã LaTeX .tex"
+}`;
+  }
+}
+
 async function generateViaGemini(apiKey, subject, level, examType, provinceStyle) {
   const subjectName = subject === 'math' ? 'Toán học' : (subject === 'eng' ? 'Tiếng Anh' : 'Ngữ Văn');
-  const prompt = `Bạn là chuyên gia ra đề tuyển sinh vào lớp 10 của Sở GD&ĐT ${provinceStyle}.
-Hãy biên soạn 1 bộ đề thi thử vào lớp 10 môn ${subjectName}, mức độ ${level}, hình thức ${examType}.
-Đề thi phải có câu hỏi mới lạ, kèm lời giải chi tiết và mã LaTeX (.tex) hoàn chỉnh.
-ĐẶC BIỆT CHÚ Ý VỀ HÌNH VẼ: Đối với câu Hình học phẳng hoặc bài toán thực tế hình không gian (nón, trụ, bồn nước, đống cát...), BẮT BUỘC bạn phải nhúng thẻ hình vẽ vector SVG sắc nét: <svg viewBox="0 0 340 240" width="300" height="210" xmlns="http://www.w3.org/2000/svg">...</svg> trực tiếp vào nội dung HTML của đề thi và lời giải để học sinh quan sát trực quan như đề thi thật.
-Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
-{
-  "title": "Tên đề thi kèm mã đề ngẫu nhiên",
-  "fullExamContent": "HTML đề thi có công thức LaTeX $...$, $$...$$",
-  "solutionHtml": "HTML lời giải chi tiết",
-  "latexSource": "Mã LaTeX .tex hoàn chỉnh"
-}`;
+  const prompt = buildStrictMatrixPrompt(subject, level, examType, provinceStyle);
 
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
     method: "POST",
