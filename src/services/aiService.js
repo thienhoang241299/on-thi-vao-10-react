@@ -584,20 +584,28 @@ const ENG_EXAM_VARIANTS = [
   }
 ];
 
-export async function generateExam({ subject, level, examType, provinceStyle }) {
+export async function generateExam({ subject, level, examType, provinceStyle, preferredMethod = "auto" }) {
   const apiKey = storage.getApiKey();
 
-  if (apiKey && apiKey.trim().length > 15) {
+  // Nếu người dùng chọn dùng Gemini hoặc chọn auto mà đã có API Key
+  if ((preferredMethod === "gemini" || preferredMethod === "auto") && apiKey && apiKey.trim().length > 15) {
     try {
       const exam = await generateViaGemini(apiKey, subject, level, examType, provinceStyle);
       await storage.saveAiExam(exam);
       return exam;
     } catch (err) {
       console.warn("Gemini API error, fallback to Smart Generator:", err);
+      if (preferredMethod === "gemini") {
+        throw new Error("Không thể kết nối Gemini API. Vui lòng kiểm tra lại API Key hoặc hạn mức Google AI Studio.");
+      }
     }
   }
 
-  // Fallback sang Smart Generator với độ ngẫu nhiên cao
+  if (preferredMethod === "gemini" && (!apiKey || apiKey.trim().length <= 15)) {
+    throw new Error("Chưa cấu hình Gemini API Key. Vui lòng vào Cài đặt để nhập API Key, hoặc chuyển sang chế độ 'Ma Trận Chuẩn (Offline)'.");
+  }
+
+  // Chế độ Smart Matrix với ma trận chuẩn ngẫu nhiên
   await new Promise(r => setTimeout(r, 600));
   const localExam = generateViaSmartMatrix(subject, level, examType, provinceStyle);
   await storage.saveAiExam(localExam);
@@ -637,6 +645,8 @@ Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
   exam.province = provinceStyle;
   exam.durationMinutes = subject === 'eng' ? 60 : 120;
   exam.createdAt = new Date().toISOString();
+  exam.generationMethod = "gemini";
+  exam.generatorLabel = "Google Gemini AI (API Key)";
   return exam;
 }
 
@@ -713,6 +723,8 @@ Entrance Exam for High School English.
     fullExamContent: examDataGenerated.fullExamContent,
     solutionHtml: examDataGenerated.solutionHtml,
     latexSource: examDataGenerated.latexSource,
-    quizQuestions: []
+    quizQuestions: [],
+    generationMethod: "matrix",
+    generatorLabel: "Smart Matrix (Ma Trận Chuẩn)"
   };
 }

@@ -43,6 +43,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
   const [level, setLevel] = useState("Tiêu chuẩn (Mục tiêu 7 - 8.5 điểm)");
   const [examType, setExamType] = useState("Trắc nghiệm kết hợp Tự luận");
   const [provinceStyle, setProvinceStyle] = useState("Quảng Ngãi");
+  const [generatorMethod, setGeneratorMethod] = useState("auto");
 
   const [loading, setLoading] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
@@ -110,12 +111,13 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
         subject,
         level,
         examType,
-        provinceStyle
+        provinceStyle,
+        preferredMethod: generatorMethod
       });
       setCurrentExam(exam);
     } catch (err) {
       console.error(err);
-      alert("Đã xảy ra lỗi khi tạo đề.");
+      alert(err.message || "Đã xảy ra lỗi khi tạo đề.");
     } finally {
       setLoading(false);
     }
@@ -355,6 +357,45 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
           </div>
         </div>
 
+        {/* Nguồn Sinh Đề / Phương thức AI */}
+        <div className="form-group" style={{ marginTop: "0.5rem", background: "var(--bg-main)", padding: "0.85rem", borderRadius: "var(--radius-md)", border: "1px solid var(--border-color)" }}>
+          <label className="form-label" style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
+            <Sparkles size={16} color="var(--primary)" /> Công nghệ biên soạn đề:
+          </label>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" }}>
+            <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: "0.9rem" }}>
+              <input 
+                type="radio" 
+                name="genMethod" 
+                value="auto" 
+                checked={generatorMethod === "auto"} 
+                onChange={(e) => setGeneratorMethod(e.target.value)} 
+              />
+              <span><strong>🤖 Tự Động:</strong> Dùng Gemini nếu có Key, tự chuyển Ma Trận nếu chưa có</span>
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: "0.9rem" }}>
+              <input 
+                type="radio" 
+                name="genMethod" 
+                value="matrix" 
+                checked={generatorMethod === "matrix"} 
+                onChange={(e) => setGeneratorMethod(e.target.value)} 
+              />
+              <span><strong>📐 Smart Matrix:</strong> Ma trận chuẩn Sở GD&ĐT (Miễn phí 100%, 0 tốn token)</span>
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: "0.9rem" }}>
+              <input 
+                type="radio" 
+                name="genMethod" 
+                value="gemini" 
+                checked={generatorMethod === "gemini"} 
+                onChange={(e) => setGeneratorMethod(e.target.value)} 
+              />
+              <span><strong>✨ Gemini API:</strong> Sinh đề độc nhất theo thời gian thực (Cần API Key)</span>
+            </label>
+          </div>
+        </div>
+
         <div style={{ textAlign: "center", marginTop: "1rem" }}>
           <button
             className="btn-primary"
@@ -379,7 +420,18 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
       {currentExam && (
         <div className="exam-panel" style={{ border: "2px solid var(--primary)", marginBottom: "2rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
-            <span className={`badge badge-${currentExam.subject}`}>Bộ Đề Vừa Biên Soạn Xong</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+              <span className={`badge badge-${currentExam.subject}`}>Bộ Đề Vừa Biên Soạn Xong</span>
+              {currentExam.generationMethod === "gemini" ? (
+                <span className="badge" style={{ background: "#7c3aed", color: "#ffffff", fontWeight: 700 }}>
+                  ✨ Google Gemini AI (API Key)
+                </span>
+              ) : (
+                <span className="badge" style={{ background: "#0284c7", color: "#ffffff", fontWeight: 700 }}>
+                  📐 Smart Matrix (Ma Trận Đề Chuẩn)
+                </span>
+              )}
+            </div>
             <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
               {new Date(currentExam.createdAt).toLocaleTimeString()}
             </span>
@@ -517,8 +569,17 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
                 }}
               >
                 <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
                     <span className="badge badge-success" style={{ fontSize: "0.75rem" }}>Đã lên Cloud</span>
+                    {item.generationMethod === "gemini" ? (
+                      <span className="badge" style={{ background: "#7c3aed", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700 }}>
+                        ✨ Gemini AI
+                      </span>
+                    ) : (
+                      <span className="badge" style={{ background: "#0284c7", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700 }}>
+                        📐 Smart Matrix
+                      </span>
+                    )}
                     <strong style={{ fontSize: "1rem" }}>{item.title}</strong>
                   </div>
                   <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>

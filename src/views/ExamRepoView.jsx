@@ -233,12 +233,29 @@ export default function ExamRepoView({ onOpenDetail, onStartExam }) {
               >
                 <div className="exam-meta-bar">
                   {isTeacher ? (
-                    <span 
-                      className="exam-province-badge"
-                      style={{ background: "#10b981", color: "#ffffff", fontWeight: 700 }}
-                    >
-                      <Sparkles size={13} color="#ffffff" /> Đề Giáo Viên Biên Soạn
-                    </span>
+                    <div style={{ display: "flex", gap: "6px", alignItems: "center", flexWrap: "wrap" }}>
+                      <span 
+                        className="exam-province-badge"
+                        style={{ background: "#10b981", color: "#ffffff", fontWeight: 700 }}
+                      >
+                        <Sparkles size={13} color="#ffffff" /> Đề Giáo Viên
+                      </span>
+                      {item.generationMethod === "gemini" ? (
+                        <span 
+                          className="exam-province-badge"
+                          style={{ background: "#7c3aed", color: "#ffffff", fontWeight: 700 }}
+                        >
+                          ✨ Gemini AI
+                        </span>
+                      ) : (
+                        <span 
+                          className="exam-province-badge"
+                          style={{ background: "#0284c7", color: "#ffffff", fontWeight: 700 }}
+                        >
+                          📐 Smart Matrix
+                        </span>
+                      )}
+                    </div>
                   ) : (
                     <span 
                       className="exam-province-badge"
