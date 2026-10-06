@@ -22,8 +22,8 @@ export default function Header({
     { id: "library", label: "Tài Liệu 6 - 9", icon: BookOpen },
     { id: "exam-repo", label: "Đề Thi Các Tỉnh", icon: FileText },
     { id: "exam-room", label: "Phòng Thi Thử", icon: Clock },
-    { id: "ai-generator", label: "AI Sinh Đề", icon: Sparkles },
     { id: "uploads", label: "Tải Lên & Kho Riêng", icon: UploadCloud },
+    { id: "ai-generator", label: "🔒 Biên Soạn Đề (GV)", icon: Sparkles },
   ];
 
   return (

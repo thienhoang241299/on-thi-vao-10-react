@@ -47,8 +47,19 @@ class StorageService {
   setApiKey(key) {
     if (key) {
       localStorage.setItem("gemini_api_key", key.trim());
+    }
+  }
+
+  // Teacher PIN / Password
+  getTeacherPin() {
+    return localStorage.getItem("teacher_pin") || "gv2026";
+  }
+
+  setTeacherPin(pin) {
+    if (pin && pin.trim()) {
+      localStorage.setItem("teacher_pin", pin.trim());
     } else {
-      localStorage.removeItem("gemini_api_key");
+      localStorage.setItem("teacher_pin", "gv2026");
     }
   }
 

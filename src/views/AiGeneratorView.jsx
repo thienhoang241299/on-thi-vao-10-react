@@ -9,14 +9,36 @@ import {
   Printer, 
   Loader2, 
   Clock,
-  FileText
+  FileText,
+  Lock,
+  Unlock,
+  ShieldCheck,
+  CloudUpload,
+  CheckCircle2,
+  Trash2,
+  Eye,
+  KeyRound,
+  ExternalLink
 } from "lucide-react";
 import { generateExam } from "../services/aiService";
 import { storage } from "../services/storage";
+import { firebaseService } from "../services/firebaseService";
 import KaTeXRenderer from "../components/KaTeXRenderer";
 import { exportToWord, printCleanDocument } from "../utils/exportUtils";
 
-export default function AiGeneratorView({ onStartExam }) {
+export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
+  // Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem("teacher_authenticated") === "true";
+  });
+  const [inputPin, setInputPin] = useState("");
+  const [authError, setAuthError] = useState("");
+
+  // Change PIN modal state
+  const [isChangingPin, setIsChangingPin] = useState(false);
+  const [newPin, setNewPin] = useState("");
+
+  // Generator form state
   const [subject, setSubject] = useState("math");
   const [level, setLevel] = useState("Tiêu chuẩn (Mục tiêu 7 - 8.5 điểm)");
   const [examType, setExamType] = useState("Trắc nghiệm kết hợp Tự luận");
@@ -24,19 +46,65 @@ export default function AiGeneratorView({ onStartExam }) {
 
   const [loading, setLoading] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
-  const [savedExams, setSavedExams] = useState([]);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [publishSuccessMsg, setPublishSuccessMsg] = useState("");
+
+  // Cloud Published Exams list
+  const [cloudExams, setCloudExams] = useState([]);
+  const [loadingCloud, setLoadingCloud] = useState(false);
 
   useEffect(() => {
-    loadSavedExams();
-  }, []);
+    if (isAuthenticated) {
+      loadCloudExams();
+    }
+  }, [isAuthenticated]);
 
-  const loadSavedExams = async () => {
-    const list = await storage.getAllAiExams();
-    setSavedExams(list);
+  const loadCloudExams = async () => {
+    setLoadingCloud(true);
+    try {
+      const list = await firebaseService.getPublishedExams();
+      setCloudExams(list);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoadingCloud(false);
+    }
+  };
+
+  const handleUnlock = (e) => {
+    e.preventDefault();
+    const currentPin = storage.getTeacherPin();
+    if (inputPin.trim() === currentPin) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem("teacher_authenticated", "true");
+      setAuthError("");
+      setInputPin("");
+    } else {
+      setAuthError("Mật khẩu không chính xác. Mật khẩu mặc định là: gv2026");
+    }
+  };
+
+  const handleLock = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem("teacher_authenticated");
+    setCurrentExam(null);
+  };
+
+  const handleChangePin = (e) => {
+    e.preventDefault();
+    if (!newPin.trim()) {
+      alert("Vui lòng nhập mật khẩu mới.");
+      return;
+    }
+    storage.setTeacherPin(newPin.trim());
+    setIsChangingPin(false);
+    setNewPin("");
+    alert("Đã cập nhật mật khẩu Giáo Viên thành công!");
   };
 
   const handleGenerate = async () => {
     setLoading(true);
+    setPublishSuccessMsg("");
     try {
       const exam = await generateExam({
         subject,
@@ -45,7 +113,6 @@ export default function AiGeneratorView({ onStartExam }) {
         provinceStyle
       });
       setCurrentExam(exam);
-      await loadSavedExams();
     } catch (err) {
       console.error(err);
       alert("Đã xảy ra lỗi khi tạo đề.");
@@ -54,19 +121,173 @@ export default function AiGeneratorView({ onStartExam }) {
     }
   };
 
+  const handlePublishToCloud = async () => {
+    if (!currentExam) return;
+    setIsPublishing(true);
+    try {
+      await firebaseService.publishExam(currentExam);
+      setPublishSuccessMsg("Đã xuất bản đề thi lên Cloud Firebase thành công! Học sinh vào tab 'Đề Thi Các Tỉnh' sẽ thấy ngay.");
+      await loadCloudExams();
+    } catch (err) {
+      console.error(err);
+      alert("Lỗi khi xuất bản lên Cloud.");
+    } finally {
+      setIsPublishing(false);
+    }
+  };
+
+  const handleDeleteCloudExam = async (examId) => {
+    if (window.confirm("Bạn có chắc chắn muốn gỡ đề thi này khỏi Cloud Firebase của học sinh?")) {
+      await firebaseService.deletePublishedExam(examId);
+      await loadCloudExams();
+      if (currentExam && currentExam.id === examId) {
+        setPublishSuccessMsg("");
+      }
+    }
+  };
+
+  // MÀN HÌNH KHÓA BẢO VỆ MẬT KHẨU GIÁO VIÊN
+  if (!isAuthenticated) {
+    return (
+      <div className="tab-pane active" style={{ maxWidth: 520, margin: "3rem auto" }}>
+        <div className="exam-panel" style={{ textAlign: "center", padding: "2.5rem 2rem", boxShadow: "var(--shadow-lg)" }}>
+          <div style={{
+            width: 64,
+            height: 64,
+            borderRadius: "50%",
+            background: "var(--primary-light)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 1.2rem"
+          }}>
+            <Lock size={32} color="var(--primary)" />
+          </div>
+
+          <h2 style={{ fontSize: "1.35rem", marginBottom: "0.5rem" }}>
+            Cổng Biên Soạn Đề Tuyển Sinh
+          </h2>
+          <span className="badge badge-warning" style={{ fontSize: "0.8rem", marginBottom: "1rem" }}>
+            🔒 DÀNH RIÊNG CHO GIÁO VIÊN
+          </span>
+
+          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+            Chức năng tạo đề thi thông minh có kèm <strong>hình vẽ vector SVG chuẩn</strong> được khóa bảo vệ nhằm tối ưu tài nguyên hệ thống. Đề thi do thầy cô tạo sẽ được xuất bản lên <strong>Cloud Firebase</strong> để toàn bộ học sinh cùng học tập mà không cần tạo lại.
+          </p>
+
+          <form onSubmit={handleUnlock}>
+            <div className="form-group" style={{ textAlign: "left", marginBottom: "1.2rem" }}>
+              <label className="form-label" style={{ fontWeight: 600 }}>
+                <KeyRound size={16} /> Mật khẩu giáo viên:
+              </label>
+              <input 
+                type="password"
+                className="form-control"
+                placeholder="Nhập mã PIN hoặc mật khẩu..."
+                value={inputPin}
+                onChange={(e) => setInputPin(e.target.value)}
+                autoFocus
+                style={{ fontSize: "1rem", letterSpacing: "1px" }}
+              />
+              {authError && (
+                <p style={{ color: "var(--danger)", fontSize: "0.85rem", marginTop: "0.5rem" }}>
+                  {authError}
+                </p>
+              )}
+              <small style={{ color: "var(--text-muted)", display: "block", marginTop: "0.5rem" }}>
+                💡 <em>Gợi ý: Mật khẩu mặc định hệ thống là: <strong>gv2026</strong></em>
+              </small>
+            </div>
+
+            <button 
+              type="submit" 
+              className="btn-primary" 
+              style={{ width: "100%", justifyContent: "center", padding: "0.75rem", fontSize: "1rem" }}
+            >
+              <Unlock size={18} /> Mở Khóa Biên Soạn Đề
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="tab-pane active">
-      <div className="section-header" style={{ marginTop: "1rem" }}>
+      {/* Teacher Top Bar */}
+      <div style={{
+        background: "var(--bg-card)",
+        border: "1px solid var(--border-color)",
+        borderRadius: "var(--radius-md)",
+        padding: "0.75rem 1.25rem",
+        marginTop: "1rem",
+        marginBottom: "1.25rem",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: "0.75rem"
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <ShieldCheck size={20} color="var(--success)" />
+          <strong style={{ fontSize: "0.95rem" }}>Khu Vực Giáo Viên Đang Hoạt Động</strong>
+          <span className="badge badge-success" style={{ fontSize: "0.75rem" }}>Đã xác thực</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <button 
+            className="btn-outline" 
+            style={{ fontSize: "0.85rem", padding: "0.35rem 0.75rem" }}
+            onClick={() => setIsChangingPin(!isChangingPin)}
+          >
+            <KeyRound size={14} /> Đổi Mật Khẩu
+          </button>
+          <button 
+            className="btn-outline" 
+            style={{ fontSize: "0.85rem", padding: "0.35rem 0.75rem", color: "var(--danger)" }}
+            onClick={handleLock}
+            title="Khóa lại khi rời máy tính"
+          >
+            <Lock size={14} /> Khóa Lại
+          </button>
+        </div>
+      </div>
+
+      {/* Change PIN Panel */}
+      {isChangingPin && (
+        <div className="exam-panel" style={{ marginBottom: "1.25rem", border: "1.5px dashed var(--primary)" }}>
+          <h4 style={{ fontSize: "1rem", marginBottom: "0.75rem" }}>Đổi mật khẩu giáo viên</h4>
+          <form onSubmit={handleChangePin} style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+            <input 
+              type="text"
+              className="form-control"
+              style={{ maxWidth: 260 }}
+              placeholder="Nhập mật khẩu mới..."
+              value={newPin}
+              onChange={(e) => setNewPin(e.target.value)}
+            />
+            <button type="submit" className="btn-primary" style={{ padding: "0.5rem 1rem" }}>
+              Lưu Mật Khẩu
+            </button>
+            <button type="button" className="btn-outline" onClick={() => setIsChangingPin(false)}>
+              Hủy
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* Generator Header */}
+      <div className="section-header">
         <div>
           <h2 className="section-title">
-            <Sparkles size={24} color="var(--primary)" /> AI Trợ Lý Sinh Đề Thi Vào Lớp 10
+            <Sparkles size={24} color="var(--primary)" /> Biên Soạn Đề Thi Vào Lớp 10 (Có Hình Vẽ SVG)
           </h2>
           <p className="section-subtitle">
-            Tự động biên soạn đề thi theo chuẩn ma trận kiến thức tuyển sinh của các Sở GD&ĐT
+            Hệ thống sinh đề kèm hình vẽ vector hình học sắc nét (hình nón, trụ, cát tuyến, tiếp tuyến đường tròn). Đề tạo xong có thể xuất bản lên Cloud Firebase để học sinh truy cập ngay.
           </p>
         </div>
       </div>
 
+      {/* Generator Form */}
       <div className="ai-form-card">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
           <div className="form-group">
@@ -78,7 +299,7 @@ export default function AiGeneratorView({ onStartExam }) {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             >
-              <option value="math">Toán học</option>
+              <option value="math">Toán học (Có kèm hình vẽ vector SVG)</option>
               <option value="eng">Tiếng Anh</option>
               <option value="lit">Ngữ Văn</option>
             </select>
@@ -125,7 +346,7 @@ export default function AiGeneratorView({ onStartExam }) {
               value={provinceStyle}
               onChange={(e) => setProvinceStyle(e.target.value)}
             >
-              <option value="Quảng Ngãi">🌟 Sở GD&ĐT Quảng Ngãi</option>
+              <option value="Quảng Ngãi">🌟 Sở GD&ĐT Quảng Ngãi (Đề 2026 Chuẩn)</option>
               <option value="Hà Nội">Sở GD&ĐT Hà Nội</option>
               <option value="TP. Hồ Chí Minh">Sở GD&ĐT TP. Hồ Chí Minh (Toán thực tế)</option>
               <option value="Đà Nẵng">Sở GD&ĐT Đà Nẵng</option>
@@ -143,11 +364,11 @@ export default function AiGeneratorView({ onStartExam }) {
           >
             {loading ? (
               <>
-                <Loader2 size={18} className="animate-spin" /> Đang Phân Tích Ma Trận & Biên Soạn...
+                <Loader2 size={18} className="animate-spin" /> Đang Biên Soạn Đề & Dựng Hình Vẽ SVG...
               </>
             ) : (
               <>
-                <Sparkles size={18} /> Tạo Bộ Đề Ngay
+                <Sparkles size={18} /> Tạo Bộ Đề Thi Mới (Có Hình Vẽ)
               </>
             )}
           </button>
@@ -157,82 +378,191 @@ export default function AiGeneratorView({ onStartExam }) {
       {/* Generated Result */}
       {currentExam && (
         <div className="exam-panel" style={{ border: "2px solid var(--primary)", marginBottom: "2rem" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-            <span className={`badge badge-${currentExam.subject}`}>AI Đã Sinh Đề Thành Công</span>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <span className={`badge badge-${currentExam.subject}`}>Bộ Đề Vừa Biên Soạn Xong</span>
             <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
               {new Date(currentExam.createdAt).toLocaleTimeString()}
             </span>
           </div>
+
           <h3 style={{ fontSize: "1.3rem", marginBottom: "1rem", color: "var(--primary)" }}>
             {currentExam.title}
           </h3>
 
-          <div style={{ marginBottom: "1.5rem" }}>
-            <KaTeXRenderer html={currentExam.fullExamContent} />
-          </div>
+          {/* Action buttons & Publish */}
+          <div style={{ 
+            background: "var(--bg-main)", 
+            padding: "1rem", 
+            borderRadius: "var(--radius-md)", 
+            marginBottom: "1.5rem",
+            display: "flex",
+            gap: "0.75rem",
+            flexWrap: "wrap",
+            alignItems: "center"
+          }}>
+            {/* Publish to Cloud Button */}
+            <button 
+              className="btn-primary" 
+              style={{ background: "var(--success)", borderColor: "var(--success)", padding: "0.6rem 1.2rem" }}
+              onClick={handlePublishToCloud}
+              disabled={isPublishing}
+              title="Lưu bộ đề lên Firebase để toàn bộ học sinh mở tab Thư Viện Đề Thi là thấy ngay"
+            >
+              {isPublishing ? (
+                <>
+                  <Loader2 size={16} className="animate-spin" /> Đang Lưu Lên Cloud...
+                </>
+              ) : (
+                <>
+                  <CloudUpload size={16} /> 🚀 Xuất Bản Lên Kho Đề Học Sinh (Cloud Firebase)
+                </>
+              )}
+            </button>
 
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-            {currentExam.quizQuestions && currentExam.quizQuestions.length > 0 && (
-              <button className="btn-primary" onClick={() => onStartExam(currentExam)}>
-                <Play size={16} /> Làm bài thi thử ngay ({currentExam.quizQuestions.length} câu)
-              </button>
-            )}
             <button 
               className="btn-outline" 
               onClick={() => printCleanDocument(currentExam.fullExamContent, currentExam.title)}
               style={{ display: "flex", alignItems: "center", gap: "6px" }}
-              title="Xuất riêng phần nội dung đề thi ra file PDF chuẩn A4 (không in trang web)"
+              title="Xuất riêng đề thi sạch ra PDF A4 có sẵn hình vẽ vector SVG sắc nét"
             >
               <Printer size={16} /> 🖨️ Xuất PDF Đề Thi
             </button>
+
             <button 
               className="btn-outline" 
               onClick={() => exportToWord(currentExam.title, currentExam.fullExamContent)}
               style={{ display: "flex", alignItems: "center", gap: "6px" }}
-              title="Tải đề thi về dưới dạng file Word (.doc) để chỉnh sửa và in ấn"
+              title="Tải đề thi file Word (.doc) chuẩn MathML"
             >
               <FileText size={16} color="var(--primary)" /> 📄 Tải file Word (.doc)
             </button>
+
+            {currentExam.quizQuestions && currentExam.quizQuestions.length > 0 && (
+              <button className="btn-outline" onClick={() => onStartExam(currentExam)}>
+                <Play size={16} /> Làm bài thử
+              </button>
+            )}
           </div>
+
+          {publishSuccessMsg && (
+            <div style={{ 
+              background: "#dcfce7", 
+              color: "#166534", 
+              padding: "0.85rem 1rem", 
+              borderRadius: "var(--radius-md)", 
+              marginBottom: "1.2rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontWeight: 600
+            }}>
+              <CheckCircle2 size={18} /> {publishSuccessMsg}
+            </div>
+          )}
+
+          {/* Exam Content Preview */}
+          <div style={{ marginBottom: "1.5rem" }}>
+            <KaTeXRenderer html={currentExam.fullExamContent} />
+          </div>
+
+          {/* Solution Preview */}
+          {currentExam.solutionHtml && (
+            <div style={{ marginTop: "1.5rem", borderTop: "1px dashed var(--border-color)", paddingTop: "1rem" }}>
+              <h4 style={{ color: "var(--primary)", marginBottom: "0.5rem" }}>Lời giải chi tiết & Barem:</h4>
+              <KaTeXRenderer html={currentExam.solutionHtml} />
+            </div>
+          )}
         </div>
       )}
 
-      {/* Saved Exams List */}
+      {/* Cloud Published Exams List */}
       <div className="exam-panel">
-        <h3 style={{ fontSize: "1.15rem", marginBottom: "1rem", display: "flex", alignItems: "center", gap: 8 }}>
-          <Clock size={18} /> Các bộ đề AI đã tạo gần đây
-        </h3>
-        {savedExams.length === 0 ? (
-          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>Chưa có bộ đề nào được tạo.</p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+          <h3 style={{ fontSize: "1.15rem", display: "flex", alignItems: "center", gap: 8 }}>
+            <CloudUpload size={20} color="var(--primary)" /> Danh sách đề thi đã xuất bản lên Cloud Firebase
+          </h3>
+          <button className="btn-outline" style={{ fontSize: "0.8rem", padding: "0.3rem 0.6rem" }} onClick={loadCloudExams}>
+            Làm mới danh sách
+          </button>
+        </div>
+
+        <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", marginBottom: "1rem" }}>
+          Toàn bộ các đề thi dưới đây được lưu trữ trên Cloud. Mọi học sinh mở ứng dụng đều thấy và có thể xem, in PDF hoặc tải Word trực tiếp mà không cần bấm tạo đề lại.
+        </p>
+
+        {loadingCloud ? (
+          <div style={{ textAlign: "center", padding: "2rem", color: "var(--text-muted)" }}>
+            <Loader2 size={24} className="animate-spin" style={{ margin: "0 auto 8px" }} />
+            Đang tải dữ liệu từ Cloud Firebase...
+          </div>
+        ) : cloudExams.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "2rem", color: "var(--text-muted)", background: "var(--bg-main)", borderRadius: "var(--radius-md)" }}>
+            <p>Chưa có bộ đề nào được xuất bản lên Cloud. Thầy cô hãy bấm "Tạo Bộ Đề Thi Mới" ở trên và nhấn "🚀 Xuất Bản Lên Kho Đề Học Sinh".</p>
+          </div>
         ) : (
-          savedExams.slice(0, 6).map((item) => (
-            <div 
-              key={item.id} 
-              style={{
-                padding: "0.85rem",
-                background: "var(--bg-main)",
-                borderRadius: "var(--radius-md)",
-                marginBottom: "0.75rem",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center"
-              }}
-            >
-              <div>
-                <strong style={{ fontSize: "0.95rem", display: "block" }}>{item.title}</strong>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
-                  {new Date(item.createdAt).toLocaleDateString()} - Môn {item.subjectName}
-                </span>
-              </div>
-              <button 
-                className="btn-outline" 
-                style={{ fontSize: "0.8rem", padding: "0.4rem 0.75rem" }}
-                onClick={() => setCurrentExam(item)}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            {cloudExams.map((item) => (
+              <div 
+                key={item.id} 
+                style={{
+                  padding: "1rem",
+                  background: "var(--bg-main)",
+                  borderRadius: "var(--radius-md)",
+                  border: "1px solid var(--border-color)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "0.75rem"
+                }}
               >
-                Xem lại
-              </button>
-            </div>
-          ))
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                    <span className="badge badge-success" style={{ fontSize: "0.75rem" }}>Đã lên Cloud</span>
+                    <strong style={{ fontSize: "1rem" }}>{item.title}</strong>
+                  </div>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+                    Môn: {item.subjectName || item.subject} | Ngày đăng: {new Date(item.publishedAt || item.createdAt).toLocaleString()} | Phong cách: {item.province || "Chung"}
+                  </span>
+                </div>
+
+                <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                  <button 
+                    className="btn-outline" 
+                    style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
+                    onClick={() => setCurrentExam(item)}
+                    title="Xem lại chi tiết trong trình soạn thảo"
+                  >
+                    <Eye size={14} /> Xem lại
+                  </button>
+                  <button 
+                    className="btn-outline" 
+                    style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
+                    onClick={() => printCleanDocument(item.fullExamContent, item.title)}
+                    title="Xuất PDF"
+                  >
+                    <Printer size={14} /> PDF
+                  </button>
+                  <button 
+                    className="btn-outline" 
+                    style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
+                    onClick={() => exportToWord(item.title, item.fullExamContent)}
+                    title="Tải Word"
+                  >
+                    <FileText size={14} /> Word
+                  </button>
+                  <button 
+                    className="btn-outline" 
+                    style={{ fontSize: "0.82rem", padding: "0.4rem 0.6rem", color: "var(--danger)", borderColor: "var(--danger)" }}
+                    onClick={() => handleDeleteCloudExam(item.id)}
+                    title="Xóa đề này khỏi Cloud"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

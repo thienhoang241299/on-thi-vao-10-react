@@ -75,7 +75,10 @@ export default function App() {
         )}
 
         {currentTab === "ai-generator" && (
-          <AiGeneratorView onStartExam={handleStartExam} />
+          <AiGeneratorView 
+            onStartExam={handleStartExam} 
+            onOpenDetail={handleOpenDetail}
+          />
         )}
 
         {currentTab === "uploads" && <UploadsView />}

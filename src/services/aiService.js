@@ -60,6 +60,45 @@ const MATH_EXAM_VARIANTS = [
             <p style="padding-left: 16px;">a) Chứng minh tứ giác $MAOB$ nội tiếp và $OM \\perp AB$.</p>
             <p style="padding-left: 16px;">b) Chứng minh $MC \\cdot MD = MH \\cdot MO = MA^2$.</p>
             <p style="padding-left: 16px;">c) Tia phân giác góc $\\widehat{CAD}$ cắt $CD$ tại $I$. Chứng minh tam giác $MAI$ cân tại $M$.</p>
+
+            <!-- HÌNH VẼ MINH HỌA BÀI 4 (TOAN-MT01) -->
+            <div style="text-align: center; margin: 16px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <svg viewBox="0 0 380 240" width="340" height="215" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="240" cy="120" r="80" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+                <circle cx="240" cy="120" r="3" fill="#1e293b" />
+                <text x="246" y="125" font-size="12" font-weight="bold" fill="#1e293b">O</text>
+                
+                <circle cx="50" cy="120" r="3.5" fill="#dc2626" />
+                <text x="35" y="125" font-size="13" font-weight="bold" fill="#dc2626">M</text>
+                
+                <line x1="50" y1="120" x2="190" y2="52" stroke="#2563eb" stroke-width="1.8" />
+                <line x1="50" y1="120" x2="190" y2="188" stroke="#2563eb" stroke-width="1.8" />
+                <circle cx="190" cy="52" r="3.5" fill="#2563eb" />
+                <text x="188" y="44" font-size="12" font-weight="bold" fill="#2563eb">A</text>
+                <circle cx="190" cy="188" r="3.5" fill="#2563eb" />
+                <text x="188" y="204" font-size="12" font-weight="bold" fill="#2563eb">B</text>
+                
+                <line x1="240" y1="120" x2="190" y2="52" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3,3" />
+                <line x1="240" y1="120" x2="190" y2="188" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3,3" />
+                
+                <line x1="50" y1="120" x2="240" y2="120" stroke="#1e293b" stroke-width="1.5" />
+                <line x1="190" y1="52" x2="190" y2="188" stroke="#059669" stroke-width="1.5" />
+                <circle cx="190" cy="120" r="3" fill="#059669" />
+                <text x="195" y="115" font-size="11" font-weight="bold" fill="#059669">H</text>
+                
+                <line x1="50" y1="120" x2="310" y2="48" stroke="#d97706" stroke-width="1.5" />
+                <circle cx="168" cy="86" r="3" fill="#d97706" />
+                <text x="160" y="80" font-size="11" font-weight="bold" fill="#d97706">C</text>
+                <circle cx="285" cy="52" r="3" fill="#d97706" />
+                <text x="290" y="48" font-size="11" font-weight="bold" fill="#d97706">D</text>
+                
+                <line x1="190" y1="52" x2="210" y2="74" stroke="#8b5cf6" stroke-width="1.2" stroke-dasharray="2,2" />
+                <line x1="50" y1="120" x2="210" y2="74" stroke="#8b5cf6" stroke-width="1.5" />
+                <circle cx="210" cy="74" r="3" fill="#8b5cf6" />
+                <text x="215" y="82" font-size="11" font-weight="bold" fill="#8b5cf6">I</text>
+              </svg>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Hình vẽ: Hai tiếp tuyến $MA, MB$ và cát tuyến $MCD$ tới đường tròn $(O)$</div>
+            </div>
           </div>
 
           <div class="exam-problem">
@@ -135,6 +174,39 @@ const MATH_EXAM_VARIANTS = [
             <p style="padding-left: 16px;">a) Chứng minh tứ giác $BCEF$ và tứ giác $AFHE$ nội tiếp.</p>
             <p style="padding-left: 16px;">b) Kẻ đường kính $AK$ của đường tròn $(O)$. Chứng minh tam giác $ABD$ đồng dạng với tam giác $AKC$, từ đó suy ra $AB \\cdot AC = 2R \\cdot AD$.</p>
             <p style="padding-left: 16px;">c) Gọi $M$ là trung điểm của cạnh $BC$. Chứng minh $H, M, K$ thẳng hàng và $AH = 2 OM$.</p>
+          <!-- HÌNH VẼ MINH HỌA BÀI 4 (TOAN-MT02) -->
+          <div style="text-align: center; margin: 16px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <svg viewBox="0 0 340 280" width="300" height="250" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="170" cy="140" r="100" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+              <circle cx="170" cy="140" r="3" fill="#1e293b" />
+              <text x="175" y="145" font-size="12" font-weight="bold" fill="#1e293b">O</text>
+              
+              <polygon points="170,40 80,195 260,195" fill="none" stroke="#2563eb" stroke-width="2" />
+              <circle cx="170" cy="40" r="3.5" fill="#2563eb" /><text x="165" y="32" font-size="13" font-weight="bold" fill="#2563eb">A</text>
+              <circle cx="80" cy="195" r="3.5" fill="#2563eb" /><text x="65" y="205" font-size="13" font-weight="bold" fill="#2563eb">B</text>
+              <circle cx="260" cy="195" r="3.5" fill="#2563eb" /><text x="268" y="205" font-size="13" font-weight="bold" fill="#2563eb">C</text>
+              
+              <line x1="170" y1="40" x2="170" y2="195" stroke="#dc2626" stroke-width="1.5" />
+              <circle cx="170" cy="195" r="3" fill="#dc2626" /><text x="175" y="210" font-size="11" font-weight="bold" fill="#dc2626">D</text>
+              
+              <line x1="80" y1="195" x2="220" y2="110" stroke="#dc2626" stroke-width="1.5" />
+              <circle cx="220" cy="110" r="3" fill="#dc2626" /><text x="228" y="112" font-size="11" font-weight="bold" fill="#dc2626">E</text>
+              
+              <line x1="260" y1="195" x2="125" y2="118" stroke="#dc2626" stroke-width="1.5" />
+              <circle cx="125" cy="118" r="3" fill="#dc2626" /><text x="110" y="118" font-size="11" font-weight="bold" fill="#dc2626">F</text>
+              
+              <circle cx="170" cy="143" r="3.5" fill="#dc2626" />
+              <text x="156" y="142" font-size="12" font-weight="bold" fill="#dc2626">H</text>
+              
+              <line x1="170" y1="40" x2="170" y2="240" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,3" />
+              <circle cx="170" cy="240" r="3.5" fill="#059669" /><text x="165" y="258" font-size="12" font-weight="bold" fill="#059669">K</text>
+              
+              <line x1="80" y1="195" x2="170" y2="240" stroke="#059669" stroke-width="1.2" stroke-dasharray="2,2" />
+              <line x1="260" y1="195" x2="170" y2="240" stroke="#059669" stroke-width="1.2" stroke-dasharray="2,2" />
+              <text x="180" y="190" font-size="11" font-weight="bold" fill="#d97706">M</text>
+            </svg>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Hình vẽ: Tam giác nhọn $ABC$ nội tiếp $(O)$, trực tâm $H$ và đường kính $AK$</div>
+          </div>
           </div>
 
           <div class="exam-problem">
@@ -202,11 +274,47 @@ const MATH_EXAM_VARIANTS = [
 
           <div class="exam-problem">
             <p><strong>Bài 4 (3,5 điểm):</strong></p>
-            <p><strong>1.</strong> Một chiếc nón lá có đường sinh dài $30\\text{ cm}$ và bán kính đáy bằng $20\\text{ cm}$. Tính diện tích lá cọ cần dùng để phủ kín mặt ngoài của chiếc nón lá đó (lấy $\\pi \\approx 3,14$, bỏ qua phần viền mép).</p>
+            <p><strong>1.</strong> Một chiếc nón lá có đường sinh dài $30\text{ cm}$ và bán kính đáy bằng $20\text{ cm}$. Tính diện tích lá cọ cần dùng để phủ kín mặt ngoài của chiếc nón lá đó (lấy $\pi \approx 3,14$, bỏ qua phần viền mép).</p>
             <p><strong>2.</strong> Cho nửa đường tròn tâm $O$ đường kính $AB$. Lấy điểm $C$ trên nửa đường tròn ($C$ khác $A, B$). Kẻ tiếp tuyến $Ax, By$ với nửa đường tròn. Tiếp tuyến tại $C$ cắt $Ax, By$ lần lượt tại $M$ và $N$.</p>
             <p style="padding-left: 16px;">a) Chứng minh tứ giác $AMCO$ nội tiếp và $MN = AM + BN$.</p>
-            <p style="padding-left: 16px;">b) Chứng minh tam giác $MON$ vuông tại $O$ và $AM \\cdot BN = R^2$.</p>
-            <p style="padding-left: 16px;">c) $AN$ cắt $BM$ tại $K$. Chứng minh $CK \\perp AB$.</p>
+            <p style="padding-left: 16px;">b) Chứng minh tam giác $MON$ vuông tại $O$ và $AM \cdot BN = R^2$.</p>
+            <p style="padding-left: 16px;">c) $AN$ cắt $BM$ tại $K$. Chứng minh $CK \perp AB$.</p>
+
+            <!-- HÌNH VẼ MINH HỌA BÀI 4.1 & 4.2 (TOAN-MT03) -->
+            <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 14px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <!-- Hình nón lá -->
+              <div style="text-align: center;">
+                <svg viewBox="0 0 180 135" width="160" height="120" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="90" cy="110" rx="70" ry="20" fill="#fef3c7" stroke="#1e293b" stroke-width="1.8" />
+                  <path d="M 20 110 A 70 20 0 0 1 160 110" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3" />
+                  <line x1="90" y1="15" x2="20" y2="110" stroke="#1e293b" stroke-width="2" />
+                  <line x1="90" y1="15" x2="160" y2="110" stroke="#1e293b" stroke-width="2" />
+                  <line x1="90" y1="15" x2="90" y2="110" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <line x1="90" y1="110" x2="160" y2="110" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="3,3" />
+                  <text x="105" y="125" font-size="11" font-weight="bold" fill="#2563eb">R = 20cm</text>
+                  <text x="125" y="60" font-size="11" font-weight="bold" fill="#1e293b">l = 30cm</text>
+                </svg>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Minh họa chiếc nón lá</div>
+              </div>
+
+              <!-- Nửa đường tròn 3 tiếp tuyến -->
+              <div style="text-align: center;">
+                <svg viewBox="0 0 280 160" width="240" height="135" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 40 140 A 80 80 0 0 1 200 140 Z" fill="#f0f9ff" stroke="#1e293b" stroke-width="1.8" />
+                  <line x1="40" y1="140" x2="200" y2="140" stroke="#1e293b" stroke-width="2" />
+                  <circle cx="120" cy="140" r="3" fill="#1e293b" /><text x="118" y="155" font-size="11" font-weight="bold" fill="#1e293b">O</text>
+                  <circle cx="40" cy="140" r="3" fill="#1e293b" /><text x="28" y="155" font-size="11" font-weight="bold" fill="#1e293b">A</text>
+                  <circle cx="200" cy="140" r="3" fill="#1e293b" /><text x="205" y="155" font-size="11" font-weight="bold" fill="#1e293b">B</text>
+                  <line x1="40" y1="140" x2="40" y2="30" stroke="#2563eb" stroke-width="1.5" />
+                  <line x1="200" y1="140" x2="200" y2="30" stroke="#2563eb" stroke-width="1.5" />
+                  <circle cx="90" cy="67" r="3" fill="#dc2626" /><text x="88" y="58" font-size="11" font-weight="bold" fill="#dc2626">C</text>
+                  <line x1="40" y1="110" x2="200" y2="40" stroke="#059669" stroke-width="1.8" />
+                  <circle cx="40" cy="110" r="3" fill="#059669" /><text x="25" y="112" font-size="11" font-weight="bold" fill="#059669">M</text>
+                  <circle cx="200" cy="40" r="3" fill="#059669" /><text x="206" y="42" font-size="11" font-weight="bold" fill="#059669">N</text>
+                </svg>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Nửa đường tròn & 3 tiếp tuyến</div>
+              </div>
+            </div>
           </div>
 
           <div class="exam-problem">
@@ -224,6 +332,128 @@ const MATH_EXAM_VARIANTS = [
           <p><strong>Bài 3:</strong> Gọi năng suất kế hoạch là $x$ (bộ/ngày, $x > 0$). Phương trình: $\\frac{1200}{x} - \\frac{1200}{x+10} = 4 \\iff x^2 + 10x - 3000 = 0 \\iff x = 50$ (nhận) hoặc $x = -60$ (loại). Kế hoạch may 50 bộ/ngày.</p>
           <p><strong>Bài 4:</strong> 1) Diện tích xung quanh hình nón: $S_{xq} = \\pi R l = 3,14 \\times 20 \\times 30 = 1884\\text{ cm}^2$.<br>2a) Tính chất tiếp tuyến cắt nhau: $MC = MA, NC = NB \\Rightarrow MN = AM + BN$.<br>2b) $OM, ON$ là phân giác hai góc kề bù $\\Rightarrow \\widehat{MON} = 90^\\circ$. Hệ thức lượng trong tam giác vuông: $MC \\cdot NC = OC^2 \\Rightarrow AM \\cdot BN = R^2$.<br>2c) Dùng định lý Thales để suy ra $CK$ song song với $AM$ nên $CK \\perp AB$.</p>
           <p><strong>Bài 5:</strong> Áp dụng BĐT Cauchy-Schwarz: $P = \\frac{1}{x^2+y^2} + \\frac{1}{2xy} \\ge \\frac{4}{(x+y)^2} = \\frac{4}{1^2} = 4$. Dấu bằng xảy ra khi $x = y = \\frac{1}{2}$. Vậy $\\min P = 4$.</p>
+        </div>
+      `
+    })
+  },
+
+  // ĐỀ 4: Phong cách Tuyển sinh 2026 chuẩn (Hình trụ 3D + Đường tròn tứ giác nội tiếp)
+  {
+    code: "TOAN-MT04",
+    buildExam: (prov, lvl) => ({
+      fullExamContent: `
+        <div class="exam-paper">
+          <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 12px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+              <tr>
+                <td style="text-align: center; vertical-align: top; width: 45%;">
+                  <strong style="text-transform: uppercase; font-size: 0.95rem;">SỞ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 1rem; color: var(--primary);">${prov.toUpperCase()}</strong><br>
+                  <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem;">
+                    ĐỀ PHÁT TRIỂN TUYỂN SINH 2026
+                  </div><br>
+                  <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-405 | Mức độ: ${lvl}</span>
+                </td>
+                <td style="text-align: center; vertical-align: top; width: 55%;">
+                  <strong style="font-size: 1.05rem;">KỲ THI TUYỂN SINH VÀO LỚP 10 THPT</strong><br>
+                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN</strong><br>
+                  <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút (Đề có hình vẽ minh họa)</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 1 (2,0 điểm):</strong></p>
+            <p>1. Thực hiện phép tính: $\\sqrt{48} - 2\\sqrt{75} + \\sqrt{108} - \\frac{6}{\\sqrt{3}}$.</p>
+            <p>2. Rút gọn biểu thức $A = \\left(\\frac{x-2\\sqrt{x}}{x-4} - \\frac{1}{\\sqrt{x}+2}\\right) : \\frac{\\sqrt{x}-1}{\\sqrt{x}+2}$ với $x \\ge 0, x \\ne 4, x \\ne 1$.</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 2 (2,0 điểm):</strong></p>
+            <p>1. Giải hệ phương trình: $\\begin{cases} 2x + 3y = 12 \\\\ 3x - y = 7 \\end{cases}$</p>
+            <p>2. Cho phương trình bậc hai: $x^2 - 2(m-1)x + 2m - 5 = 0$ ($m$ là tham số).</p>
+            <p style="padding-left: 16px;">a) Chứng minh phương trình luôn có hai nghiệm phân biệt $x_1, x_2$ với mọi $m$.</p>
+            <p style="padding-left: 16px;">b) Tìm tất cả các giá trị của $m$ để $(x_1 - x_2)^2 + 4x_1 x_2 = 16$.</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 3 (1,5 điểm):</strong></p>
+            <p>Hai lớp 9A và 9B của một trường THCS cùng tham gia phong trào trồng cây xanh. Theo kế hoạch, cả hai lớp phải trồng tổng cộng $360$ cây. Thực tế, lớp 9A đã trồng vượt mức $10\\%$, lớp 9B trồng vượt mức $15\\%$, do đó cả hai lớp đã trồng được tất cả $404$ cây. Hỏi theo kế hoạch, mỗi lớp phải trồng bao nhiêu cây xanh?</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 4 (3,5 điểm):</strong></p>
+            <p><strong>1. (Toán thực tế)</strong> Một bồn chứa nước sinh hoạt bằng inox có dạng hình trụ với chiều cao $h = 2\\text{ m}$ và đường kính đáy bằng $1,6\\text{ m}$ (bán kính $R = 0,8\\text{ m}$).</p>
+            <p style="padding-left: 16px;">a) Tính thể tích bồn nước trên theo đơn vị mét khối (lấy $\\pi \\approx 3,14$, làm tròn đến chữ số thập phân thứ hai).</p>
+            <p style="padding-left: 16px;">b) Biết mỗi mét khối nước bằng $1000$ lít. Hỏi bồn nước đó có thể chứa tối đa bao nhiêu lít nước?</p>
+
+            <!-- HÌNH VẼ MINH HỌA HÌNH TRỤ 3D VÀ HÌNH HỌC PHẲNG -->
+            <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 14px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <!-- Bồn nước hình trụ -->
+              <div style="text-align: center;">
+                <svg viewBox="0 0 170 170" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Đáy trên -->
+                  <ellipse cx="85" cy="35" rx="55" ry="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+                  <!-- Thân trụ -->
+                  <rect x="30" y="35" width="110" height="85" fill="#f0f9ff" stroke="none" />
+                  <line x1="30" y1="35" x2="30" y2="120" stroke="#0284c7" stroke-width="2" />
+                  <line x1="140" y1="35" x2="140" y2="120" stroke="#0284c7" stroke-width="2" />
+                  <!-- Đáy dưới nét liền nửa trước -->
+                  <path d="M 30 120 A 55 16 0 0 0 140 120" fill="#bae6fd" stroke="#0284c7" stroke-width="2" />
+                  <!-- Đáy dưới nét đứt nửa sau -->
+                  <path d="M 30 120 A 55 16 0 0 1 140 120" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3" />
+                  <!-- Chiều cao h = 2m -->
+                  <line x1="85" y1="35" x2="85" y2="120" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <text x="90" y="80" font-size="11" font-weight="bold" fill="#dc2626">h = 2m</text>
+                  <!-- Bán kính R = 0.8m -->
+                  <line x1="85" y1="35" x2="140" y2="35" stroke="#2563eb" stroke-width="1.5" />
+                  <text x="95" y="30" font-size="11" font-weight="bold" fill="#2563eb">R = 0,8m</text>
+                </svg>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Bồn nước hình trụ</div>
+              </div>
+
+              <!-- Đường tròn tiếp tuyến cát tuyến -->
+              <div style="text-align: center;">
+                <svg viewBox="0 0 280 170" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="160" cy="85" r="60" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" />
+                  <circle cx="160" cy="85" r="2.5" fill="#1e293b" /><text x="165" y="88" font-size="11" font-weight="bold" fill="#1e293b">O</text>
+                  <circle cx="30" cy="85" r="3" fill="#dc2626" /><text x="18" y="88" font-size="11" font-weight="bold" fill="#dc2626">A</text>
+                  <!-- 2 tiếp tuyến AB, AC -->
+                  <line x1="30" y1="85" x2="135" y2="33" stroke="#2563eb" stroke-width="1.6" />
+                  <line x1="30" y1="85" x2="135" y2="137" stroke="#2563eb" stroke-width="1.6" />
+                  <circle cx="135" cy="33" r="3" fill="#2563eb" /><text x="133" y="25" font-size="11" font-weight="bold" fill="#2563eb">B</text>
+                  <circle cx="135" cy="137" r="3" fill="#2563eb" /><text x="133" y="150" font-size="11" font-weight="bold" fill="#2563eb">C</text>
+                  <!-- Cát tuyến ADE -->
+                  <line x1="30" y1="85" x2="215" y2="50" stroke="#059669" stroke-width="1.5" />
+                  <circle cx="112" cy="72" r="2.5" fill="#059669" /><text x="108" y="65" font-size="10" font-weight="bold" fill="#059669">D</text>
+                  <circle cx="203" cy="52" r="2.5" fill="#059669" /><text x="207" y="50" font-size="10" font-weight="bold" fill="#059669">E</text>
+                </svg>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Hai tiếp tuyến và cát tuyến</div>
+              </div>
+            </div>
+
+            <p><strong>2.</strong> Từ điểm $A$ nằm ngoài đường tròn $(O; R)$, kẻ hai tiếp tuyến $AB, AC$ với đường tròn ($B, C$ là hai tiếp điểm). Kẻ cát tuyến $ADE$ không đi qua $O$ ($D$ nằm giữa $A$ và $E$).</p>
+            <p style="padding-left: 16px;">a) Chứng minh tứ giác $ABOC$ nội tiếp một đường tròn.</p>
+            <p style="padding-left: 16px;">b) Chứng minh $AB^2 = AD \\cdot AE$.</p>
+            <p style="padding-left: 16px;">c) Gọi $H$ là giao điểm của $OA$ và $BC$. Chứng minh tứ giác $DHOE$ nội tiếp.</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 5 (1,0 điểm):</strong></p>
+            <p>Cho $a, b, c$ là ba số thực dương thỏa mãn $a + b + c = 3$. Tìm giá trị lớn nhất của biểu thức:</p>
+            $$P = \\frac{ab}{\\sqrt{c + ab}} + \\frac{bc}{\\sqrt{a + bc}} + \\frac{ca}{\\sqrt{b + ca}}$$
+          </div>
+        </div>
+      `,
+      solutionHtml: `
+        <div class="solution-content">
+          <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM MÃ ĐỀ MT-405</h4>
+          <p><strong>Bài 1:</strong> 1) $4\\sqrt{3} - 10\\sqrt{3} + 6\\sqrt{3} - 2\\sqrt{3} = -2\\sqrt{3}$.<br>2) $A = \\frac{\\sqrt{x}(\\sqrt{x}-2)}{(\\sqrt{x}-2)(\\sqrt{x}+2)} - \\frac{1}{\\sqrt{x}+2} = \\frac{\\sqrt{x}-1}{\\sqrt{x}+2}$. Chia cho $\\frac{\\sqrt{x}-1}{\\sqrt{x}+2}$ được $A = 1$.</p>
+          <p><strong>Bài 2:</strong> 1) Hệ có nghiệm duy nhất $(x; y) = (3; 2)$.<br>2a) $\\Delta' = (m-1)^2 - (2m-5) = m^2 - 4m + 6 = (m-2)^2 + 2 > 0$ với mọi $m$.<br>2b) $(x_1-x_2)^2 + 4x_1 x_2 = (x_1+x_2)^2 = 4(m-1)^2 = 16 \\iff (m-1)^2 = 4 \\iff m = 3$ hoặc $m = -1$.</p>
+          <p><strong>Bài 3:</strong> Gọi số cây lớp 9A và 9B phải trồng lần lượt là $x, y$ (cây, $x, y \\in \\mathbb{N}^*$). Hệ phương trình: $\\begin{cases} x + y = 360 \\\\ 1,1x + 1,15y = 404 \\end{cases}$. Giải hệ tìm được $x = 200$ cây (lớp 9A) và $y = 160$ cây (lớp 9B).</p>
+          <p><strong>Bài 4:</strong> 1) Thể tích bồn nước hình trụ: $V = \\pi R^2 h = 3,14 \\times (0,8)^2 \\times 2 \\approx 4,02\\text{ m}^3 = 4020\\text{ lít}$.<br>2a) $\\widehat{ABO} + \\widehat{ACO} = 90^\\circ + 90^\\circ = 180^\\circ$. Tứ giác $ABOC$ nội tiếp đường tròn đường kính $AO$.<br>2b) $\\triangle ABD \\backsim \\triangle AEB$ (g.g) $\\Rightarrow \\frac{AB}{AE} = \\frac{AD}{AB} \\Rightarrow AB^2 = AD \\cdot AE$.<br>2c) Hệ thức lượng trong tam giác vuông $ABO$: $AB^2 = AH \\cdot AO \\Rightarrow AH \\cdot AO = AD \\cdot AE$. Suy ra $\\triangle AHD \\backsim \\triangle AEO$, dẫn đến tứ giác $DHOE$ nội tiếp.</p>
+          <p><strong>Bài 5:</strong> Thay $c = c(a+b+c)/3$... Sử dụng BĐT Cauchy-Schwarz, ta tìm được $\\max P = \\frac{3}{2}$ khi $a = b = c = 1$.</p>
         </div>
       `
     })
@@ -379,6 +609,7 @@ async function generateViaGemini(apiKey, subject, level, examType, provinceStyle
   const prompt = `Bạn là chuyên gia ra đề tuyển sinh vào lớp 10 của Sở GD&ĐT ${provinceStyle}.
 Hãy biên soạn 1 bộ đề thi thử vào lớp 10 môn ${subjectName}, mức độ ${level}, hình thức ${examType}.
 Đề thi phải có câu hỏi mới lạ, kèm lời giải chi tiết và mã LaTeX (.tex) hoàn chỉnh.
+ĐẶC BIỆT CHÚ Ý VỀ HÌNH VẼ: Đối với câu Hình học phẳng hoặc bài toán thực tế hình không gian (nón, trụ, bồn nước, đống cát...), BẮT BUỘC bạn phải nhúng thẻ hình vẽ vector SVG sắc nét: <svg viewBox="0 0 340 240" width="300" height="210" xmlns="http://www.w3.org/2000/svg">...</svg> trực tiếp vào nội dung HTML của đề thi và lời giải để học sinh quan sát trực quan như đề thi thật.
 Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
 {
   "title": "Tên đề thi kèm mã đề ngẫu nhiên",
