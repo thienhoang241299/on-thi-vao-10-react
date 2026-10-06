@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { 
-  Sparkles, 
-  BookOpen, 
-  BarChart, 
-  Layers, 
-  MapPin, 
-  Play, 
-  Printer, 
-  Loader2, 
+import {
+  Sparkles,
+  BookOpen,
+  BarChart,
+  Layers,
+  MapPin,
+  Play,
+  Printer,
+  Loader2,
   Clock,
   FileText,
   Lock,
@@ -180,7 +180,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
               <label className="form-label" style={{ fontWeight: 600 }}>
                 <KeyRound size={16} /> Mật khẩu giáo viên:
               </label>
-              <input 
+              <input
                 type="password"
                 className="form-control"
                 placeholder="Nhập mã PIN hoặc mật khẩu..."
@@ -194,14 +194,14 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
                   {authError}
                 </p>
               )}
-              <small style={{ color: "var(--text-muted)", display: "block", marginTop: "0.5rem" }}>
+              {/* <small style={{ color: "var(--text-muted)", display: "block", marginTop: "0.5rem" }}>
                 💡 <em>Gợi ý: Mật khẩu mặc định hệ thống là: <strong>gv2026</strong></em>
-              </small>
+              </small> */}
             </div>
 
-            <button 
-              type="submit" 
-              className="btn-primary" 
+            <button
+              type="submit"
+              className="btn-primary"
               style={{ width: "100%", justifyContent: "center", padding: "0.75rem", fontSize: "1rem" }}
             >
               <Unlock size={18} /> Mở Khóa Biên Soạn Đề
@@ -234,15 +234,15 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
           <span className="badge badge-success" style={{ fontSize: "0.75rem" }}>Đã xác thực</span>
         </div>
         <div style={{ display: "flex", gap: "0.5rem" }}>
-          <button 
-            className="btn-outline" 
+          <button
+            className="btn-outline"
             style={{ fontSize: "0.85rem", padding: "0.35rem 0.75rem" }}
             onClick={() => setIsChangingPin(!isChangingPin)}
           >
             <KeyRound size={14} /> Đổi Mật Khẩu
           </button>
-          <button 
-            className="btn-outline" 
+          <button
+            className="btn-outline"
             style={{ fontSize: "0.85rem", padding: "0.35rem 0.75rem", color: "var(--danger)" }}
             onClick={handleLock}
             title="Khóa lại khi rời máy tính"
@@ -257,7 +257,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
         <div className="exam-panel" style={{ marginBottom: "1.25rem", border: "1.5px dashed var(--primary)" }}>
           <h4 style={{ fontSize: "1rem", marginBottom: "0.75rem" }}>Đổi mật khẩu giáo viên</h4>
           <form onSubmit={handleChangePin} style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-            <input 
+            <input
               type="text"
               className="form-control"
               style={{ maxWidth: 260 }}
@@ -294,7 +294,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
             <label className="form-label">
               <BookOpen size={16} /> Môn thi
             </label>
-            <select 
+            <select
               className="form-control"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
@@ -309,7 +309,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
             <label className="form-label">
               <BarChart size={16} /> Mức độ phân loại
             </label>
-            <select 
+            <select
               className="form-control"
               value={level}
               onChange={(e) => setLevel(e.target.value)}
@@ -326,7 +326,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
             <label className="form-label">
               <Layers size={16} /> Hình thức thi
             </label>
-            <select 
+            <select
               className="form-control"
               value={examType}
               onChange={(e) => setExamType(e.target.value)}
@@ -341,7 +341,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
             <label className="form-label">
               <MapPin size={16} /> Phong cách đề tỉnh thành
             </label>
-            <select 
+            <select
               className="form-control"
               value={provinceStyle}
               onChange={(e) => setProvinceStyle(e.target.value)}
@@ -356,8 +356,8 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "1rem" }}>
-          <button 
-            className="btn-primary" 
+          <button
+            className="btn-primary"
             style={{ padding: "0.85rem 2.2rem", fontSize: "1.05rem", margin: "0 auto" }}
             onClick={handleGenerate}
             disabled={loading}
@@ -390,10 +390,10 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
           </h3>
 
           {/* Action buttons & Publish */}
-          <div style={{ 
-            background: "var(--bg-main)", 
-            padding: "1rem", 
-            borderRadius: "var(--radius-md)", 
+          <div style={{
+            background: "var(--bg-main)",
+            padding: "1rem",
+            borderRadius: "var(--radius-md)",
             marginBottom: "1.5rem",
             display: "flex",
             gap: "0.75rem",
@@ -401,8 +401,8 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
             alignItems: "center"
           }}>
             {/* Publish to Cloud Button */}
-            <button 
-              className="btn-primary" 
+            <button
+              className="btn-primary"
               style={{ background: "var(--success)", borderColor: "var(--success)", padding: "0.6rem 1.2rem" }}
               onClick={handlePublishToCloud}
               disabled={isPublishing}
@@ -419,8 +419,8 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
               )}
             </button>
 
-            <button 
-              className="btn-outline" 
+            <button
+              className="btn-outline"
               onClick={() => printCleanDocument(currentExam.fullExamContent, currentExam.title)}
               style={{ display: "flex", alignItems: "center", gap: "6px" }}
               title="Xuất riêng đề thi sạch ra PDF A4 có sẵn hình vẽ vector SVG sắc nét"
@@ -428,8 +428,8 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
               <Printer size={16} /> 🖨️ Xuất PDF Đề Thi
             </button>
 
-            <button 
-              className="btn-outline" 
+            <button
+              className="btn-outline"
               onClick={() => exportToWord(currentExam.title, currentExam.fullExamContent)}
               style={{ display: "flex", alignItems: "center", gap: "6px" }}
               title="Tải đề thi file Word (.doc) chuẩn MathML"
@@ -445,11 +445,11 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
           </div>
 
           {publishSuccessMsg && (
-            <div style={{ 
-              background: "#dcfce7", 
-              color: "#166534", 
-              padding: "0.85rem 1rem", 
-              borderRadius: "var(--radius-md)", 
+            <div style={{
+              background: "#dcfce7",
+              color: "#166534",
+              padding: "0.85rem 1rem",
+              borderRadius: "var(--radius-md)",
               marginBottom: "1.2rem",
               display: "flex",
               alignItems: "center",
@@ -502,8 +502,8 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {cloudExams.map((item) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 style={{
                   padding: "1rem",
                   background: "var(--bg-main)",
@@ -527,32 +527,32 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
                 </div>
 
                 <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                  <button 
-                    className="btn-outline" 
+                  <button
+                    className="btn-outline"
                     style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
                     onClick={() => setCurrentExam(item)}
                     title="Xem lại chi tiết trong trình soạn thảo"
                   >
                     <Eye size={14} /> Xem lại
                   </button>
-                  <button 
-                    className="btn-outline" 
+                  <button
+                    className="btn-outline"
                     style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
                     onClick={() => printCleanDocument(item.fullExamContent, item.title)}
                     title="Xuất PDF"
                   >
                     <Printer size={14} /> PDF
                   </button>
-                  <button 
-                    className="btn-outline" 
+                  <button
+                    className="btn-outline"
                     style={{ fontSize: "0.82rem", padding: "0.4rem 0.75rem" }}
                     onClick={() => exportToWord(item.title, item.fullExamContent)}
                     title="Tải Word"
                   >
                     <FileText size={14} /> Word
                   </button>
-                  <button 
-                    className="btn-outline" 
+                  <button
+                    className="btn-outline"
                     style={{ fontSize: "0.82rem", padding: "0.4rem 0.6rem", color: "var(--danger)", borderColor: "var(--danger)" }}
                     onClick={() => handleDeleteCloudExam(item.id)}
                     title="Xóa đề này khỏi Cloud"
