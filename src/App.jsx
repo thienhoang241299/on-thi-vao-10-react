@@ -8,6 +8,7 @@ import UploadsView from "./views/UploadsView";
 import DetailModal from "./components/DetailModal";
 import SettingsModal from "./components/SettingsModal";
 import { storage } from "./services/storage";
+import { analyticsService } from "./services/analyticsService";
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState("library");
@@ -15,6 +16,14 @@ export default function App() {
   const [theme, setTheme] = useState(() => storage.getTheme());
   const [detailModal, setDetailModal] = useState({ isOpen: false, title: "", html: "", latexSource: "" });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    analyticsService.initSession();
+  }, []);
+
+  useEffect(() => {
+    analyticsService.trackPageView(currentTab);
+  }, [currentTab]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

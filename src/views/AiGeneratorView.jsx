@@ -8,7 +8,6 @@ import {
   Play,
   Printer,
   Loader2,
-  Clock,
   FileText,
   Lock,
   Unlock,
@@ -17,16 +16,17 @@ import {
   CheckCircle2,
   Trash2,
   Eye,
-  KeyRound,
-  ExternalLink
+  KeyRound
 } from "lucide-react";
 import { generateExam } from "../services/aiService";
 import { storage } from "../services/storage";
 import { firebaseService } from "../services/firebaseService";
 import KaTeXRenderer from "../components/KaTeXRenderer";
 import { exportToWord, printCleanDocument } from "../utils/exportUtils";
+import TrafficStatsDashboard from "../components/TrafficStatsDashboard";
+import { analyticsService } from "../services/analyticsService";
 
-export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
+export default function AiGeneratorView({ onStartExam, _onOpenDetail }) {
   // Authentication State
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem("teacher_authenticated") === "true";
@@ -115,6 +115,7 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
         preferredMethod: generatorMethod
       });
       setCurrentExam(exam);
+      analyticsService.trackAiGeneration();
     } catch (err) {
       console.error(err);
       alert(err.message || "Đã xảy ra lỗi khi tạo đề.");
@@ -151,7 +152,10 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
   // MÀN HÌNH KHÓA BẢO VỆ MẬT KHẨU GIÁO VIÊN
   if (!isAuthenticated) {
     return (
-      <div className="tab-pane active" style={{ maxWidth: 520, margin: "3rem auto" }}>
+      <div className="tab-pane active" style={{ maxWidth: 540, margin: "2rem auto" }}>
+        {/* Widget Đo Lường Lưu Lượng Ngay Tại Cổng Vào */}
+        <TrafficStatsDashboard compact={true} />
+
         <div className="exam-panel" style={{ textAlign: "center", padding: "2.5rem 2rem", boxShadow: "var(--shadow-lg)" }}>
           <div style={{
             width: 64,
@@ -196,9 +200,6 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
                   {authError}
                 </p>
               )}
-              {/* <small style={{ color: "var(--text-muted)", display: "block", marginTop: "0.5rem" }}>
-                💡 <em>Gợi ý: Mật khẩu mặc định hệ thống là: <strong>gv2026</strong></em>
-              </small> */}
             </div>
 
             <button
@@ -253,6 +254,9 @@ export default function AiGeneratorView({ onStartExam, onOpenDetail }) {
           </button>
         </div>
       </div>
+
+      {/* Dashboard Giám Sát Lưu Lượng Trang Web Cho Giáo Viên */}
+      <TrafficStatsDashboard compact={false} />
 
       {/* Change PIN Panel */}
       {isChangingPin && (
