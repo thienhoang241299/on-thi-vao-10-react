@@ -1,3 +1,32 @@
+
+function safeParseJsonWithLatex(rawText) {
+  let cleaned = rawText.replace(/^\`\`\`json\s*/i, "").replace(/^\`\`\`\s*/i, "").replace(/\`\`\`\s*$/i, "").trim();
+  try {
+    return JSON.parse(cleaned);
+  } catch (err1) {
+    // Chuẩn hóa mọi ký tự thoát không hợp lệ của LaTeX trong chuỗi JSON (ví dụ \sqrt, \frac, \Delta...)
+    try {
+      const sanitized = cleaned.replace(/\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})/g, "\\\\");
+      return JSON.parse(sanitized);
+    } catch (err2) {
+      // Trích xuất bằng regex nếu JSON bị cắt hoặc lỗi cấu trúc
+      const titleMatch = cleaned.match(/"title"\s*:\s*"([^"]+)"/);
+      const title = titleMatch ? titleMatch[1] : "Đề thi mẫu tự luyện vào lớp 10";
+      const contentMatch = cleaned.match(/"fullExamContent"\s*:\s*"([\s\S]*?)"\s*,\s*"solutionHtml"/);
+      const solutionMatch = cleaned.match(/"solutionHtml"\s*:\s*"([\s\S]*?)"\s*,\s*"latexSource"/);
+      if (contentMatch) {
+        return {
+          title,
+          fullExamContent: contentMatch[1].replace(/\\n/g, "\n").replace(/\\"/g, '"'),
+          solutionHtml: solutionMatch ? solutionMatch[1].replace(/\\n/g, "\n").replace(/\\"/g, '"') : "",
+          latexSource: ""
+        };
+      }
+      throw new Error("Không thể phân tích dữ liệu JSON trả về từ Google Gemini. Vui lòng thử lại.");
+    }
+  }
+}
+
 /**
  * AI EXAM GENERATION SERVICE
  * Hỗ trợ Gemini API + Smart Matrix Generator ngẫu nhiên phong phú
@@ -457,6 +486,141 @@ const MATH_EXAM_VARIANTS = [
         </div>
       `
     })
+  },
+
+  // ĐỀ 5: Phong cách Phân hóa cao - Chinh phục 9 - 10 điểm (MT-510)
+  {
+    code: "TOAN-MT05",
+    buildExam: (prov, lvl) => ({
+      fullExamContent: `
+        <div class="exam-paper">
+          <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 12px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+              <tr>
+                <td style="text-align: center; vertical-align: top; width: 45%;">
+                  <strong style="text-transform: uppercase; font-size: 0.9rem;">HỆ THỐNG ÔN THI VÀO LỚP 10</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.95rem; color: var(--primary);">ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${prov.toUpperCase()})</strong><br>
+                  <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem; background: rgba(59,130,246,0.08);">
+                    ĐỀ PHÂN HÓA CAO - CHINH PHỤC ĐIỂM 10
+                  </div><br>
+                  <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-510 | Mức độ: ${lvl}</span>
+                </td>
+                <td style="text-align: center; vertical-align: top; width: 55%;">
+                  <strong style="font-size: 1.02rem;">BỘ ĐỀ TỰ LUYỆN TUYỂN SINH VÀO LỚP 10</strong><br>
+                  <strong style="font-size: 1.05rem; color: var(--primary);">MÔN THI: TOÁN HỌC</strong><br>
+                  <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút (Đề gồm 05 bài tự luận phân hóa)</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 1 (2,0 điểm):</strong></p>
+            <p>1. Thực hiện phép tính: $A = \\sqrt{17 - 4\\sqrt{13}} + \\sqrt{29 - 8\\sqrt{13}}$.</p>
+            <p>2. Cho biểu thức $P = \\left(\\frac{2\\sqrt{x}}{\\sqrt{x}+3} + \\frac{\\sqrt{x}}{\\sqrt{x}-3} - \\frac{3x+3}{x-9}\\right) : \\left(\\frac{2\\sqrt{x}-2}{\\sqrt{x}-3} - 1\\right)$ với $x \\ge 0, x \\ne 9$.</p>
+            <p style="padding-left: 16px;">a) Rút gọn biểu thức $P$.</p>
+            <p style="padding-left: 16px;">b) Tìm tất cả các giá trị nguyên của $x$ để biểu thức $M = P \\cdot \\sqrt{x}$ nhận giá trị nguyên.</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 2 (2,0 điểm):</strong></p>
+            <p>1. Giải hệ phương trình: $\\begin{cases} x^2 + y^2 + xy = 7 \\\\ x + y + xy = 5 \\end{cases}$</p>
+            <p>2. Cho phương trình bậc hai: $x^2 - 2(m+1)x + m^2 + 2m - 3 = 0$ ($m$ là tham số).</p>
+            <p style="padding-left: 16px;">a) Chứng minh phương trình luôn có hai nghiệm phân biệt $x_1, x_2$ với mọi giá trị của $m$.</p>
+            <p style="padding-left: 16px;">b) Tìm tất cả các giá trị của $m$ để biểu thức $T = \\frac{x_1^2 + x_2^2 - 2x_1 x_2}{(x_1 - 1)^2 + (x_2 - 1)^2 + 6}$ đạt giá trị lớn nhất.</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 3 (1,5 điểm):</strong></p>
+            <p>Một đội xe tình nguyện dự định dùng một số xe cùng loại để vận chuyển $120$ tấn hàng cứu trợ đồng bào bị ảnh hưởng bởi bão lũ. Khi chuẩn bị xuất phát, đội được tăng cường thêm $4$ xe cùng loại, do đó mỗi xe chở ít hơn dự định $1$ tấn hàng để đảm bảo an toàn giao thông. Hỏi ban đầu đội dự định điều động bao nhiêu xe và mỗi xe phải chở bao nhiêu tấn hàng? (Biết sức chở của mỗi xe là như nhau).</p>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 4 (3,5 điểm):</strong></p>
+            <p><strong>1. (Toán thực tế không gian)</strong> Một bồn chứa xăng dầu bằng thép gồm một thân hình trụ dài $h = 4\\text{ m}$ và hai đầu là hai nửa hình cầu có cùng bán kính đáy $R = 1,2\\text{ m}$ (ghép lại tạo thành một hình cầu có bán kính $R = 1,2\\text{ m}$).</p>
+            <p style="padding-left: 16px;">a) Tính thể tích toàn bộ bồn chứa theo đơn vị mét khối (lấy $\\pi \\approx 3,14$, làm tròn đến chữ số thập phân thứ hai).</p>
+            <p style="padding-left: 16px;">b) Tính diện tích toàn bộ bề mặt ngoài bằng thép của bồn chứa để quét sơn chống gỉ (làm tròn đến chữ số thập phân thứ hai).</p>
+
+            <div style="text-align: center; margin: 14px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <svg viewBox="0 0 320 160" width="280" height="140" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="tankG5" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e0f2fe" />
+                    <stop offset="50%" stop-color="#bae6fd" />
+                    <stop offset="100%" stop-color="#7dd3fc" />
+                  </linearGradient>
+                </defs>
+                <path d="M 80 35 A 45 45 0 0 0 80 125 Z" fill="url(#tankG5)" stroke="#0284c7" stroke-width="2" />
+                <rect x="80" y="35" width="160" height="90" fill="url(#tankG5)" stroke="none" />
+                <line x1="80" y1="35" x2="240" y2="35" stroke="#0284c7" stroke-width="2" />
+                <line x1="80" y1="125" x2="240" y2="125" stroke="#0284c7" stroke-width="2" />
+                <path d="M 240 35 A 45 45 0 0 1 240 125 Z" fill="url(#tankG5)" stroke="#0284c7" stroke-width="2" />
+                <ellipse cx="80" cy="80" rx="14" ry="45" fill="none" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="4 3" />
+                <ellipse cx="240" cy="80" rx="14" ry="45" fill="none" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="4 3" />
+                <line x1="35" y1="80" x2="285" y2="80" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" />
+                <line x1="80" y1="20" x2="240" y2="20" stroke="#0f172a" stroke-width="1.5" />
+                <text x="160" y="16" font-size="11" font-weight="bold" fill="#0f172a" text-anchor="middle">h = 4 m</text>
+                <line x1="240" y1="80" x2="285" y2="80" stroke="#dc2626" stroke-width="2" />
+                <text x="262" y="73" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">R = 1,2 m</text>
+              </svg>
+            </div>
+
+            <p><strong>2. (Hình học phẳng nâng cao)</strong> Cho tam giác nhọn $ABC$ ($AB < AC$) nội tiếp đường tròn $(O; R)$. Ba đường cao $AD, BE, CF$ cắt nhau tại trực tâm $H$. Kẻ đường kính $AK$ của $(O)$.</p>
+            <p style="padding-left: 16px;">a) Chứng minh tứ giác $BCEF$ nội tiếp và tứ giác $BHCK$ là hình bình hành.</p>
+            <p style="padding-left: 16px;">b) Gọi $M$ là trung điểm cạnh $BC$. Kẻ đường thẳng qua $H$ vuông góc với $AM$, cắt $AB, AC$ lần lượt tại $P$ và $Q$. Chứng minh rằng tam giác $APQ$ cân tại $A$ và $H$ là trung điểm của $PQ$.</p>
+            <p style="padding-left: 16px;">c) Gọi $I$ là giao điểm của $EF$ và $BC$. Chứng minh rằng $ID \\cdot IM = IB \\cdot IC$ và đường thẳng $AI$ vuông góc với đường thẳng $OM$.</p>
+
+            <div style="text-align: center; margin: 14px 0; background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <svg viewBox="0 0 380 290" width="340" height="260" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="210" cy="155" r="95" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+                <circle cx="210" cy="155" r="3" fill="#1e293b" />
+                <text x="215" y="160" font-size="11" font-weight="bold" fill="#1e293b">O</text>
+                <polygon points="180,62 125,205 300,185" fill="none" stroke="#2563eb" stroke-width="2" />
+                <line x1="180" y1="62" x2="240" y2="248" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" />
+                <line x1="125" y1="205" x2="240" y2="248" stroke="#64748b" stroke-width="1.2" />
+                <line x1="300" y1="185" x2="240" y2="248" stroke="#64748b" stroke-width="1.2" />
+                <line x1="180" y1="62" x2="195" y2="197" stroke="#dc2626" stroke-width="1.5" />
+                <line x1="125" y1="205" x2="245" y2="129" stroke="#dc2626" stroke-width="1.5" />
+                <line x1="300" y1="185" x2="152" y2="132" stroke="#dc2626" stroke-width="1.5" />
+                <circle cx="185" cy="168" r="3.5" fill="#dc2626" />
+                <text x="170" y="172" font-size="11" font-weight="bold" fill="#dc2626">H</text>
+                <circle cx="212" cy="195" r="3" fill="#059669" />
+                <text x="216" y="210" font-size="11" font-weight="bold" fill="#059669">M</text>
+                <line x1="180" y1="62" x2="212" y2="195" stroke="#059669" stroke-width="1.2" />
+                <line x1="210" y1="155" x2="212" y2="195" stroke="#059669" stroke-width="1.5" />
+                <line x1="185" y1="168" x2="240" y2="248" stroke="#9333ea" stroke-width="1.2" stroke-dasharray="3 2" />
+                <line x1="145" y1="140" x2="235" y2="202" stroke="#d97706" stroke-width="1.8" />
+                <text x="175" y="55" font-size="12" font-weight="bold" fill="#1e293b">A</text>
+                <text x="110" y="215" font-size="12" font-weight="bold" fill="#1e293b">B</text>
+                <text x="306" y="192" font-size="12" font-weight="bold" fill="#1e293b">C</text>
+                <text x="193" y="212" font-size="11" font-weight="bold" fill="#1e293b">D</text>
+                <text x="250" y="128" font-size="11" font-weight="bold" fill="#1e293b">E</text>
+                <text x="140" y="130" font-size="11" font-weight="bold" fill="#1e293b">F</text>
+                <text x="245" y="255" font-size="11" font-weight="bold" fill="#1e293b">K</text>
+                <text x="135" y="145" font-size="11" font-weight="bold" fill="#d97706">P</text>
+                <text x="238" y="212" font-size="11" font-weight="bold" fill="#d97706">Q</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="exam-problem">
+            <p><strong>Bài 5 (1,0 điểm):</strong></p>
+            <p>Cho ba số thực dương $a, b, c$ thỏa mãn điều kiện $a + b + c = 3$. Tìm giá trị nhỏ nhất của biểu thức:</p>
+            $P = \\frac{a^3}{b^2 + 1} + \\frac{b^3}{c^2 + 1} + \\frac{c^3}{a^2 + 1}$
+          </div>
+        </div>
+      `,
+      solutionHtml: `
+        <div class="solution-content">
+          <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM MÃ ĐỀ MT-510 (MỤC TIÊU 9 - 10 ĐIỂM)</h4>
+          <p><strong>Bài 1 (2,0đ):</strong> 1) $\\sqrt{17-4\\sqrt{13}} + \\sqrt{29-8\\sqrt{13}} = (\\sqrt{13}-2) + (4-\\sqrt{13}) = 2$.<br>2a) $P = \\frac{-3}{\\sqrt{x}+3}$.<br>2b) $M = -3 + \\frac{9}{\\sqrt{x}+3}$. Do $\\sqrt{x}+3 \\ge 3 \\Rightarrow \\sqrt{x}+3 \\in \\{3; 9\\} \\Rightarrow x \\in \\{0; 36\\}$.</p>
+          <p><strong>Bài 2 (2,0đ):</strong> 1) Đặt $S = x+y, P = xy \\Rightarrow S = 3, P = 2 \\Rightarrow (x; y) \\in \\{(1; 2); (2; 1)\\}$.<br>2a) $\\Delta' = 4 > 0$ với mọi $m$.<br>2b) Hai nghiệm $x_1 = m-1, x_2 = m+3 \\Rightarrow T = \\frac{16}{2m^2+14} = \\frac{8}{m^2+7} \\le \\frac{8}{7}$. Đạt GTLN bằng $\\frac{8}{7}$ khi $m = 0$.</p>
+          <p><strong>Bài 3 (1,5đ):</strong> Gọi số xe ban đầu là $x$ ($x \\in \\mathbb{N}^*$). Phương trình: $\\frac{120}{x} - \\frac{120}{x+4} = 1 \\iff x^2+4x-480 = 0 \\iff x = 20$ xe (chở 6 tấn/xe).</p>
+          <p><strong>Bài 4 (3,5đ):</strong> 1a) $V = V_{\\text{trụ}} + V_{\\text{cầu}} = \\pi R^2 h + \\frac{4}{3}\\pi R^3 \\approx 18,09 + 7,23 = 25,32\\text{ m}^3$.<br>1b) $S = 2\\pi R h + 4\\pi R^2 \\approx 30,14 + 18,09 = 48,23\\text{ m}^2$.<br>2a) $BCEF$ nội tiếp đường tròn đường kính $BC$; $BK \\parallel CH$ và $CK \\parallel BH \\Rightarrow BHCK$ là hình bình hành.<br>2b) $M$ là trung điểm $BC$ và $HK \\Rightarrow OM \\parallel AH, AH = 2OM$. $\\triangle APQ$ cân tại $A \\Rightarrow H$ là trung điểm $PQ$.<br>2c) $ID \\cdot IM = IB \\cdot IC$ theo phương tích và trực tâm $H \\Rightarrow AI \\perp OM$.</p>
+          <p><strong>Bài 5 (1,0đ):</strong> Áp dụng Cauchy ngược dấu: $\\frac{a^3}{b^2+1} = a - \\frac{ab^2}{b^2+1} \\ge a - \\frac{ab}{2}$. Tương tự cho $b, c$. Suy ra $P \\ge (a+b+c) - \\frac{ab+bc+ca}{2} \\ge 3 - \\frac{3}{2} = \\frac{3}{2}$. Dấu bằng khi $a = b = c = 1$.</p>
+        </div>
+      `
+    })
   }
 ];
 
@@ -748,7 +912,7 @@ async function generateViaGemini(apiKey, subject, level, examType, provinceStyle
 
       // Xử lý loại bỏ bọc markdown ```json ... ``` nếu có
       text = text.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();
-      const exam = JSON.parse(text);
+      const exam = safeParseJsonWithLatex(text);
 
       exam.id = "ai-gen-" + Date.now();
       exam.subject = subject;
