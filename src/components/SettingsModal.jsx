@@ -40,7 +40,7 @@ export default function SettingsModal({ isOpen, onClose }) {
 
         <div className="modal-body" style={{ maxHeight: "75vh", overflowY: "auto" }}>
           {/* Mật khẩu Giáo Viên */}
-          <div className="form-group" style={{ marginBottom: "1.25rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
+          {/* <div className="form-group" style={{ marginBottom: "1.25rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
             <label className="form-label" style={{ fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
               <KeyRound size={16} color="var(--primary)" /> Mật khẩu Giáo Viên (Mã PIN):
             </label>
@@ -54,7 +54,7 @@ export default function SettingsModal({ isOpen, onClose }) {
             <small style={{ color: "var(--text-muted)", display: "block", marginTop: 4 }}>
               Dùng để khóa và mở chức năng "Biên Soạn Đề (GV)" tránh học sinh bấm tạo đề hao tốn tài nguyên. (Mặc định: <strong>gv2026</strong>)
             </small>
-          </div>
+          </div> */}
 
           {/* Firebase Database URL */}
           <div className="form-group" style={{ marginBottom: "1.25rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
@@ -79,10 +79,10 @@ export default function SettingsModal({ isOpen, onClose }) {
               <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <Sparkles size={16} color="var(--primary)" /> Gemini API Key:
               </span>
-              <a 
-                href="https://aistudio.google.com/app/apikey" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://aistudio.google.com/app/apikey"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ fontSize: "0.82rem", color: "var(--primary)", textDecoration: "underline", fontWeight: 600 }}
               >
                 Lấy Key miễn phí tại Google AI Studio ↗
