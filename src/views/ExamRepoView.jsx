@@ -301,7 +301,7 @@ export default function ExamRepoView({ onOpenDetail, onStartExam }) {
                     style={{ flex: 1 }}
                     onClick={() => onOpenDetail({
                       title: `Đáp án & Barem: ${item.title}`,
-                      html: item.solutionHtml || "<p>Chưa cập nhật đáp án cho đề này.</p>",
+                      html: item.solutionHtml || item.solution || "<p>Chưa cập nhật đáp án cho đề này.</p>",
                       latexSource: item.solutionLatex || item.latexSource
                     })}
                   >

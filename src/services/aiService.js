@@ -17,16 +17,16 @@ const MATH_EXAM_VARIANTS = [
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
               <tr>
                 <td style="text-align: center; vertical-align: top; width: 45%;">
-                  <strong style="text-transform: uppercase; font-size: 0.95rem;">SỞ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
-                  <strong style="text-transform: uppercase; font-size: 1rem; color: var(--primary);">${prov.toUpperCase()}</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.9rem;">HỆ THỐNG ÔN THI VÀO LỚP 10</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.95rem; color: var(--primary);">ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${prov.toUpperCase()})</strong><br>
                   <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem;">
                     ĐỀ THI THỬ VÀO 10 (AI SMART MATRIX)
                   </div><br>
                   <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-101 | Mức độ: ${lvl}</span>
                 </td>
                 <td style="text-align: center; vertical-align: top; width: 55%;">
-                  <strong style="font-size: 1.05rem;">KỲ THI TUYỂN SINH VÀO LỚP 10 THPT</strong><br>
-                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN</strong><br>
+                  <strong style="font-size: 1.02rem;">BỘ ĐỀ TỰ LUYỆN TUYỂN SINH VÀO LỚP 10</strong><br>
+                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN HỌC</strong><br>
                   <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút (Không kể phát đề)</span>
                 </td>
               </tr>
@@ -131,16 +131,16 @@ const MATH_EXAM_VARIANTS = [
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
               <tr>
                 <td style="text-align: center; vertical-align: top; width: 45%;">
-                  <strong style="text-transform: uppercase; font-size: 0.95rem;">SỞ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
-                  <strong style="text-transform: uppercase; font-size: 1rem; color: var(--primary);">${prov.toUpperCase()}</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.9rem;">HỆ THỐNG ÔN THI VÀO LỚP 10</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.95rem; color: var(--primary);">ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${prov.toUpperCase()})</strong><br>
                   <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem;">
                     ĐỀ THI THỬ VÀO 10 (AI SMART MATRIX)
                   </div><br>
                   <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-204 | Mức độ: ${lvl}</span>
                 </td>
                 <td style="text-align: center; vertical-align: top; width: 55%;">
-                  <strong style="font-size: 1.05rem;">KỲ THI TUYỂN SINH VÀO LỚP 10 THPT</strong><br>
-                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN</strong><br>
+                  <strong style="font-size: 1.02rem;">BỘ ĐỀ TỰ LUYỆN TUYỂN SINH VÀO LỚP 10</strong><br>
+                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN HỌC</strong><br>
                   <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút</span>
                 </td>
               </tr>
@@ -238,16 +238,16 @@ const MATH_EXAM_VARIANTS = [
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
               <tr>
                 <td style="text-align: center; vertical-align: top; width: 45%;">
-                  <strong style="text-transform: uppercase; font-size: 0.95rem;">SỞ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
-                  <strong style="text-transform: uppercase; font-size: 1rem; color: var(--primary);">${prov.toUpperCase()}</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.9rem;">HỆ THỐNG ÔN THI VÀO LỚP 10</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.95rem; color: var(--primary);">ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${prov.toUpperCase()})</strong><br>
                   <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem;">
                     ĐỀ THI THỬ VÀO 10 (AI SMART MATRIX)
                   </div><br>
                   <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-308 | Mức độ: ${lvl}</span>
                 </td>
                 <td style="text-align: center; vertical-align: top; width: 55%;">
-                  <strong style="font-size: 1.05rem;">KỲ THI TUYỂN SINH VÀO LỚP 10 THPT</strong><br>
-                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN</strong><br>
+                  <strong style="font-size: 1.02rem;">BỘ ĐỀ TỰ LUYỆN TUYỂN SINH VÀO LỚP 10</strong><br>
+                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN HỌC</strong><br>
                   <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút</span>
                 </td>
               </tr>
@@ -347,16 +347,16 @@ const MATH_EXAM_VARIANTS = [
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
               <tr>
                 <td style="text-align: center; vertical-align: top; width: 45%;">
-                  <strong style="text-transform: uppercase; font-size: 0.95rem;">SỞ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
-                  <strong style="text-transform: uppercase; font-size: 1rem; color: var(--primary);">${prov.toUpperCase()}</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.9rem;">HỆ THỐNG ÔN THI VÀO LỚP 10</strong><br>
+                  <strong style="text-transform: uppercase; font-size: 0.95rem; color: var(--primary);">ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${prov.toUpperCase()})</strong><br>
                   <div style="display: inline-block; border: 1.5px solid var(--text-main); padding: 2px 10px; font-weight: bold; margin-top: 4px; font-size: 0.85rem;">
                     ĐỀ PHÁT TRIỂN TUYỂN SINH 2026
                   </div><br>
                   <span style="font-size: 0.8rem; font-style: italic;">Mã đề: MT-405 | Mức độ: ${lvl}</span>
                 </td>
                 <td style="text-align: center; vertical-align: top; width: 55%;">
-                  <strong style="font-size: 1.05rem;">KỲ THI TUYỂN SINH VÀO LỚP 10 THPT</strong><br>
-                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN</strong><br>
+                  <strong style="font-size: 1.02rem;">BỘ ĐỀ TỰ LUYỆN TUYỂN SINH VÀO LỚP 10</strong><br>
+                  <strong style="font-size: 1rem; color: var(--primary);">MÔN THI: TOÁN HỌC</strong><br>
                   <span style="font-size: 0.85rem; font-style: italic;">Thời gian làm bài: 120 phút (Đề có hình vẽ minh họa)</span>
                 </td>
               </tr>
@@ -616,10 +616,11 @@ function buildStrictMatrixPrompt(subject, level, examType, provinceStyle) {
   const subjectName = subject === 'math' ? 'Toán học' : (subject === 'eng' ? 'Tiếng Anh' : 'Ngữ Văn');
 
   if (subject === 'math') {
-    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT của Sở GD&ĐT ${provinceStyle}.
+    return `Bạn là Chuyên gia biên soạn đề thi mẫu tuyển sinh vào lớp 10 THPT theo cấu trúc ${provinceStyle}.
 Nhiệm vụ: Biên soạn 1 bộ đề thi tuyển sinh vào lớp 10 môn Toán học, mức độ "${level}", hình thức "${examType}".
 
-YÊU CẦU BẮT BUỘC: ĐỀ THI PHẢI TUÂN THỦ NGHIÊM NGẶT MA TRẬN 5 BÀI CHUẨN BỘ GD&ĐT VÀ SỞ GD&ĐT ${provinceStyle.toUpperCase()} (THỜI GIAN 120 PHÚT - THANG ĐIỂM 10):
+YÊU CẦU BẮT BUỘC: ĐỀ THI PHẢI TUÂN THỦ NGHIÊM NGẶT MA TRẬN 5 BÀI CHUẨN CẤU TRÚC TUYỂN SINH ${provinceStyle.toUpperCase()} (THỜI GIAN 120 PHÚT - THANG ĐIỂM 10):
+LƯU Ý QUAN TRỌNG: Đây là đề mẫu tự luyện tham khảo do hệ thống tạo, TUYỆT ĐỐI KHÔNG dùng tên cơ quan nhà nước 'SỞ GIÁO DỤC VÀ ĐÀO TẠO'. Phần tiêu đề header bảng đề thi phải ghi rõ: 'HỆ THỐNG ÔN THI VÀO LỚP 10' và 'ĐỀ MẪU TỰ LUYỆN (CẤU TRÚC ${provinceStyle.toUpperCase()})'.
 
 • BÀI 1 (2,0 điểm) - Số học & Căn thức đại số:
   1. (1,0đ): Thực hiện phép tính số học chứa căn bậc hai (khai căn, trục căn thức, rút gọn căn đồng dạng).
@@ -649,13 +650,13 @@ QUY CÁCH TRẢ VỀ:
 - Lời giải phải chi tiết kèm thang điểm từng bước (0,25đ; 0,5đ; 1,0đ).
 - Trả về JSON thuần túy (không bọc markdown \`\`\`json):
 {
-  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Toán - Sở GD&ĐT ${provinceStyle} (Mã đề: TS10-${Math.floor(100 + Math.random()*900)})",
+  "title": "Đề thi mẫu tự luyện vào lớp 10 môn Toán - Cấu trúc ${provinceStyle} (Mã đề: TS10-${Math.floor(100 + Math.random()*900)})",
   "fullExamContent": "HTML đề thi đầy đủ 5 bài, thẻ SVG hình vẽ nhúng trực tiếp",
   "solutionHtml": "HTML hướng dẫn giải và thang điểm barem chi tiết",
   "latexSource": "Mã LaTeX .tex đầy đủ"
 }`;
   } else if (subject === 'lit') {
-    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT môn Ngữ Văn của Sở GD&ĐT ${provinceStyle}.
+    return `Bạn là Chuyên gia biên soạn đề thi mẫu tuyển sinh vào lớp 10 THPT môn Ngữ Văn theo cấu trúc ${provinceStyle}.
 Nhiệm vụ: Biên soạn 1 bộ đề thi môn Ngữ Văn vào lớp 10, mức độ "${level}".
 
 YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI NGỮ VĂN VÀO LỚP 10 (THỜI GIAN 120 PHÚT - THANG ĐIỂM 10):
@@ -673,13 +674,13 @@ YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI NGỮ VĂN VÀO LỚP 
 
 Trả về JSON thuần túy:
 {
-  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Ngữ Văn - Sở GD&ĐT ${provinceStyle} (Mã đề: NV-${Math.floor(100 + Math.random()*900)})",
+  "title": "Đề thi mẫu tự luyện vào lớp 10 môn Ngữ Văn - Cấu trúc ${provinceStyle} (Mã đề: NV-${Math.floor(100 + Math.random()*900)})",
   "fullExamContent": "HTML đề thi đầy đủ 3 phần",
   "solutionHtml": "HTML đáp án và thang điểm chi tiết",
   "latexSource": "Mã LaTeX .tex"
 }`;
   } else {
-    return `Bạn là Trưởng ban ra đề thi tuyển sinh vào lớp 10 THPT môn Tiếng Anh của Sở GD&ĐT ${provinceStyle}.
+    return `Bạn là Chuyên gia biên soạn đề thi mẫu tuyển sinh vào lớp 10 THPT môn Tiếng Anh theo cấu trúc ${provinceStyle}.
 Nhiệm vụ: Biên soạn 1 bộ đề thi môn Tiếng Anh vào lớp 10, mức độ "${level}".
 
 YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI TIẾNG ANH (THỜI GIAN 60 PHÚT - 40 CÂU):
@@ -691,7 +692,7 @@ YÊU CẦU TUÂN THỦ NGHIÊM NGẶT MA TRẬN ĐỀ THI TIẾNG ANH (THỜI GI
 
 Trả về JSON thuần túy:
 {
-  "title": "Đề thi thử Tuyển sinh vào lớp 10 môn Tiếng Anh - Sở GD&ĐT ${provinceStyle} (Mã đề: ENG-${Math.floor(100 + Math.random()*900)})",
+  "title": "Đề thi mẫu tự luyện vào lớp 10 môn Tiếng Anh - Cấu trúc ${provinceStyle} (Mã đề: ENG-${Math.floor(100 + Math.random()*900)})",
   "fullExamContent": "HTML đề thi đầy đủ các phần",
   "solutionHtml": "HTML đáp án chi tiết",
   "latexSource": "Mã LaTeX .tex"

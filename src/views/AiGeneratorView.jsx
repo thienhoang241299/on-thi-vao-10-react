@@ -352,10 +352,10 @@ export default function AiGeneratorView({ onStartExam, _onOpenDetail }) {
               value={provinceStyle}
               onChange={(e) => setProvinceStyle(e.target.value)}
             >
-              <option value="Quảng Ngãi">🌟 Sở GD&ĐT Quảng Ngãi (Đề 2026 Chuẩn)</option>
-              <option value="Hà Nội">Sở GD&ĐT Hà Nội</option>
-              <option value="TP. Hồ Chí Minh">Sở GD&ĐT TP. Hồ Chí Minh (Toán thực tế)</option>
-              <option value="Đà Nẵng">Sở GD&ĐT Đà Nẵng</option>
+              <option value="Quảng Ngãi">🌟 Cấu trúc Quảng Ngãi (Đề 2026 Chuẩn)</option>
+              <option value="Hà Nội">Cấu trúc Hà Nội</option>
+              <option value="TP. Hồ Chí Minh">Cấu trúc TP. Hồ Chí Minh (Toán thực tế)</option>
+              <option value="Đà Nẵng">Cấu trúc Đà Nẵng</option>
               <option value="Toàn quốc">Chuẩn chung Bộ GD&ĐT</option>
             </select>
           </div>
@@ -385,7 +385,7 @@ export default function AiGeneratorView({ onStartExam, _onOpenDetail }) {
                 checked={generatorMethod === "matrix"} 
                 onChange={(e) => setGeneratorMethod(e.target.value)} 
               />
-              <span><strong>📐 Smart Matrix:</strong> Ma trận chuẩn Sở GD&ĐT (Miễn phí 100%, 0 tốn token)</span>
+              <span><strong>📐 Smart Matrix:</strong> Ma trận đề mẫu tự luyện (Miễn phí 100%, 0 tốn token)</span>
             </label>
             <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: "0.9rem" }}>
               <input 

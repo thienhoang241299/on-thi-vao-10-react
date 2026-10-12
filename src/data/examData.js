@@ -222,7 +222,7 @@ export const examData = [
         </div>
       </div>
     `,
-    solution: `
+    solutionHtml: `
       <div class="solution-content">
         <h4 style="color: var(--primary); margin-bottom: 14px;">HƯỚNG DẪN TƯ DUY VÀ BAREM ĐÁP ÁN CHI TIẾT (CHUẨN 10/10)</h4>
 
@@ -1083,16 +1083,430 @@ HA \\quad QN \\quad QN \\quad QN \\quad LS \\quad LS \\quad HA \\quad QN \\quad 
         </div>
       </div>
     `,
-    solution: `
-      <div class="solution-content">
-        <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM QUẢNG NGÃI 2024 (10/10)</h4>
-        <p><strong>Bài 1 (2,0đ):</strong> 1) $\\sqrt{49} - \\sqrt{36} = 7 - 6 = 1$.<br>2b) PT hoành độ: $2x^2 + x - 6 = 0 \\iff x = -2$ hoặc $x = \\frac{3}{2}$. Giao điểm: $(-2; 8)$ và $(1,5; 4,5)$.</p>
-        <p><strong>Bài 2 (2,0đ):</strong> 1a) $x = 3$ hoặc $x = -2$.<br>1b) $(x; y) = (3; 2)$.<br>2) $\\Delta' = 4 - 3m > 0 \\iff m < \\frac{4}{3}$. Vi-ét: $x_1 + x_2 = 2$. Kết hợp $2x_1 + 3x_2 = 7 \\Rightarrow x_2 = 3, x_1 = -1$. Khi đó $x_1 x_2 = -3 = 3m - 3 \\iff m = 0$ (thỏa mãn).</p>
-        <p><strong>Bài 3 (1,5đ):</strong> Gọi $x$ là số bộ bàn ghế/ngày theo kế hoạch ($x > 0$). Phương trình: $\\frac{7500}{x} - \\frac{7500}{x+50} = 5 \\iff x^2 + 50x - 75000 = 0 \\iff x = 250$ (nhận). Đáp số: 250 bộ/ngày.</p>
-        <p><strong>Bài 4 (3,5đ):</strong> a) $H$ trung điểm dây $AD \\Rightarrow OH \\perp AD \\Rightarrow \\widehat{OHC} = 90^\\circ$. Lại có $\\widehat{OBC} = 90^\\circ \\Rightarrow OBCH$ nội tiếp.<br>b) $\\triangle BOE \\backsim \\triangle BCD \\Rightarrow BC \\cdot BE = BO \\cdot BA$.<br>c) Tính $S_{\\triangle CHE} = \\frac{27}{2}\\text{ cm}^2$.<br>d) Tâm ngoại tiếp tam giác $ACE$ thuộc đường trung trực cố định của $AB$.</p>
-        <p><strong>Bài 5 (1,0đ):</strong> a) Biến đổi tương đương $(x+y)^2 \\ge 4xy \\iff (x-y)^2 \\ge 0$ (luôn đúng).<br>b) Tách $S = \\left(\\frac{1}{x^2+y^2} + \\frac{1}{2xy}\\right) + \\left(4xy + \\frac{1}{4xy}\\right) + \\frac{1}{xy} \\ge 4 + 2 + 4 = 10$. Dấu bằng khi $x = y = \\frac{1}{2}$. Vậy $\\min S = 10$.</p>
+    solutionHtml: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2024
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2024 - 2025 (Ngày thi: 06/6/2024)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+          
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $\\sqrt{49} - \\sqrt{3} \\cdot \\sqrt{12} = 7 - \\sqrt{3 \\cdot 12} = 7 - \\sqrt{36} = 7 - 6 = 1$.<br>
+          <em>(Barem: Tính đúng $\\sqrt{49} = 7$ và $\\sqrt{3} \\cdot \\sqrt{12} = 6$: 0,25đ; ra kết quả 1: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P): y = 2x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị tương ứng của $x$ và $y$:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = 2x^2$</th>
+              <td>$8$</td>
+              <td>$2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là đường Parabol có đỉnh $O(0;0)$, nhận trục tung $Oy$ làm trục đối xứng và quay bề lõm lên trên, đi qua các điểm $(-2; 8), (-1; 2), (0; 0), (1; 2), (2; 8)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng ít nhất 5 điểm: 0,25đ; xác định đúng các điểm và vẽ đồ thị parabol chính xác, cân đối: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ và đường thẳng $(d): y = -x + 6$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$2x^2 = -x + 6 \\iff 2x^2 + x - 6 = 0$$
+          Ta có: $\\Delta = 1^2 - 4 \\cdot 2 \\cdot (-6) = 1 + 48 = 49 > 0 \\Rightarrow \\sqrt{\\Delta} = 7$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{-1 + 7}{2 \\cdot 2} = \\frac{6}{4} = \\frac{3}{2}; \\quad x_2 = \\frac{-1 - 7}{2 \\cdot 2} = \\frac{-8}{4} = -2$$
+          - Với $x_1 = \\frac{3}{2} \\Rightarrow y_1 = -\\frac{3}{2} + 6 = \\frac{9}{2} = 4,5$.<br>
+          - Với $x_2 = -2 \\Rightarrow y_2 = -(-2) + 6 = 8$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm phân biệt là $\\left(\\frac{3}{2}; \\frac{9}{2}\\right)$ và $(-2; 8)$.<br>
+          <em>(Barem: Lập đúng phương trình hoành độ giao điểm: 0,25đ; giải đúng 2 nghiệm $x$: 0,25đ; tính đúng $y$ tương ứng và kết luận tọa độ 2 giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 - x - 6 = 0$:</strong><br>
+          Ta có: $\\Delta = (-1)^2 - 4 \\cdot 1 \\cdot (-6) = 1 + 24 = 25 > 0 \\Rightarrow \\sqrt{\\Delta} = 5$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{1 + 5}{2} = 3; \\quad x_2 = \\frac{1 - 5}{2} = -2$$
+          Vậy tập nghiệm của phương trình là $S = \\{3; -2\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta = 25$ hoặc phân tích $(x-3)(x+2)=0$: 0,25đ; kết luận đúng hai nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} x - 2y = -1 \\quad (1) \\\\ 2x + y = 8 \\quad (2) \\end{cases}$$
+          Từ phương trình $(1) \\Rightarrow x = 2y - 1$. Thế vào phương trình $(2)$ ta được:<br>
+          $$2(2y - 1) + y = 8 \\iff 4y - 2 + y = 8 \\iff 5y = 10 \\iff y = 2$$
+          Thay $y = 2$ vào $x = 2y - 1 \\Rightarrow x = 2 \\cdot 2 - 1 = 3$.<br>
+          Vậy hệ phương trình có nghiệm duy nhất $(x; y) = (3; 2)$.<br>
+          <em>(Barem: Biến đổi khử 1 ẩn và giải đúng $y=2$ hoặc $x=3$: 0,25đ; tìm ẩn còn lại và kết luận: 0,25đ)</em></p>
+
+          <p><strong>2. (1,0 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt thỏa mãn $2x_1 + 3x_2 = 7$:</strong><br>
+          Xét phương trình $x^2 - 2x + 3m - 3 = 0$.<br>
+          Ta có: $\\Delta' = (-1)^2 - 1 \\cdot (3m - 3) = 1 - 3m + 3 = 4 - 3m$.<br>
+          Để phương trình có hai nghiệm phân biệt $x_1, x_2$ thì $\\Delta' > 0 \\iff 4 - 3m > 0 \\iff m < \\frac{4}{3}$. (0,25đ)<br>
+          Theo hệ thức Vi-ét, ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2 \\quad (1) \\\\ x_1 x_2 = 3m - 3 \\quad (2) \\end{cases}$$
+          Kết hợp phương trình $(1)$ với giả thiết $2x_1 + 3x_2 = 7$, ta có hệ:<br>
+          $$\\begin{cases} x_1 + x_2 = 2 \\\\ 2x_1 + 3x_2 = 7 \\end{cases} \\iff \\begin{cases} 2x_1 + 2x_2 = 4 \\\\ 2x_1 + 3x_2 = 7 \\end{cases} \\iff \\begin{cases} x_2 = 3 \\\\ x_1 = 2 - 3 = -1 \\end{cases}$$ (0,25đ)<br>
+          Thay $x_1 = -1$ và $x_2 = 3$ vào hệ thức $(2)$ ta được:<br>
+          $$(-1) \\cdot 3 = 3m - 3 \\iff -3 = 3m - 3 \\iff 3m = 0 \\iff m = 0$$ (0,25đ)<br>
+          So sánh với điều kiện: $m = 0 < \\frac{4}{3}$ (thỏa mãn điều kiện).<br>
+          Vậy giá trị cần tìm là $m = 0$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi số bộ bàn ghế mà công ty phải sản xuất trong một ngày theo kế hoạch là $x$ (bộ).<br>
+          Điều kiện: $x \\in \\mathbb{N}^*, x > 0$.<br>
+          - Thời gian công ty dự định hoàn thành kế hoạch là: $\\frac{7500}{x}$ (ngày). (0,25đ)<br>
+          - Thực tế, mỗi ngày công ty sản xuất được: $x + 50$ (bộ).<br>
+          - Thời gian thực tế công ty hoàn thành công việc là: $\\frac{7500}{x + 50}$ (ngày). (0,25đ)<br>
+          - Vì công ty đã hoàn thành công việc sớm hơn kế hoạch 5 ngày nên ta có phương trình:<br>
+          $$\\frac{7500}{x} - \\frac{7500}{x + 50} = 5$$ (0,25đ)<br>
+          Chia cả hai vế cho 5 ta được:<br>
+          $$\\frac{1500}{x} - \\frac{1500}{x + 50} = 1$$
+          $$\\iff 1500(x + 50) - 1500x = x(x + 50)$$
+          $$\\iff 1500x + 75000 - 1500x = x^2 + 50x$$
+          $$\\iff x^2 + 50x - 75000 = 0$$ (0,25đ)<br>
+          Ta có: $\\Delta' = 25^2 - 1 \\cdot (-75000) = 625 + 75000 = 75625 > 0 \\Rightarrow \\sqrt{\\Delta'} = 275$.<br>
+          Phương trình có hai nghiệm:<br>
+          $$x_1 = -25 + 275 = 250 \\quad \\text{(thỏa mãn điều kiện)}$$
+          $$x_2 = -25 - 275 = -300 < 0 \\quad \\text{(loại)}$$ (0,25đ)<br>
+          Vậy theo kế hoạch, mỗi ngày công ty phải sản xuất <strong>250 bộ bàn ghế</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+          
+          <div style="text-align: center; margin: 12px 0; background: #ffffff; padding: 10px; border-radius: 8px;">
+            <svg viewBox="0 0 240 260" width="220" height="240" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="110" cy="140" r="70" fill="none" stroke="#64748b" stroke-width="1.8" />
+              <line x1="40" y1="140" x2="180" y2="140" stroke="#1e293b" stroke-width="2" />
+              <line x1="180" y1="20" x2="180" y2="240" stroke="#2563eb" stroke-width="1.8" />
+              <line x1="40" y1="140" x2="180" y2="40" stroke="#1e293b" stroke-width="1.5" />
+              <line x1="110" y1="140" x2="180" y2="210" stroke="#10b981" stroke-width="1.5" />
+              <circle cx="40" cy="140" r="3" fill="#1e293b" /><text x="25" y="145" font-size="12" font-weight="bold">A</text>
+              <circle cx="110" cy="140" r="3" fill="#1e293b" /><text x="105" y="158" font-size="12" font-weight="bold">O</text>
+              <circle cx="180" cy="140" r="3" fill="#1e293b" /><text x="185" y="145" font-size="12" font-weight="bold">B</text>
+              <circle cx="180" cy="40" r="3" fill="#2563eb" /><text x="185" y="38" font-size="12" font-weight="bold" fill="#2563eb">C</text>
+              <circle cx="140" cy="69" r="3" fill="#1e293b" /><text x="145" y="65" font-size="12" font-weight="bold">D</text>
+              <circle cx="90" cy="104.5" r="3" fill="#10b981" /><text x="75" y="105" font-size="12" font-weight="bold" fill="#10b981">H</text>
+              <circle cx="180" cy="210" r="3" fill="#f59e0b" /><text x="185" y="215" font-size="12" font-weight="bold" fill="#f59e0b">E</text>
+            </svg>
+          </div>
+
+          <p><strong>a) (1,0 điểm): Chứng minh $OBCH$ là tứ giác nội tiếp:</strong><br>
+          - Vì $H$ là trung điểm của dây cung $AD$ (với $AD$ không đi qua tâm $O$) nên theo quan hệ vuông góc giữa đường kính và dây cung, ta có $OH \\perp AD$ tại $H \\Rightarrow \\widehat{OHC} = 90^\\circ$. (0,5đ)<br>
+          - Theo đề bài, đường thẳng $d \\perp AB$ tại $B$ mà $C \\in d \\Rightarrow BC \\perp AB \\Rightarrow \\widehat{OBC} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $OBCH$ có hai đỉnh kề nhau $H$ và $B$ cùng nhìn đoạn thẳng $OC$ dưới một góc vuông ($90^\\circ$).<br>
+          Do đó, tứ giác $OBCH$ nội tiếp đường tròn đường kính $OC$ (đpcm). (0,25đ)</p>
+
+          <p><strong>b) (1,0 điểm): Chứng minh $BC \\cdot BE = BO \\cdot BA$:</strong><br>
+          - Ta có $A, O, B$ thẳng hàng và $O, H, E$ thẳng hàng. Do đó hai góc $\\widehat{BOE}$ và $\\widehat{AOH}$ là hai góc đối đỉnh $\\Rightarrow \\widehat{BOE} = \\widehat{AOH}$. (0,25đ)<br>
+          - Trong tam giác vuông $OAH$ (vuông tại $H$): $\\widehat{AOH} + \\widehat{OAH} = 90^\\circ$.<br>
+          - Trong tam giác vuông $ABC$ (vuông tại $B$): $\\widehat{BCA} + \\widehat{BAC} = 90^\\circ$.<br>
+          Vì $\\widehat{OAH} = \\widehat{BAC}$ nên $\\widehat{AOH} = \\widehat{BCA}$.<br>
+          Từ đó suy ra: $\\widehat{BOE} = \\widehat{BCA}$. (0,25đ)<br>
+          - Xét hai tam giác vuông $\\triangle BOE$ và $\\triangle BCA$ có:<br>
+          + $\\widehat{OBE} = \\widehat{ABC} = 90^\\circ$ (do $AB \\perp d$ tại $B$).<br>
+          + $\\widehat{BOE} = \\widehat{BCA}$ (chứng minh trên).<br>
+          $\\Rightarrow \\triangle BOE \\backsim \\triangle BCA$ (g - g). (0,25đ)<br>
+          Suy ra tỉ số đồng dạng: $\\frac{BO}{BC} = \\frac{BE}{BA} \\iff BC \\cdot BE = BO \\cdot BA$ (đpcm). (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Khi $BC = 6\\text{ cm}$, tính diện tích tam giác $CHE$:</strong><br>
+          - Đường kính $AB = 8\\text{ cm} \\Rightarrow BO = OA = 4\\text{ cm}$.<br>
+          - Áp dụng hệ thức ở câu b: $BC \\cdot BE = BO \\cdot BA \\Rightarrow BE = \\frac{BO \\cdot BA}{BC} = \\frac{4 \\cdot 8}{6} = \\frac{32}{6} = \\frac{16}{3}\\text{ cm}$. (0,25đ)<br>
+          - Vì $C$ và $E$ nằm ở hai phía so với $B$ trên đường thẳng $d$ nên độ dài đoạn $CE$ là:<br>
+          $$CE = BC + BE = 6 + \\frac{16}{3} = \\frac{34}{3}\\text{ cm}$$
+          - Trong tam giác vuông $ABC$ ($B = 90^\\circ$): $AC = \\sqrt{AB^2 + BC^2} = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10\\text{ cm}$.<br>
+          - Trong tam giác vuông $OAH$ vuông tại $H$: $\\cos \\widehat{A} = \\frac{AH}{OA} = \\frac{AB}{AC} = \\frac{8}{10} = 0,8$.<br>
+          $\\Rightarrow AH = OA \\cdot 0,8 = 4 \\cdot 0,8 = 3,2\\text{ cm} \\Rightarrow HC = AC - AH = 10 - 3,2 = 6,8 = \\frac{34}{5}\\text{ cm}$.<br>
+          - Đoạn $OH = \\sqrt{OA^2 - AH^2} = \\sqrt{4^2 - 3,2^2} = \\sqrt{16 - 10,24} = \\sqrt{5,76} = 2,4\\text{ cm}$.<br>
+          - Trong tam giác vuông $OBE$ vuông tại $B$: $OE = \\sqrt{OB^2 + BE^2} = \\sqrt{4^2 + (16/3)^2} = \\sqrt{16 + 256/9} = \\sqrt{400/9} = \\frac{20}{3}\\text{ cm}$.<br>
+          - Do $O, H, E$ thẳng hàng (với $O$ nằm giữa $H$ và $E$) nên:<br>
+          $$HE = OH + OE = 2,4 + \\frac{20}{3} = \\frac{12}{5} + \\frac{20}{3} = \\frac{136}{15}\\text{ cm}$$
+          - Vì $CH \\perp HE$ tại $H$ (do $\\widehat{OHC} = 90^\\circ$), nên $\\triangle CHE$ vuông tại $H$:<br>
+          $$S_{\\triangle CHE} = \\frac{1}{2} \\cdot HC \\cdot HE = \\frac{1}{2} \\cdot \\frac{34}{5} \\cdot \\frac{136}{15} = \\frac{2312}{75}\\text{ cm}^2 \\approx 30,83\\text{ cm}^2$$ (0,5đ)</p>
+
+          <p><strong>d) (0,75 điểm): Chứng minh tâm đường tròn ngoại tiếp $\\triangle ACE$ luôn thuộc một đường thẳng cố định:</strong><br>
+          - Xét tam giác $ACE$ có:<br>
+          + $EH \\perp AC$ tại $H$ (vì $OH \\perp AC$ và $E \\in OH$) $\\Rightarrow EH$ là đường cao kẻ từ $E$.<br>
+          + $AB \\perp CE$ tại $B$ (vì $AB \\perp d$) $\\Rightarrow AB$ là đường cao kẻ từ $A$.<br>
+          + Hai đường cao $EH$ và $AB$ cắt nhau tại $O$.<br>
+          Do đó, <strong>$O$ là trực tâm của tam giác $ACE$</strong>. (0,25đ)<br>
+          - Gọi $O'$ là điểm đối xứng của $O$ qua đường thẳng $d$ (đường thẳng $CE$).<br>
+          Vì đường tròn $(O; R)$ và đường thẳng $d$ cố định nên điểm $O$ và đường thẳng $d$ cố định $\\Rightarrow O'$ là điểm cố định. (Cụ thể $B$ là trung điểm của $OO'$ và $AO' = 3R$).<br>
+          - Theo tính chất hình học: Điểm đối xứng của trực tâm qua một cạnh của tam giác luôn nằm trên đường tròn ngoại tiếp của tam giác đó.<br>
+          Suy ra $O'$ luôn nằm trên đường tròn ngoại tiếp tam giác $ACE$. (0,25đ)<br>
+          - Như vậy, đường tròn ngoại tiếp tam giác $ACE$ luôn đi qua hai điểm cố định là $A$ và $O'$.<br>
+          Gọi $I$ là tâm của đường tròn ngoại tiếp tam giác $ACE$, ta luôn có $IA = IO'$.<br>
+          Vậy tâm $I$ luôn thuộc <strong>đường trung trực cố định của đoạn thẳng $AO'$</strong> khi điểm $C$ thay đổi trên $d$ (đpcm). (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+
+          <p><strong>a) (0,5 điểm): Chứng minh rằng $\\frac{1}{x} + \\frac{1}{y} \\ge \\frac{4}{x + y}$:</strong><br>
+          Với hai số thực dương $x, y > 0$, áp dụng bất đẳng thức Cauchy (AM-GM) cho hai số dương:<br>
+          $$x + y \\ge 2\\sqrt{xy}$$
+          $$\\frac{1}{x} + \\frac{1}{y} \\ge 2\\sqrt{\\frac{1}{x} \\cdot \\frac{1}{y}} = \\frac{2}{\\sqrt{xy}}$$
+          Nhân từng vế của hai bất đẳng thức dương trên ta được:<br>
+          $$(x + y)\\left(\\frac{1}{x} + \\frac{1}{y}\\right) \\ge 2\\sqrt{xy} \\cdot \\frac{2}{\\sqrt{xy}} = 4$$
+          Chia cả hai vế cho $(x + y) > 0$ ta được:<br>
+          $$\\frac{1}{x} + \\frac{1}{y} \\ge \\frac{4}{x + y} \\quad \\text{(đpcm)}$$<br>
+          Dấu đẳng thức xảy ra khi và chỉ khi $x = y$.<br>
+          <em>(Barem: Áp dụng đúng BĐT Cauchy hoặc biến đổi tương đương $(x+y)^2 \\ge 4xy \\iff (x-y)^2 \\ge 0$: 0,25đ; lập luận dấu bằng và kết luận: 0,25đ)</em></p>
+
+          <p><strong>b) (0,5 điểm): Tìm giá trị nhỏ nhất của $S = \\frac{1}{x^2 + y^2} + \\frac{7}{4xy} + 4xy$:</strong><br>
+          Tách biểu thức $S$ thành ba nhóm thích hợp:<br>
+          $$S = \\left(\\frac{1}{x^2 + y^2} + \\frac{1}{2xy}\\right) + \\left(4xy + \\frac{1}{4xy}\\right) + \\frac{1}{xy}$$
+          Ta lần lượt đánh giá từng nhóm:<br>
+          1. Áp dụng bất đẳng thức ở câu a với hai số dương $(x^2 + y^2)$ và $2xy$:<br>
+          $$\\frac{1}{x^2 + y^2} + \\frac{1}{2xy} \\ge \\frac{4}{x^2 + y^2 + 2xy} = \\frac{4}{(x + y)^2}$$
+          Vì theo giả thiết $x + y \\le 1 \\Rightarrow (x + y)^2 \\le 1 \\Rightarrow \\frac{4}{(x + y)^2} \\ge 4$. (0,15đ)<br>
+          2. Áp dụng bất đẳng thức Cauchy cho hai số dương $4xy$ và $\\frac{1}{4xy}$:<br>
+          $$4xy + \\frac{1}{4xy} \\ge 2\\sqrt{4xy \\cdot \\frac{1}{4xy}} = 2$$ (0,15đ)<br>
+          3. Vì $x, y > 0$ và $x + y \\le 1$, áp dụng BĐT Cauchy: $xy \\le \\left(\\frac{x + y}{2}\\right)^2 \\le \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$.<br>
+          $$\\Rightarrow \\frac{1}{xy} \\ge \\frac{1}{1/4} = 4$$ (0,1đ)<br>
+          Cộng từng vế của ba bất đẳng thức trên, ta được:<br>
+          $$S \\ge 4 + 2 + 4 = 10$$
+          Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} x^2 + y^2 = 2xy \\\\ 4xy = \\frac{1}{4xy} \\\\ x + y = 1 \\\\ x = y \\end{cases} \\iff x = y = \\frac{1}{2}$$
+          Khi $x = y = \\frac{1}{2}$ thì $x + y = 1 \\le 1$ thỏa mãn điều kiện đề bài.<br>
+          Vậy giá trị nhỏ nhất của $S$ là <strong>$10$</strong>, đạt được khi $x = y = \\frac{1}{2}$. (0,1đ)</p>
+        </div>
       </div>
-    `,
+`,
+    solution: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2024
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2024 - 2025 (Ngày thi: 06/6/2024)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+          
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $\\sqrt{49} - \\sqrt{3} \\cdot \\sqrt{12} = 7 - \\sqrt{3 \\cdot 12} = 7 - \\sqrt{36} = 7 - 6 = 1$.<br>
+          <em>(Barem: Tính đúng $\\sqrt{49} = 7$ và $\\sqrt{3} \\cdot \\sqrt{12} = 6$: 0,25đ; ra kết quả 1: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P): y = 2x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị tương ứng của $x$ và $y$:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = 2x^2$</th>
+              <td>$8$</td>
+              <td>$2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là đường Parabol có đỉnh $O(0;0)$, nhận trục tung $Oy$ làm trục đối xứng và quay bề lõm lên trên, đi qua các điểm $(-2; 8), (-1; 2), (0; 0), (1; 2), (2; 8)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng ít nhất 5 điểm: 0,25đ; xác định đúng các điểm và vẽ đồ thị parabol chính xác, cân đối: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ và đường thẳng $(d): y = -x + 6$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$2x^2 = -x + 6 \\iff 2x^2 + x - 6 = 0$$
+          Ta có: $\\Delta = 1^2 - 4 \\cdot 2 \\cdot (-6) = 1 + 48 = 49 > 0 \\Rightarrow \\sqrt{\\Delta} = 7$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{-1 + 7}{2 \\cdot 2} = \\frac{6}{4} = \\frac{3}{2}; \\quad x_2 = \\frac{-1 - 7}{2 \\cdot 2} = \\frac{-8}{4} = -2$$
+          - Với $x_1 = \\frac{3}{2} \\Rightarrow y_1 = -\\frac{3}{2} + 6 = \\frac{9}{2} = 4,5$.<br>
+          - Với $x_2 = -2 \\Rightarrow y_2 = -(-2) + 6 = 8$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm phân biệt là $\\left(\\frac{3}{2}; \\frac{9}{2}\\right)$ và $(-2; 8)$.<br>
+          <em>(Barem: Lập đúng phương trình hoành độ giao điểm: 0,25đ; giải đúng 2 nghiệm $x$: 0,25đ; tính đúng $y$ tương ứng và kết luận tọa độ 2 giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 - x - 6 = 0$:</strong><br>
+          Ta có: $\\Delta = (-1)^2 - 4 \\cdot 1 \\cdot (-6) = 1 + 24 = 25 > 0 \\Rightarrow \\sqrt{\\Delta} = 5$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{1 + 5}{2} = 3; \\quad x_2 = \\frac{1 - 5}{2} = -2$$
+          Vậy tập nghiệm của phương trình là $S = \\{3; -2\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta = 25$ hoặc phân tích $(x-3)(x+2)=0$: 0,25đ; kết luận đúng hai nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} x - 2y = -1 \\quad (1) \\\\ 2x + y = 8 \\quad (2) \\end{cases}$$
+          Từ phương trình $(1) \\Rightarrow x = 2y - 1$. Thế vào phương trình $(2)$ ta được:<br>
+          $$2(2y - 1) + y = 8 \\iff 4y - 2 + y = 8 \\iff 5y = 10 \\iff y = 2$$
+          Thay $y = 2$ vào $x = 2y - 1 \\Rightarrow x = 2 \\cdot 2 - 1 = 3$.<br>
+          Vậy hệ phương trình có nghiệm duy nhất $(x; y) = (3; 2)$.<br>
+          <em>(Barem: Biến đổi khử 1 ẩn và giải đúng $y=2$ hoặc $x=3$: 0,25đ; tìm ẩn còn lại và kết luận: 0,25đ)</em></p>
+
+          <p><strong>2. (1,0 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt thỏa mãn $2x_1 + 3x_2 = 7$:</strong><br>
+          Xét phương trình $x^2 - 2x + 3m - 3 = 0$.<br>
+          Ta có: $\\Delta' = (-1)^2 - 1 \\cdot (3m - 3) = 1 - 3m + 3 = 4 - 3m$.<br>
+          Để phương trình có hai nghiệm phân biệt $x_1, x_2$ thì $\\Delta' > 0 \\iff 4 - 3m > 0 \\iff m < \\frac{4}{3}$. (0,25đ)<br>
+          Theo hệ thức Vi-ét, ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2 \\quad (1) \\\\ x_1 x_2 = 3m - 3 \\quad (2) \\end{cases}$$
+          Kết hợp phương trình $(1)$ với giả thiết $2x_1 + 3x_2 = 7$, ta có hệ:<br>
+          $$\\begin{cases} x_1 + x_2 = 2 \\\\ 2x_1 + 3x_2 = 7 \\end{cases} \\iff \\begin{cases} 2x_1 + 2x_2 = 4 \\\\ 2x_1 + 3x_2 = 7 \\end{cases} \\iff \\begin{cases} x_2 = 3 \\\\ x_1 = 2 - 3 = -1 \\end{cases}$$ (0,25đ)<br>
+          Thay $x_1 = -1$ và $x_2 = 3$ vào hệ thức $(2)$ ta được:<br>
+          $$(-1) \\cdot 3 = 3m - 3 \\iff -3 = 3m - 3 \\iff 3m = 0 \\iff m = 0$$ (0,25đ)<br>
+          So sánh với điều kiện: $m = 0 < \\frac{4}{3}$ (thỏa mãn điều kiện).<br>
+          Vậy giá trị cần tìm là $m = 0$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi số bộ bàn ghế mà công ty phải sản xuất trong một ngày theo kế hoạch là $x$ (bộ).<br>
+          Điều kiện: $x \\in \\mathbb{N}^*, x > 0$.<br>
+          - Thời gian công ty dự định hoàn thành kế hoạch là: $\\frac{7500}{x}$ (ngày). (0,25đ)<br>
+          - Thực tế, mỗi ngày công ty sản xuất được: $x + 50$ (bộ).<br>
+          - Thời gian thực tế công ty hoàn thành công việc là: $\\frac{7500}{x + 50}$ (ngày). (0,25đ)<br>
+          - Vì công ty đã hoàn thành công việc sớm hơn kế hoạch 5 ngày nên ta có phương trình:<br>
+          $$\\frac{7500}{x} - \\frac{7500}{x + 50} = 5$$ (0,25đ)<br>
+          Chia cả hai vế cho 5 ta được:<br>
+          $$\\frac{1500}{x} - \\frac{1500}{x + 50} = 1$$
+          $$\\iff 1500(x + 50) - 1500x = x(x + 50)$$
+          $$\\iff 1500x + 75000 - 1500x = x^2 + 50x$$
+          $$\\iff x^2 + 50x - 75000 = 0$$ (0,25đ)<br>
+          Ta có: $\\Delta' = 25^2 - 1 \\cdot (-75000) = 625 + 75000 = 75625 > 0 \\Rightarrow \\sqrt{\\Delta'} = 275$.<br>
+          Phương trình có hai nghiệm:<br>
+          $$x_1 = -25 + 275 = 250 \\quad \\text{(thỏa mãn điều kiện)}$$
+          $$x_2 = -25 - 275 = -300 < 0 \\quad \\text{(loại)}$$ (0,25đ)<br>
+          Vậy theo kế hoạch, mỗi ngày công ty phải sản xuất <strong>250 bộ bàn ghế</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+          
+          <div style="text-align: center; margin: 12px 0; background: #ffffff; padding: 10px; border-radius: 8px;">
+            <svg viewBox="0 0 240 260" width="220" height="240" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="110" cy="140" r="70" fill="none" stroke="#64748b" stroke-width="1.8" />
+              <line x1="40" y1="140" x2="180" y2="140" stroke="#1e293b" stroke-width="2" />
+              <line x1="180" y1="20" x2="180" y2="240" stroke="#2563eb" stroke-width="1.8" />
+              <line x1="40" y1="140" x2="180" y2="40" stroke="#1e293b" stroke-width="1.5" />
+              <line x1="110" y1="140" x2="180" y2="210" stroke="#10b981" stroke-width="1.5" />
+              <circle cx="40" cy="140" r="3" fill="#1e293b" /><text x="25" y="145" font-size="12" font-weight="bold">A</text>
+              <circle cx="110" cy="140" r="3" fill="#1e293b" /><text x="105" y="158" font-size="12" font-weight="bold">O</text>
+              <circle cx="180" cy="140" r="3" fill="#1e293b" /><text x="185" y="145" font-size="12" font-weight="bold">B</text>
+              <circle cx="180" cy="40" r="3" fill="#2563eb" /><text x="185" y="38" font-size="12" font-weight="bold" fill="#2563eb">C</text>
+              <circle cx="140" cy="69" r="3" fill="#1e293b" /><text x="145" y="65" font-size="12" font-weight="bold">D</text>
+              <circle cx="90" cy="104.5" r="3" fill="#10b981" /><text x="75" y="105" font-size="12" font-weight="bold" fill="#10b981">H</text>
+              <circle cx="180" cy="210" r="3" fill="#f59e0b" /><text x="185" y="215" font-size="12" font-weight="bold" fill="#f59e0b">E</text>
+            </svg>
+          </div>
+
+          <p><strong>a) (1,0 điểm): Chứng minh $OBCH$ là tứ giác nội tiếp:</strong><br>
+          - Vì $H$ là trung điểm của dây cung $AD$ (với $AD$ không đi qua tâm $O$) nên theo quan hệ vuông góc giữa đường kính và dây cung, ta có $OH \\perp AD$ tại $H \\Rightarrow \\widehat{OHC} = 90^\\circ$. (0,5đ)<br>
+          - Theo đề bài, đường thẳng $d \\perp AB$ tại $B$ mà $C \\in d \\Rightarrow BC \\perp AB \\Rightarrow \\widehat{OBC} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $OBCH$ có hai đỉnh kề nhau $H$ và $B$ cùng nhìn đoạn thẳng $OC$ dưới một góc vuông ($90^\\circ$).<br>
+          Do đó, tứ giác $OBCH$ nội tiếp đường tròn đường kính $OC$ (đpcm). (0,25đ)</p>
+
+          <p><strong>b) (1,0 điểm): Chứng minh $BC \\cdot BE = BO \\cdot BA$:</strong><br>
+          - Ta có $A, O, B$ thẳng hàng và $O, H, E$ thẳng hàng. Do đó hai góc $\\widehat{BOE}$ và $\\widehat{AOH}$ là hai góc đối đỉnh $\\Rightarrow \\widehat{BOE} = \\widehat{AOH}$. (0,25đ)<br>
+          - Trong tam giác vuông $OAH$ (vuông tại $H$): $\\widehat{AOH} + \\widehat{OAH} = 90^\\circ$.<br>
+          - Trong tam giác vuông $ABC$ (vuông tại $B$): $\\widehat{BCA} + \\widehat{BAC} = 90^\\circ$.<br>
+          Vì $\\widehat{OAH} = \\widehat{BAC}$ nên $\\widehat{AOH} = \\widehat{BCA}$.<br>
+          Từ đó suy ra: $\\widehat{BOE} = \\widehat{BCA}$. (0,25đ)<br>
+          - Xét hai tam giác vuông $\\triangle BOE$ và $\\triangle BCA$ có:<br>
+          + $\\widehat{OBE} = \\widehat{ABC} = 90^\\circ$ (do $AB \\perp d$ tại $B$).<br>
+          + $\\widehat{BOE} = \\widehat{BCA}$ (chứng minh trên).<br>
+          $\\Rightarrow \\triangle BOE \\backsim \\triangle BCA$ (g - g). (0,25đ)<br>
+          Suy ra tỉ số đồng dạng: $\\frac{BO}{BC} = \\frac{BE}{BA} \\iff BC \\cdot BE = BO \\cdot BA$ (đpcm). (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Khi $BC = 6\\text{ cm}$, tính diện tích tam giác $CHE$:</strong><br>
+          - Đường kính $AB = 8\\text{ cm} \\Rightarrow BO = OA = 4\\text{ cm}$.<br>
+          - Áp dụng hệ thức ở câu b: $BC \\cdot BE = BO \\cdot BA \\Rightarrow BE = \\frac{BO \\cdot BA}{BC} = \\frac{4 \\cdot 8}{6} = \\frac{32}{6} = \\frac{16}{3}\\text{ cm}$. (0,25đ)<br>
+          - Vì $C$ và $E$ nằm ở hai phía so với $B$ trên đường thẳng $d$ nên độ dài đoạn $CE$ là:<br>
+          $$CE = BC + BE = 6 + \\frac{16}{3} = \\frac{34}{3}\\text{ cm}$$
+          - Trong tam giác vuông $ABC$ ($B = 90^\\circ$): $AC = \\sqrt{AB^2 + BC^2} = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10\\text{ cm}$.<br>
+          - Trong tam giác vuông $OAH$ vuông tại $H$: $\\cos \\widehat{A} = \\frac{AH}{OA} = \\frac{AB}{AC} = \\frac{8}{10} = 0,8$.<br>
+          $\\Rightarrow AH = OA \\cdot 0,8 = 4 \\cdot 0,8 = 3,2\\text{ cm} \\Rightarrow HC = AC - AH = 10 - 3,2 = 6,8 = \\frac{34}{5}\\text{ cm}$.<br>
+          - Đoạn $OH = \\sqrt{OA^2 - AH^2} = \\sqrt{4^2 - 3,2^2} = \\sqrt{16 - 10,24} = \\sqrt{5,76} = 2,4\\text{ cm}$.<br>
+          - Trong tam giác vuông $OBE$ vuông tại $B$: $OE = \\sqrt{OB^2 + BE^2} = \\sqrt{4^2 + (16/3)^2} = \\sqrt{16 + 256/9} = \\sqrt{400/9} = \\frac{20}{3}\\text{ cm}$.<br>
+          - Do $O, H, E$ thẳng hàng (với $O$ nằm giữa $H$ và $E$) nên:<br>
+          $$HE = OH + OE = 2,4 + \\frac{20}{3} = \\frac{12}{5} + \\frac{20}{3} = \\frac{136}{15}\\text{ cm}$$
+          - Vì $CH \\perp HE$ tại $H$ (do $\\widehat{OHC} = 90^\\circ$), nên $\\triangle CHE$ vuông tại $H$:<br>
+          $$S_{\\triangle CHE} = \\frac{1}{2} \\cdot HC \\cdot HE = \\frac{1}{2} \\cdot \\frac{34}{5} \\cdot \\frac{136}{15} = \\frac{2312}{75}\\text{ cm}^2 \\approx 30,83\\text{ cm}^2$$ (0,5đ)</p>
+
+          <p><strong>d) (0,75 điểm): Chứng minh tâm đường tròn ngoại tiếp $\\triangle ACE$ luôn thuộc một đường thẳng cố định:</strong><br>
+          - Xét tam giác $ACE$ có:<br>
+          + $EH \\perp AC$ tại $H$ (vì $OH \\perp AC$ và $E \\in OH$) $\\Rightarrow EH$ là đường cao kẻ từ $E$.<br>
+          + $AB \\perp CE$ tại $B$ (vì $AB \\perp d$) $\\Rightarrow AB$ là đường cao kẻ từ $A$.<br>
+          + Hai đường cao $EH$ và $AB$ cắt nhau tại $O$.<br>
+          Do đó, <strong>$O$ là trực tâm của tam giác $ACE$</strong>. (0,25đ)<br>
+          - Gọi $O'$ là điểm đối xứng của $O$ qua đường thẳng $d$ (đường thẳng $CE$).<br>
+          Vì đường tròn $(O; R)$ và đường thẳng $d$ cố định nên điểm $O$ và đường thẳng $d$ cố định $\\Rightarrow O'$ là điểm cố định. (Cụ thể $B$ là trung điểm của $OO'$ và $AO' = 3R$).<br>
+          - Theo tính chất hình học: Điểm đối xứng của trực tâm qua một cạnh của tam giác luôn nằm trên đường tròn ngoại tiếp của tam giác đó.<br>
+          Suy ra $O'$ luôn nằm trên đường tròn ngoại tiếp tam giác $ACE$. (0,25đ)<br>
+          - Như vậy, đường tròn ngoại tiếp tam giác $ACE$ luôn đi qua hai điểm cố định là $A$ và $O'$.<br>
+          Gọi $I$ là tâm của đường tròn ngoại tiếp tam giác $ACE$, ta luôn có $IA = IO'$.<br>
+          Vậy tâm $I$ luôn thuộc <strong>đường trung trực cố định của đoạn thẳng $AO'$</strong> khi điểm $C$ thay đổi trên $d$ (đpcm). (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+
+          <p><strong>a) (0,5 điểm): Chứng minh rằng $\\frac{1}{x} + \\frac{1}{y} \\ge \\frac{4}{x + y}$:</strong><br>
+          Với hai số thực dương $x, y > 0$, áp dụng bất đẳng thức Cauchy (AM-GM) cho hai số dương:<br>
+          $$x + y \\ge 2\\sqrt{xy}$$
+          $$\\frac{1}{x} + \\frac{1}{y} \\ge 2\\sqrt{\\frac{1}{x} \\cdot \\frac{1}{y}} = \\frac{2}{\\sqrt{xy}}$$
+          Nhân từng vế của hai bất đẳng thức dương trên ta được:<br>
+          $$(x + y)\\left(\\frac{1}{x} + \\frac{1}{y}\\right) \\ge 2\\sqrt{xy} \\cdot \\frac{2}{\\sqrt{xy}} = 4$$
+          Chia cả hai vế cho $(x + y) > 0$ ta được:<br>
+          $$\\frac{1}{x} + \\frac{1}{y} \\ge \\frac{4}{x + y} \\quad \\text{(đpcm)}$$<br>
+          Dấu đẳng thức xảy ra khi và chỉ khi $x = y$.<br>
+          <em>(Barem: Áp dụng đúng BĐT Cauchy hoặc biến đổi tương đương $(x+y)^2 \\ge 4xy \\iff (x-y)^2 \\ge 0$: 0,25đ; lập luận dấu bằng và kết luận: 0,25đ)</em></p>
+
+          <p><strong>b) (0,5 điểm): Tìm giá trị nhỏ nhất của $S = \\frac{1}{x^2 + y^2} + \\frac{7}{4xy} + 4xy$:</strong><br>
+          Tách biểu thức $S$ thành ba nhóm thích hợp:<br>
+          $$S = \\left(\\frac{1}{x^2 + y^2} + \\frac{1}{2xy}\\right) + \\left(4xy + \\frac{1}{4xy}\\right) + \\frac{1}{xy}$$
+          Ta lần lượt đánh giá từng nhóm:<br>
+          1. Áp dụng bất đẳng thức ở câu a với hai số dương $(x^2 + y^2)$ và $2xy$:<br>
+          $$\\frac{1}{x^2 + y^2} + \\frac{1}{2xy} \\ge \\frac{4}{x^2 + y^2 + 2xy} = \\frac{4}{(x + y)^2}$$
+          Vì theo giả thiết $x + y \\le 1 \\Rightarrow (x + y)^2 \\le 1 \\Rightarrow \\frac{4}{(x + y)^2} \\ge 4$. (0,15đ)<br>
+          2. Áp dụng bất đẳng thức Cauchy cho hai số dương $4xy$ và $\\frac{1}{4xy}$:<br>
+          $$4xy + \\frac{1}{4xy} \\ge 2\\sqrt{4xy \\cdot \\frac{1}{4xy}} = 2$$ (0,15đ)<br>
+          3. Vì $x, y > 0$ và $x + y \\le 1$, áp dụng BĐT Cauchy: $xy \\le \\left(\\frac{x + y}{2}\\right)^2 \\le \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$.<br>
+          $$\\Rightarrow \\frac{1}{xy} \\ge \\frac{1}{1/4} = 4$$ (0,1đ)<br>
+          Cộng từng vế của ba bất đẳng thức trên, ta được:<br>
+          $$S \\ge 4 + 2 + 4 = 10$$
+          Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} x^2 + y^2 = 2xy \\\\ 4xy = \\frac{1}{4xy} \\\\ x + y = 1 \\\\ x = y \\end{cases} \\iff x = y = \\frac{1}{2}$$
+          Khi $x = y = \\frac{1}{2}$ thì $x + y = 1 \\le 1$ thỏa mãn điều kiện đề bài.<br>
+          Vậy giá trị nhỏ nhất của $S$ là <strong>$10$</strong>, đạt được khi $x = y = \\frac{1}{2}$. (0,1đ)</p>
+        </div>
+      </div>
+`,
     latexSource: `\\documentclass[12pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[vietnamese]{babel}
@@ -1205,16 +1619,382 @@ HA \\quad QN \\quad QN \\quad QN \\quad LS \\quad LS \\quad HA \\quad QN \\quad 
         </div>
       </div>
     `,
-    solution: `
-      <div class="solution-content">
-        <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM QUẢNG NGÃI 2023 (10/10)</h4>
-        <p><strong>Bài 1 (2,0đ):</strong> 1) $3 \\cdot 7 - 11 = 10$.<br>3) $(d') \\parallel (d) \\Rightarrow a = 2, b \\neq 1$. Thay $A(2; 3) \\Rightarrow 3 = 2(2) + b \\Rightarrow b = -1$.</p>
-        <p><strong>Bài 2 (2,0đ):</strong> 1a) Đặt $t = x^2 \\ge 0 \\Rightarrow t^2 - 3t - 4 = 0 \\iff t = 4 \\Rightarrow x = \\pm 2$.<br>1b) $(x; y) = (1; -1)$.<br>2a) $\\Delta' = 5 - 2m > 0 \\iff m < \\frac{5}{2}$.<br>2b) $P = 4(m-1)^2 + 4 \\ge 4$. Dấu bằng khi $m = 1$ (thỏa mãn $m < 2,5$). Vậy $\\min P = 4$.</p>
-        <p><strong>Bài 3 (1,5đ):</strong> Gọi năng suất ngày của đội I là $x$, đội II là $y$. Ta có $16(x+y)=1 \\Rightarrow x+y = \\frac{1}{16}$. Sau 12 ngày còn $\\frac{1}{4}$ công việc. Đội II làm 4 ngày năng suất $1,5y \\Rightarrow 6y = \\frac{1}{4} \\Rightarrow y = \\frac{1}{24}$. Do đó $x = \\frac{1}{48}$. Đáp số: Đội I làm một mình mất 48 ngày, Đội II mất 24 ngày.</p>
-        <p><strong>Bài 4 (3,5đ):</strong> 1) $BC = 9\\text{ cm} \\Rightarrow AB = \\sqrt{4 \\times 9} = 6\\text{ cm}$. $AH = \\sqrt{4 \\times 5} = 2\\sqrt{5}\\text{ cm}$.<br>2a) $\\widehat{CEH} = \\widehat{CFH} = 90^\\circ \\Rightarrow$ nội tiếp đường tròn đường kính $CH$, tâm là trung điểm $CH$.<br>2b) $BHCD$ là hình bình hành. $M$ trung điểm $BC \\Rightarrow OM = \\frac{R}{2} \\Rightarrow AH = 2 OM = R$.<br>2c) Dùng tính chất chùm đường thẳng đồng quy hoặc phân giác để chứng minh hệ thức $BK \\cdot CE = BE \\cdot CK$.</p>
-        <p><strong>Bài 5 (1,0đ):</strong> Đặt $u = 3x^2$ và $v = x^2 - 12x + 2024 \\Rightarrow u + v = 4(x^2 - 3x + 506)$. Phương trình trở thành $\\frac{1}{u} + \\frac{1}{v} = \\frac{4}{u+v} \\iff (u-v)^2 = 0 \\iff u = v$. Giải $3x^2 = x^2 - 12x + 2024 \\iff x^2 + 6x - 1012 = 0 \\iff x = -3 \\pm \\sqrt{1021}$.</p>
+    solutionHtml: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2023
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2023 - 2024 (Ngày thi: 09/6/2023)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $3\\sqrt{49} - \\sqrt{121} = 3 \\cdot 7 - 11 = 21 - 11 = 10$.<br>
+          <em>(Barem: Khai căn đúng $3\\sqrt{49} = 21$ và $\\sqrt{121} = 11$: 0,25đ; tính đúng kết quả 10: 0,25đ)</em></p>
+
+          <p><strong>2. (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = \\frac{1}{2}x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-4$</td>
+              <td>$-2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$4$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = \\frac{1}{2}x^2$</th>
+              <td>$8$</td>
+              <td>$2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục tung $Oy$ làm trục đối xứng, quay bề lõm lên trên, đi qua các điểm $(-4; 8), (-2; 2), (0; 0), (2; 2), (4; 8)$.<br>
+          <em>(Barem: Bảng giá trị đúng: 0,25đ; vẽ đồ thị chính xác và thẩm mỹ: 0,5đ)</em></p>
+
+          <p><strong>3. (0,75 điểm): Tìm $a, b$ của đường thẳng $(d'): y = ax + b$:</strong><br>
+          - Vì đường thẳng $(d')$ song song với đường thẳng $(d): y = 2x + 1$ nên:<br>
+          $$\\begin{cases} a = 2 \\\\ b \\neq 1 \\end{cases}$$ (0,25đ)<br>
+          - Phương trình $(d')$ có dạng: $y = 2x + b$ ($b \\neq 1$).<br>
+          Vì $(d')$ đi qua điểm $A(2; 3)$, thay tọa độ $x = 2, y = 3$ vào phương trình $(d')$ ta được:<br>
+          $$3 = 2 \\cdot 2 + b \\iff 3 = 4 + b \\iff b = 3 - 4 = -1$$ (0,25đ)<br>
+          - So sánh với điều kiện: $b = -1 \\neq 1$ (thỏa mãn điều kiện).<br>
+          Vậy hệ số cần tìm là $a = 2$ và $b = -1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình trùng phương $x^4 - 3x^2 - 4 = 0$:</strong><br>
+          Đặt $t = x^2$ ($t \\ge 0$). Phương trình trở thành:<br>
+          $$t^2 - 3t - 4 = 0$$
+          Phương trình có các hệ số $a = 1, b = -3, c = -4$. Ta thấy $a - b + c = 1 - (-3) + (-4) = 0$.<br>
+          Suy ra phương trình ẩn $t$ có hai nghiệm:<br>
+          $$t_1 = -1 < 0 \\quad \\text{(loại vì } t \\ge 0\\text{)}$$
+          $$t_2 = -\\frac{c}{a} = 4 \\quad \\text{(thỏa mãn } t \\ge 0\\text{)}$$ (0,25đ)<br>
+          Với $t = 4 \\iff x^2 = 4 \\iff x = \\pm 2$.<br>
+          Vậy tập nghiệm của phương trình là $S = \\{-2; 2\\}$. (0,25đ)</p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = 3 \\quad (1) \\\\ 3x + 2y = 1 \\quad (2) \\end{cases}$$
+          Nhân cả hai vế của phương trình $(1)$ với 2 ta được:<br>
+          $$\\begin{cases} 4x - 2y = 6 \\\\ 3x + 2y = 1 \\end{cases}$$
+          Cộng từng vế hai phương trình trên ta được: $7x = 7 \\iff x = 1$. (0,25đ)<br>
+          Thay $x = 1$ vào phương trình $(1)$: $2 \\cdot 1 - y = 3 \\iff 2 - y = 3 \\iff y = -1$.<br>
+          Vậy hệ phương trình có nghiệm duy nhất $(x; y) = (1; -1)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt:</strong><br>
+          Xét phương trình $x^2 - 2(m-1)x + m^2 - 4 = 0$.<br>
+          Ta có: $\\Delta' = [-(m-1)]^2 - 1 \\cdot (m^2 - 4) = m^2 - 2m + 1 - m^2 + 4 = 5 - 2m$. (0,25đ)<br>
+          Để phương trình có hai nghiệm phân biệt thì $\\Delta' > 0$:<br>
+          $$5 - 2m > 0 \\iff 2m < 5 \\iff m < \\frac{5}{2}$$
+          Vậy với $m < \\frac{5}{2}$ (hay $m < 2,5$) thì phương trình có hai nghiệm phân biệt. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $P = x_1^2 + x_2^2 + x_1 x_2 + m^2$ đạt GTNN:</strong><br>
+          Với $m < \\frac{5}{2}$, theo hệ thức Vi-ét ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2(m - 1) \\\\ x_1 x_2 = m^2 - 4 \\end{cases}$$
+          Biến đổi biểu thức $P$:<br>
+          $$P = (x_1 + x_2)^2 - x_1 x_2 + m^2$$
+          $$P = [2(m-1)]^2 - (m^2 - 4) + m^2 = 4(m^2 - 2m + 1) - m^2 + 4 + m^2$$
+          $$P = 4m^2 - 8m + 4 + 4 = 4m^2 - 8m + 8$$
+          $$P = 4(m^2 - 2m + 1) + 4 = 4(m - 1)^2 + 4$$ (0,25đ)<br>
+          Vì $(m - 1)^2 \\ge 0$ với mọi $m$ nên $4(m - 1)^2 \\ge 0 \\Rightarrow P \\ge 4$.<br>
+          Dấu đẳng thức xảy ra khi $m - 1 = 0 \\iff m = 1$.<br>
+          So sánh với điều kiện: $m = 1 < \\frac{5}{2}$ (thỏa mãn điều kiện).<br>
+          Vậy giá trị nhỏ nhất của $P$ là <strong>$4$</strong>, đạt được khi $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi thời gian đội I làm một mình hoàn thành toàn bộ công việc theo năng suất ban đầu là $x$ (ngày).<br>
+          Gọi thời gian đội II làm một mình hoàn thành toàn bộ công việc theo năng suất ban đầu là $y$ (ngày).<br>
+          Điều kiện: $x, y > 16$. (0,25đ)<br>
+          - Trong 1 ngày, theo năng suất ban đầu:<br>
+          + Đội I làm được: $\\frac{1}{x}$ (công việc).<br>
+          + Đội II làm được: $\\frac{1}{y}$ (công việc).<br>
+          - Theo dự định hai đội hoàn thành công việc trong 16 ngày nên trong 1 ngày cả hai đội làm được $\\frac{1}{16}$ công việc. Ta có phương trình:<br>
+          $$\\frac{1}{x} + \\frac{1}{y} = \\frac{1}{16} \\quad (1)$$ (0,25đ)<br>
+          - Trong 12 ngày đầu, cả hai đội làm chung được: $12 \\cdot \\frac{1}{16} = \\frac{3}{4}$ (công việc).<br>
+          Phần công việc còn lại chưa hoàn thành là: $1 - \\frac{3}{4} = \\frac{1}{4}$ (công việc). (0,25đ)<br>
+          - Để hoàn thành đúng thời gian 16 ngày dự định, đội II phải làm một mình phần việc còn lại trong số ngày là:<br>
+          $$16 - 12 = 4 \\text{ (ngày)}$$<br>
+          - Do đội II tăng năng suất gấp 1,5 lần năng suất ban đầu nên mỗi ngày làm được: $1,5 \\cdot \\frac{1}{y} = \\frac{1,5}{y}$ (công việc).<br>
+          Trong 4 ngày đó, đội II hoàn thành được: $4 \\cdot \\frac{1,5}{y} = \\frac{6}{y}$ (công việc).<br>
+          Vì đội II hoàn thành đúng phần việc còn lại nên ta có phương trình:<br>
+          $$\\frac{6}{y} = \\frac{1}{4} \\iff y = 6 \\cdot 4 = 24 \\quad \\text{(thỏa mãn } y > 16\\text{)}$$ (0,25đ)<br>
+          - Thay $y = 24$ vào phương trình $(1)$:<br>
+          $$\\frac{1}{x} + \\frac{1}{24} = \\frac{1}{16} \\iff \\frac{1}{x} = \\frac{1}{16} - \\frac{1}{24} = \\frac{3 - 2}{48} = \\frac{1}{48} \\iff x = 48 \\quad \\text{(thỏa mãn } x > 16\\text{)}$$ (0,25đ)<br>
+          Vậy theo năng suất ban đầu:<br>
+          - Đội I làm một mình mất <strong>48 ngày</strong> để hoàn thành công việc.<br>
+          - Đội II làm một mình mất <strong>24 ngày</strong> để hoàn thành công việc. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>1. (1,0 điểm): Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$, $BH = 4\\text{ cm}, HC = 5\\text{ cm}$:</strong><br>
+          - Độ dài cạnh huyền $BC$ là: $BC = BH + HC = 4 + 5 = 9\\text{ cm}$. (0,25đ)<br>
+          - Áp dụng hệ thức lượng trong tam giác vuông $ABC$ (vuông tại $A$, đường cao $AH$):<br>
+          + $AB^2 = BH \\cdot BC = 4 \\cdot 9 = 36 \\Rightarrow AB = \\sqrt{36} = 6\\text{ cm}$. (0,25đ)<br>
+          + $AH^2 = BH \\cdot HC = 4 \\cdot 5 = 20 \\Rightarrow AH = \\sqrt{20} = 2\\sqrt{5}\\text{ cm}$. (0,5đ)</p>
+
+          <p><strong>2. a) (0,75 điểm): Chứng minh tứ giác $CEHF$ nội tiếp đường tròn. Xác định tâm:</strong><br>
+          - Vì $AE$ là đường cao của tam giác $ABC$ nên $AE \\perp BC \\Rightarrow \\widehat{CEH} = 90^\\circ$. (0,25đ)<br>
+          - Vì $BF$ là đường cao của tam giác $ABC$ nên $BF \\perp AC \\Rightarrow \\widehat{CFH} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $CEHF$ có tổng hai góc đối diện:<br>
+          $$\\widehat{CEH} + \\widehat{CFH} = 90^\\circ + 90^\\circ = 180^\\circ$$
+          Do đó, tứ giác $CEHF$ nội tiếp đường tròn.<br>
+          - Tâm của đường tròn này là <strong>trung điểm của đoạn thẳng $CH$</strong> (đường tròn đường kính $CH$). (0,25đ)</p>
+
+          <p><strong>2. b) (1,0 điểm): Chứng minh $BHCD$ là hình bình hành và tính $AH$ theo $R$:</strong><br>
+          - Vì $AD$ là đường kính của đường tròn $(O)$ nên:<br>
+          + $\\widehat{ACD} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow CD \\perp AC$.<br>
+          Mà $BH \\perp AC$ (do $BF$ là đường cao) $\\Rightarrow BH \\parallel CD$ (1). (0,25đ)<br>
+          + $\\widehat{ABD} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow BD \\perp AB$.<br>
+          Mà $CH \\perp AB$ (vì $H$ là trực tâm tam giác $ABC$) $\\Rightarrow CH \\parallel BD$ (2). (0,25đ)<br>
+          Từ (1) và (2) suy ra tứ giác $BHCD$ có các cặp cạnh đối song song nên là <strong>hình bình hành</strong>. (0,25đ)<br>
+          - Gọi $M$ là trung điểm của cạnh $BC$. Vì $BHCD$ là hình bình hành nên hai đường chéo cắt nhau tại trung điểm mỗi đường $\\Rightarrow M$ cũng là trung điểm của $HD$.<br>
+          Xét tam giác $AHD$ có $O$ là trung điểm của $AD$ và $M$ là trung điểm của $HD$, do đó $OM$ là đường trung bình của tam giác $AHD$:<br>
+          $$AH = 2 OM$$
+          - Trong đường tròn $(O; R)$, tam giác $OBC$ cân tại $O$ ($OB = OC = R$) có $M$ là trung điểm $BC$ nên $OM \\perp BC$ tại $M$, và $BM = \\frac{BC}{2} = \\frac{R\\sqrt{3}}{2}$.<br>
+          Áp dụng định lý Pytago trong tam giác vuông $OMB$ vuông tại $M$:<br>
+          $$OM = \\sqrt{OB^2 - BM^2} = \\sqrt{R^2 - \\left(\\frac{R\\sqrt{3}}{2}\\right)^2} = \\sqrt{R^2 - \\frac{3R^2}{4}} = \\sqrt{\\frac{R^2}{4}} = \\frac{R}{2}$$
+          Suy ra: $AH = 2 \\cdot OM = 2 \\cdot \\frac{R}{2} = R$. Vậy <strong>$AH = R$</strong>. (0,25đ)</p>
+
+          <p><strong>2. c) (0,75 điểm): Chứng minh $BK \\cdot CE = BE \\cdot CK$:</strong><br>
+          - Trong tam giác $ABC$, ba đường cao $AE, BF, CN$ đồng quy tại trực tâm $H$.<br>
+          Áp dụng định lý Céva cho tam giác $ABC$ với ba đoạn thẳng $AE, BF, CN$ đồng quy tại $H$:<br>
+          $$\\frac{AN}{NB} \\cdot \\frac{BE}{EC} \\cdot \\frac{CF}{FA} = 1 \\quad (3)$$ (0,25đ)<br>
+          - Xét tam giác $ABC$ và ba điểm thẳng hàng $K, F, N$ (đường thẳng $FN$ cắt đường thẳng chứa cạnh $BC$ tại $K$).<br>
+          Áp dụng định lý Ménélaüs cho cát tuyến $K - F - N$ đối với tam giác $ABC$:<br>
+          $$\\frac{AN}{NB} \\cdot \\frac{BK}{KC} \\cdot \\frac{CF}{FA} = 1 \\quad (4)$$ (0,25đ)<br>
+          - Lấy đẳng thức $(3)$ chia cho đẳng thức $(4)$ vế theo vế:<br>
+          $$\\frac{\\frac{BE}{EC}}{\\frac{BK}{KC}} = 1 \\iff \\frac{BE}{CE} = \\frac{BK}{CK} \\iff BK \\cdot CE = BE \\cdot CK \\quad \\text{(đpcm)}$$ (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+          <p>Giải phương trình:<br>
+          $$\\frac{1}{3x^2} + \\frac{1}{x^2 - 12x + 2024} = \\frac{1}{x^2 - 3x + 506}$$
+          <strong>Lời giải:</strong><br>
+          - Điều kiện xác định: $x \\neq 0$. (Các mẫu số còn lại: $x^2 - 12x + 2024 = (x-6)^2 + 1988 > 0$ và $x^2 - 3x + 506 = (x - 1,5)^2 + 503,75 > 0$ với mọi $x$). (0,25đ)<br>
+          - Đặt $u = 3x^2$ ($u > 0$) và $v = x^2 - 12x + 2024$ ($v > 0$).<br>
+          Ta có:<br>
+          $$u + v = 3x^2 + (x^2 - 12x + 2024) = 4x^2 - 12x + 2024 = 4(x^2 - 3x + 506)$$
+          $$\\Rightarrow x^2 - 3x + 506 = \\frac{u + v}{4}$$ (0,25đ)<br>
+          - Khi đó phương trình đã cho trở thành:<br>
+          $$\\frac{1}{u} + \\frac{1}{v} = \\frac{1}{\\frac{u + v}{4}} = \\frac{4}{u + v}$$
+          $$\\iff \\frac{u + v}{uv} = \\frac{4}{u + v} \\iff (u + v)^2 = 4uv$$
+          $$\\iff u^2 + 2uv + v^2 - 4uv = 0 \\iff (u - v)^2 = 0 \\iff u = v$$ (0,25đ)<br>
+          - Thay trở lại $u = 3x^2$ và $v = x^2 - 12x + 2024$, ta có:<br>
+          $$3x^2 = x^2 - 12x + 2024 \\iff 2x^2 + 12x - 2024 = 0 \\iff x^2 + 6x - 1012 = 0$$
+          Ta có: $\\Delta' = 3^2 - 1 \\cdot (-1012) = 9 + 1012 = 1021 > 0$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = -3 + \\sqrt{1021}; \\quad x_2 = -3 - \\sqrt{1021} \\quad \\text{(đều thỏa mãn } x \\neq 0\\text{)}$$<br>
+          Vậy tập nghiệm của phương trình là $S = \\{-3 - \\sqrt{1021}; -3 + \\sqrt{1021}\\}$. (0,25đ)</p>
+        </div>
       </div>
-    `,
+`,
+    solution: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2023
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2023 - 2024 (Ngày thi: 09/6/2023)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $3\\sqrt{49} - \\sqrt{121} = 3 \\cdot 7 - 11 = 21 - 11 = 10$.<br>
+          <em>(Barem: Khai căn đúng $3\\sqrt{49} = 21$ và $\\sqrt{121} = 11$: 0,25đ; tính đúng kết quả 10: 0,25đ)</em></p>
+
+          <p><strong>2. (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = \\frac{1}{2}x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-4$</td>
+              <td>$-2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$4$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = \\frac{1}{2}x^2$</th>
+              <td>$8$</td>
+              <td>$2$</td>
+              <td>$0$</td>
+              <td>$2$</td>
+              <td>$8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục tung $Oy$ làm trục đối xứng, quay bề lõm lên trên, đi qua các điểm $(-4; 8), (-2; 2), (0; 0), (2; 2), (4; 8)$.<br>
+          <em>(Barem: Bảng giá trị đúng: 0,25đ; vẽ đồ thị chính xác và thẩm mỹ: 0,5đ)</em></p>
+
+          <p><strong>3. (0,75 điểm): Tìm $a, b$ của đường thẳng $(d'): y = ax + b$:</strong><br>
+          - Vì đường thẳng $(d')$ song song với đường thẳng $(d): y = 2x + 1$ nên:<br>
+          $$\\begin{cases} a = 2 \\\\ b \\neq 1 \\end{cases}$$ (0,25đ)<br>
+          - Phương trình $(d')$ có dạng: $y = 2x + b$ ($b \\neq 1$).<br>
+          Vì $(d')$ đi qua điểm $A(2; 3)$, thay tọa độ $x = 2, y = 3$ vào phương trình $(d')$ ta được:<br>
+          $$3 = 2 \\cdot 2 + b \\iff 3 = 4 + b \\iff b = 3 - 4 = -1$$ (0,25đ)<br>
+          - So sánh với điều kiện: $b = -1 \\neq 1$ (thỏa mãn điều kiện).<br>
+          Vậy hệ số cần tìm là $a = 2$ và $b = -1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình trùng phương $x^4 - 3x^2 - 4 = 0$:</strong><br>
+          Đặt $t = x^2$ ($t \\ge 0$). Phương trình trở thành:<br>
+          $$t^2 - 3t - 4 = 0$$
+          Phương trình có các hệ số $a = 1, b = -3, c = -4$. Ta thấy $a - b + c = 1 - (-3) + (-4) = 0$.<br>
+          Suy ra phương trình ẩn $t$ có hai nghiệm:<br>
+          $$t_1 = -1 < 0 \\quad \\text{(loại vì } t \\ge 0\\text{)}$$
+          $$t_2 = -\\frac{c}{a} = 4 \\quad \\text{(thỏa mãn } t \\ge 0\\text{)}$$ (0,25đ)<br>
+          Với $t = 4 \\iff x^2 = 4 \\iff x = \\pm 2$.<br>
+          Vậy tập nghiệm của phương trình là $S = \\{-2; 2\\}$. (0,25đ)</p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = 3 \\quad (1) \\\\ 3x + 2y = 1 \\quad (2) \\end{cases}$$
+          Nhân cả hai vế của phương trình $(1)$ với 2 ta được:<br>
+          $$\\begin{cases} 4x - 2y = 6 \\\\ 3x + 2y = 1 \\end{cases}$$
+          Cộng từng vế hai phương trình trên ta được: $7x = 7 \\iff x = 1$. (0,25đ)<br>
+          Thay $x = 1$ vào phương trình $(1)$: $2 \\cdot 1 - y = 3 \\iff 2 - y = 3 \\iff y = -1$.<br>
+          Vậy hệ phương trình có nghiệm duy nhất $(x; y) = (1; -1)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt:</strong><br>
+          Xét phương trình $x^2 - 2(m-1)x + m^2 - 4 = 0$.<br>
+          Ta có: $\\Delta' = [-(m-1)]^2 - 1 \\cdot (m^2 - 4) = m^2 - 2m + 1 - m^2 + 4 = 5 - 2m$. (0,25đ)<br>
+          Để phương trình có hai nghiệm phân biệt thì $\\Delta' > 0$:<br>
+          $$5 - 2m > 0 \\iff 2m < 5 \\iff m < \\frac{5}{2}$$
+          Vậy với $m < \\frac{5}{2}$ (hay $m < 2,5$) thì phương trình có hai nghiệm phân biệt. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $P = x_1^2 + x_2^2 + x_1 x_2 + m^2$ đạt GTNN:</strong><br>
+          Với $m < \\frac{5}{2}$, theo hệ thức Vi-ét ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2(m - 1) \\\\ x_1 x_2 = m^2 - 4 \\end{cases}$$
+          Biến đổi biểu thức $P$:<br>
+          $$P = (x_1 + x_2)^2 - x_1 x_2 + m^2$$
+          $$P = [2(m-1)]^2 - (m^2 - 4) + m^2 = 4(m^2 - 2m + 1) - m^2 + 4 + m^2$$
+          $$P = 4m^2 - 8m + 4 + 4 = 4m^2 - 8m + 8$$
+          $$P = 4(m^2 - 2m + 1) + 4 = 4(m - 1)^2 + 4$$ (0,25đ)<br>
+          Vì $(m - 1)^2 \\ge 0$ với mọi $m$ nên $4(m - 1)^2 \\ge 0 \\Rightarrow P \\ge 4$.<br>
+          Dấu đẳng thức xảy ra khi $m - 1 = 0 \\iff m = 1$.<br>
+          So sánh với điều kiện: $m = 1 < \\frac{5}{2}$ (thỏa mãn điều kiện).<br>
+          Vậy giá trị nhỏ nhất của $P$ là <strong>$4$</strong>, đạt được khi $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi thời gian đội I làm một mình hoàn thành toàn bộ công việc theo năng suất ban đầu là $x$ (ngày).<br>
+          Gọi thời gian đội II làm một mình hoàn thành toàn bộ công việc theo năng suất ban đầu là $y$ (ngày).<br>
+          Điều kiện: $x, y > 16$. (0,25đ)<br>
+          - Trong 1 ngày, theo năng suất ban đầu:<br>
+          + Đội I làm được: $\\frac{1}{x}$ (công việc).<br>
+          + Đội II làm được: $\\frac{1}{y}$ (công việc).<br>
+          - Theo dự định hai đội hoàn thành công việc trong 16 ngày nên trong 1 ngày cả hai đội làm được $\\frac{1}{16}$ công việc. Ta có phương trình:<br>
+          $$\\frac{1}{x} + \\frac{1}{y} = \\frac{1}{16} \\quad (1)$$ (0,25đ)<br>
+          - Trong 12 ngày đầu, cả hai đội làm chung được: $12 \\cdot \\frac{1}{16} = \\frac{3}{4}$ (công việc).<br>
+          Phần công việc còn lại chưa hoàn thành là: $1 - \\frac{3}{4} = \\frac{1}{4}$ (công việc). (0,25đ)<br>
+          - Để hoàn thành đúng thời gian 16 ngày dự định, đội II phải làm một mình phần việc còn lại trong số ngày là:<br>
+          $$16 - 12 = 4 \\text{ (ngày)}$$<br>
+          - Do đội II tăng năng suất gấp 1,5 lần năng suất ban đầu nên mỗi ngày làm được: $1,5 \\cdot \\frac{1}{y} = \\frac{1,5}{y}$ (công việc).<br>
+          Trong 4 ngày đó, đội II hoàn thành được: $4 \\cdot \\frac{1,5}{y} = \\frac{6}{y}$ (công việc).<br>
+          Vì đội II hoàn thành đúng phần việc còn lại nên ta có phương trình:<br>
+          $$\\frac{6}{y} = \\frac{1}{4} \\iff y = 6 \\cdot 4 = 24 \\quad \\text{(thỏa mãn } y > 16\\text{)}$$ (0,25đ)<br>
+          - Thay $y = 24$ vào phương trình $(1)$:<br>
+          $$\\frac{1}{x} + \\frac{1}{24} = \\frac{1}{16} \\iff \\frac{1}{x} = \\frac{1}{16} - \\frac{1}{24} = \\frac{3 - 2}{48} = \\frac{1}{48} \\iff x = 48 \\quad \\text{(thỏa mãn } x > 16\\text{)}$$ (0,25đ)<br>
+          Vậy theo năng suất ban đầu:<br>
+          - Đội I làm một mình mất <strong>48 ngày</strong> để hoàn thành công việc.<br>
+          - Đội II làm một mình mất <strong>24 ngày</strong> để hoàn thành công việc. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>1. (1,0 điểm): Cho tam giác $ABC$ vuông tại $A$, đường cao $AH$, $BH = 4\\text{ cm}, HC = 5\\text{ cm}$:</strong><br>
+          - Độ dài cạnh huyền $BC$ là: $BC = BH + HC = 4 + 5 = 9\\text{ cm}$. (0,25đ)<br>
+          - Áp dụng hệ thức lượng trong tam giác vuông $ABC$ (vuông tại $A$, đường cao $AH$):<br>
+          + $AB^2 = BH \\cdot BC = 4 \\cdot 9 = 36 \\Rightarrow AB = \\sqrt{36} = 6\\text{ cm}$. (0,25đ)<br>
+          + $AH^2 = BH \\cdot HC = 4 \\cdot 5 = 20 \\Rightarrow AH = \\sqrt{20} = 2\\sqrt{5}\\text{ cm}$. (0,5đ)</p>
+
+          <p><strong>2. a) (0,75 điểm): Chứng minh tứ giác $CEHF$ nội tiếp đường tròn. Xác định tâm:</strong><br>
+          - Vì $AE$ là đường cao của tam giác $ABC$ nên $AE \\perp BC \\Rightarrow \\widehat{CEH} = 90^\\circ$. (0,25đ)<br>
+          - Vì $BF$ là đường cao của tam giác $ABC$ nên $BF \\perp AC \\Rightarrow \\widehat{CFH} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $CEHF$ có tổng hai góc đối diện:<br>
+          $$\\widehat{CEH} + \\widehat{CFH} = 90^\\circ + 90^\\circ = 180^\\circ$$
+          Do đó, tứ giác $CEHF$ nội tiếp đường tròn.<br>
+          - Tâm của đường tròn này là <strong>trung điểm của đoạn thẳng $CH$</strong> (đường tròn đường kính $CH$). (0,25đ)</p>
+
+          <p><strong>2. b) (1,0 điểm): Chứng minh $BHCD$ là hình bình hành và tính $AH$ theo $R$:</strong><br>
+          - Vì $AD$ là đường kính của đường tròn $(O)$ nên:<br>
+          + $\\widehat{ACD} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow CD \\perp AC$.<br>
+          Mà $BH \\perp AC$ (do $BF$ là đường cao) $\\Rightarrow BH \\parallel CD$ (1). (0,25đ)<br>
+          + $\\widehat{ABD} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow BD \\perp AB$.<br>
+          Mà $CH \\perp AB$ (vì $H$ là trực tâm tam giác $ABC$) $\\Rightarrow CH \\parallel BD$ (2). (0,25đ)<br>
+          Từ (1) và (2) suy ra tứ giác $BHCD$ có các cặp cạnh đối song song nên là <strong>hình bình hành</strong>. (0,25đ)<br>
+          - Gọi $M$ là trung điểm của cạnh $BC$. Vì $BHCD$ là hình bình hành nên hai đường chéo cắt nhau tại trung điểm mỗi đường $\\Rightarrow M$ cũng là trung điểm của $HD$.<br>
+          Xét tam giác $AHD$ có $O$ là trung điểm của $AD$ và $M$ là trung điểm của $HD$, do đó $OM$ là đường trung bình của tam giác $AHD$:<br>
+          $$AH = 2 OM$$
+          - Trong đường tròn $(O; R)$, tam giác $OBC$ cân tại $O$ ($OB = OC = R$) có $M$ là trung điểm $BC$ nên $OM \\perp BC$ tại $M$, và $BM = \\frac{BC}{2} = \\frac{R\\sqrt{3}}{2}$.<br>
+          Áp dụng định lý Pytago trong tam giác vuông $OMB$ vuông tại $M$:<br>
+          $$OM = \\sqrt{OB^2 - BM^2} = \\sqrt{R^2 - \\left(\\frac{R\\sqrt{3}}{2}\\right)^2} = \\sqrt{R^2 - \\frac{3R^2}{4}} = \\sqrt{\\frac{R^2}{4}} = \\frac{R}{2}$$
+          Suy ra: $AH = 2 \\cdot OM = 2 \\cdot \\frac{R}{2} = R$. Vậy <strong>$AH = R$</strong>. (0,25đ)</p>
+
+          <p><strong>2. c) (0,75 điểm): Chứng minh $BK \\cdot CE = BE \\cdot CK$:</strong><br>
+          - Trong tam giác $ABC$, ba đường cao $AE, BF, CN$ đồng quy tại trực tâm $H$.<br>
+          Áp dụng định lý Céva cho tam giác $ABC$ với ba đoạn thẳng $AE, BF, CN$ đồng quy tại $H$:<br>
+          $$\\frac{AN}{NB} \\cdot \\frac{BE}{EC} \\cdot \\frac{CF}{FA} = 1 \\quad (3)$$ (0,25đ)<br>
+          - Xét tam giác $ABC$ và ba điểm thẳng hàng $K, F, N$ (đường thẳng $FN$ cắt đường thẳng chứa cạnh $BC$ tại $K$).<br>
+          Áp dụng định lý Ménélaüs cho cát tuyến $K - F - N$ đối với tam giác $ABC$:<br>
+          $$\\frac{AN}{NB} \\cdot \\frac{BK}{KC} \\cdot \\frac{CF}{FA} = 1 \\quad (4)$$ (0,25đ)<br>
+          - Lấy đẳng thức $(3)$ chia cho đẳng thức $(4)$ vế theo vế:<br>
+          $$\\frac{\\frac{BE}{EC}}{\\frac{BK}{KC}} = 1 \\iff \\frac{BE}{CE} = \\frac{BK}{CK} \\iff BK \\cdot CE = BE \\cdot CK \\quad \\text{(đpcm)}$$ (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+          <p>Giải phương trình:<br>
+          $$\\frac{1}{3x^2} + \\frac{1}{x^2 - 12x + 2024} = \\frac{1}{x^2 - 3x + 506}$$
+          <strong>Lời giải:</strong><br>
+          - Điều kiện xác định: $x \\neq 0$. (Các mẫu số còn lại: $x^2 - 12x + 2024 = (x-6)^2 + 1988 > 0$ và $x^2 - 3x + 506 = (x - 1,5)^2 + 503,75 > 0$ với mọi $x$). (0,25đ)<br>
+          - Đặt $u = 3x^2$ ($u > 0$) và $v = x^2 - 12x + 2024$ ($v > 0$).<br>
+          Ta có:<br>
+          $$u + v = 3x^2 + (x^2 - 12x + 2024) = 4x^2 - 12x + 2024 = 4(x^2 - 3x + 506)$$
+          $$\\Rightarrow x^2 - 3x + 506 = \\frac{u + v}{4}$$ (0,25đ)<br>
+          - Khi đó phương trình đã cho trở thành:<br>
+          $$\\frac{1}{u} + \\frac{1}{v} = \\frac{1}{\\frac{u + v}{4}} = \\frac{4}{u + v}$$
+          $$\\iff \\frac{u + v}{uv} = \\frac{4}{u + v} \\iff (u + v)^2 = 4uv$$
+          $$\\iff u^2 + 2uv + v^2 - 4uv = 0 \\iff (u - v)^2 = 0 \\iff u = v$$ (0,25đ)<br>
+          - Thay trở lại $u = 3x^2$ và $v = x^2 - 12x + 2024$, ta có:<br>
+          $$3x^2 = x^2 - 12x + 2024 \\iff 2x^2 + 12x - 2024 = 0 \\iff x^2 + 6x - 1012 = 0$$
+          Ta có: $\\Delta' = 3^2 - 1 \\cdot (-1012) = 9 + 1012 = 1021 > 0$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = -3 + \\sqrt{1021}; \\quad x_2 = -3 - \\sqrt{1021} \\quad \\text{(đều thỏa mãn } x \\neq 0\\text{)}$$<br>
+          Vậy tập nghiệm của phương trình là $S = \\{-3 - \\sqrt{1021}; -3 + \\sqrt{1021}\\}$. (0,25đ)</p>
+        </div>
+      </div>
+`,
     latexSource: `\\documentclass[12pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[vietnamese]{babel}
@@ -1306,16 +2086,374 @@ HA \\quad QN \\quad QN \\quad QN \\quad LS \\quad LS \\quad HA \\quad QN \\quad 
         </div>
       </div>
     `,
-    solution: `
-      <div class="solution-content">
-        <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM QUẢNG NGÃI 2022 (10/10)</h4>
-        <p><strong>Bài 1 (2,0đ):</strong> 1) $2(10) - 5(5) = -5$.<br>2b) Giao điểm: $(1; -2)$ và $(-1,5; -4,5)$.</p>
-        <p><strong>Bài 2 (2,0đ):</strong> 1a) $x = 2$ hoặc $x = -4$.<br>1b) $(x; y) = (1; 1)$.<br>2a) $\\Delta = (m-2)^2 + 4m = m^2 + 4 > 0$ với mọi $m$.<br>2b) $(x_1+x_2)^2 - 2x_1 x_2 - (x_1+x_2) = 2 \\iff (2-m)^2 + 2m - (2-m) = 2 \\iff m^2 - m = 0 \\iff m = 0$ hoặc $m = 1$.</p>
-        <p><strong>Bài 3 (1,5đ):</strong> Gọi nam là $x$, nữ là $y$. Hệ PT: $\\begin{cases} x + y = 47 \\\\ 8x + 7y = 350 \\end{cases} \\iff x = 21, y = 26$. Có 21 nam và 26 nữ.</p>
-        <p><strong>Bài 4 (3,5đ):</strong> a) $\\widehat{COG} = 90^\\circ$ và $\\widehat{CPD} = 90^\\circ \\Rightarrow O, G, P, C$ nội tiếp đường tròn đường kính $CG$.<br>b) Góc tạo bởi tiếp tuyến và dây cung bằng góc nội tiếp chắn cung đó $\\Rightarrow \\widehat{EPG} = \\widehat{EGP} \\Rightarrow \\triangle EPG$ cân tại $E$.<br>c) Tính diện tích $S_{\\triangle OEF}$.<br>d) Tâm ngoại tiếp $\\triangle BPG$ luôn nằm trên đường thẳng vuông góc với $AB$ tại $B$.</p>
-        <p><strong>Bài 5 (1,0đ):</strong> a) $4 = x + 2y \\ge 2\\sqrt{2xy} \\Rightarrow xy \\le 2$. Dấu bằng khi $x = 2, y = 1$.<br>b) $P = \\left(xy + \\frac{4}{xy}\\right) + \\frac{12}{xy} + \\left[2\\left(\\frac{1}{x}-\\frac{1}{2}\\right)^2 + \\frac{1}{2}\\right] \\ge 4 + 6 + \\frac{1}{2} = \\frac{21}{2}$. Vậy $\\min P = \\frac{21}{2}$ khi $x = 2, y = 1$.</p>
+    solutionHtml: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2022
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2022 - 2023 (Ngày thi: 22/6/2022)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $2\\sqrt{100} - 5\\sqrt{25} = 2 \\cdot 10 - 5 \\cdot 5 = 20 - 25 = -5$.<br>
+          <em>(Barem: Khai căn đúng $2\\sqrt{100} = 20$ và $5\\sqrt{25} = 25$: 0,25đ; ra kết quả $-5$: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = -2x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = -2x^2$</th>
+              <td>$-8$</td>
+              <td>$-2$</td>
+              <td>$0$</td>
+              <td>$-2$</td>
+              <td>$-8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục $Oy$ làm trục đối xứng, quay bề lõm xuống dưới, đi qua các điểm $(-2; -8), (-1; -2), (0; 0), (1; -2), (2; -8)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng 5 điểm: 0,25đ; vẽ parabol chính xác, đối xứng: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ với $(d): y = x - 3$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$-2x^2 = x - 3 \\iff 2x^2 + x - 3 = 0$$
+          Ta thấy $a + b + c = 2 + 1 + (-3) = 0$, do đó phương trình có hai nghiệm:<br>
+          $$x_1 = 1; \\quad x_2 = \\frac{c}{a} = -\\frac{3}{2} = -1,5$$
+          - Với $x_1 = 1 \\Rightarrow y_1 = 1 - 3 = -2$.<br>
+          - Với $x_2 = -\\frac{3}{2} \\Rightarrow y_2 = -\\frac{3}{2} - 3 = -\\frac{9}{2} = -4,5$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm là $(1; -2)$ và $\\left(-\\frac{3}{2}; -\\frac{9}{2}\\right)$.<br>
+          <em>(Barem: Lập đúng phương trình: 0,25đ; giải ra hai nghiệm $x$: 0,25đ; tính $y$ và kết luận tọa độ giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 + 2x - 8 = 0$:</strong><br>
+          Ta có: $\\Delta' = 1^2 - 1 \\cdot (-8) = 1 + 8 = 9 > 0 \\Rightarrow \\sqrt{\\Delta'} = 3$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = -1 + 3 = 2; \\quad x_2 = -1 - 3 = -4$$
+          Vậy tập nghiệm của phương trình là $S = \\{2; -4\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta'$ hoặc $\\Delta = 36$: 0,25đ; kết luận đúng 2 nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = 1 \\quad (1) \\\\ x + 2y = 3 \\quad (2) \\end{cases}$$
+          Nhân phương trình $(1)$ với 2: $\\begin{cases} 4x - 2y = 2 \\\\ x + 2y = 3 \\end{cases}$.<br>
+          Cộng hai phương trình lại: $5x = 5 \\iff x = 1$. (0,25đ)<br>
+          Thay $x = 1$ vào phương trình $(1)$: $2(1) - y = 1 \\iff y = 1$.<br>
+          Vậy nghiệm của hệ phương trình là $(x; y) = (1; 1)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Chứng minh phương trình luôn có hai nghiệm phân biệt với mọi $m$:</strong><br>
+          Xét phương trình $x^2 + (m-2)x - m = 0$.<br>
+          Ta có biệt thức $\\Delta$:<br>
+          $$\\Delta = (m-2)^2 - 4 \\cdot 1 \\cdot (-m) = m^2 - 4m + 4 + 4m = m^2 + 4$$ (0,25đ)<br>
+          Vì $m^2 \\ge 0$ với mọi $m \\in \\mathbb{R}$ nên $\\Delta = m^2 + 4 \\ge 4 > 0$ với mọi $m$.<br>
+          Vậy phương trình luôn có hai nghiệm phân biệt với mọi giá trị của $m$. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $x_1^2 - x_1 + x_2^2 - x_2 = 2$:</strong><br>
+          Theo hệ thức Vi-ét, ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = -(m - 2) = 2 - m \\\\ x_1 x_2 = -m \\end{cases}$$
+          Theo đề bài:<br>
+          $$x_1^2 - x_1 + x_2^2 - x_2 = 2 \\iff (x_1^2 + x_2^2) - (x_1 + x_2) = 2$$
+          $$\\iff (x_1 + x_2)^2 - 2x_1 x_2 - (x_1 + x_2) = 2$$ (0,25đ)<br>
+          Thay các biểu thức Vi-ét vào ta được:<br>
+          $$(2 - m)^2 - 2(-m) - (2 - m) = 2$$
+          $$\\iff 4 - 4m + m^2 + 2m - 2 + m = 2$$
+          $$\\iff m^2 - m + 2 = 2 \\iff m^2 - m = 0 \\iff m(m - 1) = 0$$
+          $$\\iff m = 0 \\quad \\text{hoặc} \\quad m = 1$$
+          Vậy các giá trị thỏa mãn yêu cầu đề bài là $m = 0$ hoặc $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi số công nhân nam của tổ may là $x$ (người).<br>
+          Gọi số công nhân nữ của tổ may là $y$ (người).<br>
+          Điều kiện: $x, y \\in \\mathbb{N}^*$ và $x, y < 47$. (0,25đ)<br>
+          - Vì tổ may có tất cả 47 công nhân nên ta có phương trình:<br>
+          $$x + y = 47 \\quad (1)$$ (0,25đ)<br>
+          - Mỗi công nhân nam may 8 chiếc áo nên số áo công nhân nam may là: $8x$ (chiếc).<br>
+          - Mỗi công nhân nữ may 7 chiếc áo nên số áo công nhân nữ may là: $7y$ (chiếc).<br>
+          - Vì cả tổ được giao may 350 chiếc áo nên ta có phương trình:<br>
+          $$8x + 7y = 350 \\quad (2)$$ (0,25đ)<br>
+          - Từ $(1)$ và $(2)$ ta có hệ phương trình:<br>
+          $$\\begin{cases} x + y = 47 \\\\ 8x + 7y = 350 \\end{cases} \\iff \\begin{cases} 7x + 7y = 329 \\\\ 8x + 7y = 350 \\end{cases}$$ (0,25đ)<br>
+          Trừ từng vế hai phương trình trên ta được:<br>
+          $$x = 350 - 329 = 21 \\quad \\text{(thỏa mãn điều kiện)}$$<br>
+          Thay $x = 21$ vào $(1)$ ta được: $21 + y = 47 \\iff y = 47 - 21 = 26$ (thỏa mãn điều kiện). (0,25đ)<br>
+          Vậy tổ may có <strong>21 công nhân nam</strong> và <strong>26 công nhân nữ</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>a) (1,0 điểm): Chứng minh 4 điểm $O, G, P, C$ cùng thuộc một đường tròn:</strong><br>
+          - Ta có $CD$ là đường kính của $(O)$ và $P$ thuộc $(O)$ nên tam giác $CPD$ nội tiếp chắn nửa đường tròn $\\Rightarrow \\widehat{CPD} = 90^\\circ \\Rightarrow \\widehat{CPG} = 90^\\circ$ (vì $G \\in DP$). (0,5đ)<br>
+          - Mặt khác, hai đường kính $AB \\perp CD$ tại $O$ nên $\\widehat{COG} = 90^\\circ$ (vì $G \\in AB$). (0,25đ)<br>
+          - Xét tứ giác $OGPC$ có hai đỉnh kề nhau $O$ và $P$ cùng nhìn đoạn thẳng $CG$ dưới một góc vuông ($90^\\circ$).<br>
+          Do đó, tứ giác $OGPC$ nội tiếp đường tròn đường kính $CG$, tức là 4 điểm $O, G, P, C$ cùng thuộc một đường tròn (đpcm). (0,25đ)</p>
+
+          <p><strong>b) (1,0 điểm): Chứng minh tam giác $EPG$ cân tại $E$:</strong><br>
+          - Vì $EF$ là tiếp tuyến của $(O)$ tại $P$ nên góc $\\widehat{EPD}$ là góc tạo bởi tiếp tuyến và dây cung chắn cung $PD$ của $(O)$.<br>
+          Mà góc $\\widehat{PCD}$ là góc nội tiếp chắn cung $PD$ của $(O)$.<br>
+          Do đó: $\\widehat{EPD} = \\widehat{PCD}$, hay $\\widehat{EPG} = \\widehat{PCD}$ (1). (0,5đ)<br>
+          - Theo câu a, tứ giác $OGPC$ nội tiếp đường tròn nên hai góc nội tiếp cùng chắn cung $OP$ bằng nhau:<br>
+          $$\\widehat{OGP} = \\widehat{OCP} \\iff \\widehat{EGP} = \\widehat{PCD} \\quad (2)$$ (0,25đ)<br>
+          - Từ (1) và (2) suy ra: $\\widehat{EPG} = \\widehat{EGP}$.<br>
+          Vậy tam giác $EPG$ cân tại đỉnh $E$ (đpcm). (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Khi $PE = 5PF$, tính diện tích tam giác $OEF$ theo $R$:</strong><br>
+          - Tiếp tuyến $EF$ vuông góc với bán kính $OP$ tại tiếp điểm $P \\Rightarrow OP \\perp EF$ tại $P$. Do đó $OP = R$ là đường cao của tam giác $OEF$.<br>
+          - Ta có $AB \\perp CD$ tại $O$, mà $E \\in AB, F \\in CD$ nên tam giác $OEF$ vuông tại $O$. (0,25đ)<br>
+          - Trong tam giác vuông $OEF$ vuông tại $O$, có đường cao $OP$, áp dụng hệ thức lượng:<br>
+          $$OP^2 = PE \\cdot PF$$
+          Theo giả thiết $PE = 5PF$, thay vào ta được:<br>
+          $$R^2 = 5PF \\cdot PF = 5PF^2 \\Rightarrow PF^2 = \\frac{R^2}{5} \\Rightarrow PF = \\frac{R}{\\sqrt{5}}$$<br>
+          Suy ra $PE = 5PF = 5 \\cdot \\frac{R}{\\sqrt{5}} = R\\sqrt{5}$.<br>
+          - Độ dài cạnh huyền $EF$ là:<br>
+          $$EF = PE + PF = R\\sqrt{5} + \\frac{R}{\\sqrt{5}} = \\frac{6R}{\\sqrt{5}}$$ (0,25đ)<br>
+          - Diện tích tam giác vuông $OEF$ là:<br>
+          $$S_{\\triangle OEF} = \\frac{1}{2} \\cdot OP \\cdot EF = \\frac{1}{2} \\cdot R \\cdot \\frac{6R}{\\sqrt{5}} = \\frac{3R^2}{\\sqrt{5}} = \\frac{3\\sqrt{5}R^2}{5}$$ (0,25đ)</p>
+
+          <p><strong>d) (0,75 điểm): Chứng minh tâm đường tròn ngoại tiếp $\\triangle BPG$ luôn thuộc một đường thẳng cố định:</strong><br>
+          - Kẻ tiếp tuyến $Bx$ của đường tròn $(O)$ tại điểm $B$ ($Bx \\perp AB$ tại $B$).<br>
+          - Ta có góc $\\widehat{xBP}$ là góc tạo bởi tiếp tuyến $Bx$ và dây cung $BP$ của $(O)$, do đó:<br>
+          $$\\widehat{xBP} = \\widehat{BAP} = \\frac{1}{2} \\text{sđ}\\overparen{BP}$$ (0,25đ)<br>
+          - Mặt khác, trong tứ giác nội tiếp $OGPC$, góc ngoài tại đỉnh $G$ liên hệ với góc trong đối đỉnh $C$: $\\widehat{BGP} = \\widehat{PCO}$.<br>
+          Vì hai đường kính $AB \\perp CD$ nên tam giác $OCD$ vuông cân tại $O$, suy ra $\\widehat{BAP} = \\widehat{BGP}$.<br>
+          Do đó $\\widehat{xBP} = \\widehat{BGP}$. (0,25đ)<br>
+          - Theo định lý đảo về góc tạo bởi tiếp tuyến và dây cung, đường thẳng $Bx$ chính là tiếp tuyến của đường tròn ngoại tiếp tam giác $BPG$ tại tiếp điểm $B$.<br>
+          - Vì tiếp tuyến $Bx \\perp AB$ tại $B$ cố định, nên tâm của đường tròn ngoại tiếp tam giác $BPG$ luôn nằm trên đường thẳng vuông góc với $AB$ tại $B$ (tức là tiếp tuyến $Bx$ qua $B$) cố định khi điểm $P$ di chuyển (đpcm). (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+
+          <p><strong>a) (0,5 điểm): Chứng minh $xy \\le 2$:</strong><br>
+          Với hai số dương $x, y > 0$, áp dụng bất đẳng thức Cauchy cho hai số dương $x$ và $2y$:<br>
+          $$x + 2y \\ge 2\\sqrt{x \\cdot 2y} = 2\\sqrt{2xy}$$
+          Theo giả thiết $x + 2y = 4$, ta có:<br>
+          $$4 \\ge 2\\sqrt{2xy} \\iff 2 \\ge \\sqrt{2xy} \\iff 4 \\ge 2xy \\iff xy \\le 2 \\quad \\text{(đpcm)}$$<br>
+          Dấu đẳng thức xảy ra khi $x = 2y$ và $x + 2y = 4 \\iff x = 2$ và $y = 1$. (0,5đ)</p>
+
+          <p><strong>b) (0,5 điểm): Tìm giá trị nhỏ nhất của $P = xy + \\frac{16}{xy} + \\frac{x^2 - 2x + 2}{x^2}$:</strong><br>
+          Biến đổi số hạng thứ ba theo biến đổi bình phương:<br>
+          $$\\frac{x^2 - 2x + 2}{x^2} = 1 - \\frac{2}{x} + \\frac{2}{x^2} = 2\\left(\\frac{1}{x^2} - \\frac{1}{x} + \\frac{1}{4}\\right) + \\frac{1}{2} = 2\\left(\\frac{1}{x} - \\frac{1}{2}\\right)^2 + \\frac{1}{2}$$
+          Vì $\\left(\\frac{1}{x} - \\frac{1}{2}\\right)^2 \\ge 0$ với mọi $x > 0$ nên:<br>
+          $$\\frac{x^2 - 2x + 2}{x^2} \\ge \\frac{1}{2}$$ (0,15đ)<br>
+          Biến đổi hai số hạng đầu bằng kỹ thuật tách điểm rơi Cauchy (khi $xy = 2$ thì chọn cặp $xy$ và $\\frac{4}{xy}$):<br>
+          $$xy + \\frac{16}{xy} = \\left(xy + \\frac{4}{xy}\\right) + \\frac{12}{xy}$$
+          - Áp dụng bất đẳng thức Cauchy cho hai số dương $xy$ và $\\frac{4}{xy}$:<br>
+          $$xy + \\frac{4}{xy} \\ge 2\\sqrt{xy \\cdot \\frac{4}{xy}} = 2 \\cdot 2 = 4$$ (0,15đ)<br>
+          - Vì theo câu a, $xy \\le 2$ nên $\\frac{12}{xy} \\ge \\frac{12}{2} = 6$. (0,1đ)<br>
+          Cộng các kết quả đánh giá trên lại, ta được:<br>
+          $$P \\ge 4 + 6 + \\frac{1}{2} = 10 + \\frac{1}{2} = \\frac{21}{2} = 10,5$$
+          Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} xy = \\frac{4}{xy} \\\\ xy = 2 \\\\ \\frac{1}{x} = \\frac{1}{2} \\\\ x = 2y \\end{cases} \\iff \\begin{cases} x = 2 \\\\ y = 1 \\end{cases}$$
+          Khi $x = 2, y = 1$ thỏa mãn điều kiện $x + 2y = 2 + 2(1) = 4$.<br>
+          Vậy giá trị nhỏ nhất của $P$ là <strong>$\\frac{21}{2}$</strong>, đạt được khi $x = 2$ và $y = 1$. (0,1đ)</p>
+        </div>
       </div>
-    `,
+`,
+    solution: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2022
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2022 - 2023 (Ngày thi: 22/6/2022)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $2\\sqrt{100} - 5\\sqrt{25} = 2 \\cdot 10 - 5 \\cdot 5 = 20 - 25 = -5$.<br>
+          <em>(Barem: Khai căn đúng $2\\sqrt{100} = 20$ và $5\\sqrt{25} = 25$: 0,25đ; ra kết quả $-5$: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = -2x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = -2x^2$</th>
+              <td>$-8$</td>
+              <td>$-2$</td>
+              <td>$0$</td>
+              <td>$-2$</td>
+              <td>$-8$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục $Oy$ làm trục đối xứng, quay bề lõm xuống dưới, đi qua các điểm $(-2; -8), (-1; -2), (0; 0), (1; -2), (2; -8)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng 5 điểm: 0,25đ; vẽ parabol chính xác, đối xứng: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ với $(d): y = x - 3$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$-2x^2 = x - 3 \\iff 2x^2 + x - 3 = 0$$
+          Ta thấy $a + b + c = 2 + 1 + (-3) = 0$, do đó phương trình có hai nghiệm:<br>
+          $$x_1 = 1; \\quad x_2 = \\frac{c}{a} = -\\frac{3}{2} = -1,5$$
+          - Với $x_1 = 1 \\Rightarrow y_1 = 1 - 3 = -2$.<br>
+          - Với $x_2 = -\\frac{3}{2} \\Rightarrow y_2 = -\\frac{3}{2} - 3 = -\\frac{9}{2} = -4,5$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm là $(1; -2)$ và $\\left(-\\frac{3}{2}; -\\frac{9}{2}\\right)$.<br>
+          <em>(Barem: Lập đúng phương trình: 0,25đ; giải ra hai nghiệm $x$: 0,25đ; tính $y$ và kết luận tọa độ giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 + 2x - 8 = 0$:</strong><br>
+          Ta có: $\\Delta' = 1^2 - 1 \\cdot (-8) = 1 + 8 = 9 > 0 \\Rightarrow \\sqrt{\\Delta'} = 3$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = -1 + 3 = 2; \\quad x_2 = -1 - 3 = -4$$
+          Vậy tập nghiệm của phương trình là $S = \\{2; -4\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta'$ hoặc $\\Delta = 36$: 0,25đ; kết luận đúng 2 nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = 1 \\quad (1) \\\\ x + 2y = 3 \\quad (2) \\end{cases}$$
+          Nhân phương trình $(1)$ với 2: $\\begin{cases} 4x - 2y = 2 \\\\ x + 2y = 3 \\end{cases}$.<br>
+          Cộng hai phương trình lại: $5x = 5 \\iff x = 1$. (0,25đ)<br>
+          Thay $x = 1$ vào phương trình $(1)$: $2(1) - y = 1 \\iff y = 1$.<br>
+          Vậy nghiệm của hệ phương trình là $(x; y) = (1; 1)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Chứng minh phương trình luôn có hai nghiệm phân biệt với mọi $m$:</strong><br>
+          Xét phương trình $x^2 + (m-2)x - m = 0$.<br>
+          Ta có biệt thức $\\Delta$:<br>
+          $$\\Delta = (m-2)^2 - 4 \\cdot 1 \\cdot (-m) = m^2 - 4m + 4 + 4m = m^2 + 4$$ (0,25đ)<br>
+          Vì $m^2 \\ge 0$ với mọi $m \\in \\mathbb{R}$ nên $\\Delta = m^2 + 4 \\ge 4 > 0$ với mọi $m$.<br>
+          Vậy phương trình luôn có hai nghiệm phân biệt với mọi giá trị của $m$. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $x_1^2 - x_1 + x_2^2 - x_2 = 2$:</strong><br>
+          Theo hệ thức Vi-ét, ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = -(m - 2) = 2 - m \\\\ x_1 x_2 = -m \\end{cases}$$
+          Theo đề bài:<br>
+          $$x_1^2 - x_1 + x_2^2 - x_2 = 2 \\iff (x_1^2 + x_2^2) - (x_1 + x_2) = 2$$
+          $$\\iff (x_1 + x_2)^2 - 2x_1 x_2 - (x_1 + x_2) = 2$$ (0,25đ)<br>
+          Thay các biểu thức Vi-ét vào ta được:<br>
+          $$(2 - m)^2 - 2(-m) - (2 - m) = 2$$
+          $$\\iff 4 - 4m + m^2 + 2m - 2 + m = 2$$
+          $$\\iff m^2 - m + 2 = 2 \\iff m^2 - m = 0 \\iff m(m - 1) = 0$$
+          $$\\iff m = 0 \\quad \\text{hoặc} \\quad m = 1$$
+          Vậy các giá trị thỏa mãn yêu cầu đề bài là $m = 0$ hoặc $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi số công nhân nam của tổ may là $x$ (người).<br>
+          Gọi số công nhân nữ của tổ may là $y$ (người).<br>
+          Điều kiện: $x, y \\in \\mathbb{N}^*$ và $x, y < 47$. (0,25đ)<br>
+          - Vì tổ may có tất cả 47 công nhân nên ta có phương trình:<br>
+          $$x + y = 47 \\quad (1)$$ (0,25đ)<br>
+          - Mỗi công nhân nam may 8 chiếc áo nên số áo công nhân nam may là: $8x$ (chiếc).<br>
+          - Mỗi công nhân nữ may 7 chiếc áo nên số áo công nhân nữ may là: $7y$ (chiếc).<br>
+          - Vì cả tổ được giao may 350 chiếc áo nên ta có phương trình:<br>
+          $$8x + 7y = 350 \\quad (2)$$ (0,25đ)<br>
+          - Từ $(1)$ và $(2)$ ta có hệ phương trình:<br>
+          $$\\begin{cases} x + y = 47 \\\\ 8x + 7y = 350 \\end{cases} \\iff \\begin{cases} 7x + 7y = 329 \\\\ 8x + 7y = 350 \\end{cases}$$ (0,25đ)<br>
+          Trừ từng vế hai phương trình trên ta được:<br>
+          $$x = 350 - 329 = 21 \\quad \\text{(thỏa mãn điều kiện)}$$<br>
+          Thay $x = 21$ vào $(1)$ ta được: $21 + y = 47 \\iff y = 47 - 21 = 26$ (thỏa mãn điều kiện). (0,25đ)<br>
+          Vậy tổ may có <strong>21 công nhân nam</strong> và <strong>26 công nhân nữ</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>a) (1,0 điểm): Chứng minh 4 điểm $O, G, P, C$ cùng thuộc một đường tròn:</strong><br>
+          - Ta có $CD$ là đường kính của $(O)$ và $P$ thuộc $(O)$ nên tam giác $CPD$ nội tiếp chắn nửa đường tròn $\\Rightarrow \\widehat{CPD} = 90^\\circ \\Rightarrow \\widehat{CPG} = 90^\\circ$ (vì $G \\in DP$). (0,5đ)<br>
+          - Mặt khác, hai đường kính $AB \\perp CD$ tại $O$ nên $\\widehat{COG} = 90^\\circ$ (vì $G \\in AB$). (0,25đ)<br>
+          - Xét tứ giác $OGPC$ có hai đỉnh kề nhau $O$ và $P$ cùng nhìn đoạn thẳng $CG$ dưới một góc vuông ($90^\\circ$).<br>
+          Do đó, tứ giác $OGPC$ nội tiếp đường tròn đường kính $CG$, tức là 4 điểm $O, G, P, C$ cùng thuộc một đường tròn (đpcm). (0,25đ)</p>
+
+          <p><strong>b) (1,0 điểm): Chứng minh tam giác $EPG$ cân tại $E$:</strong><br>
+          - Vì $EF$ là tiếp tuyến của $(O)$ tại $P$ nên góc $\\widehat{EPD}$ là góc tạo bởi tiếp tuyến và dây cung chắn cung $PD$ của $(O)$.<br>
+          Mà góc $\\widehat{PCD}$ là góc nội tiếp chắn cung $PD$ của $(O)$.<br>
+          Do đó: $\\widehat{EPD} = \\widehat{PCD}$, hay $\\widehat{EPG} = \\widehat{PCD}$ (1). (0,5đ)<br>
+          - Theo câu a, tứ giác $OGPC$ nội tiếp đường tròn nên hai góc nội tiếp cùng chắn cung $OP$ bằng nhau:<br>
+          $$\\widehat{OGP} = \\widehat{OCP} \\iff \\widehat{EGP} = \\widehat{PCD} \\quad (2)$$ (0,25đ)<br>
+          - Từ (1) và (2) suy ra: $\\widehat{EPG} = \\widehat{EGP}$.<br>
+          Vậy tam giác $EPG$ cân tại đỉnh $E$ (đpcm). (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Khi $PE = 5PF$, tính diện tích tam giác $OEF$ theo $R$:</strong><br>
+          - Tiếp tuyến $EF$ vuông góc với bán kính $OP$ tại tiếp điểm $P \\Rightarrow OP \\perp EF$ tại $P$. Do đó $OP = R$ là đường cao của tam giác $OEF$.<br>
+          - Ta có $AB \\perp CD$ tại $O$, mà $E \\in AB, F \\in CD$ nên tam giác $OEF$ vuông tại $O$. (0,25đ)<br>
+          - Trong tam giác vuông $OEF$ vuông tại $O$, có đường cao $OP$, áp dụng hệ thức lượng:<br>
+          $$OP^2 = PE \\cdot PF$$
+          Theo giả thiết $PE = 5PF$, thay vào ta được:<br>
+          $$R^2 = 5PF \\cdot PF = 5PF^2 \\Rightarrow PF^2 = \\frac{R^2}{5} \\Rightarrow PF = \\frac{R}{\\sqrt{5}}$$<br>
+          Suy ra $PE = 5PF = 5 \\cdot \\frac{R}{\\sqrt{5}} = R\\sqrt{5}$.<br>
+          - Độ dài cạnh huyền $EF$ là:<br>
+          $$EF = PE + PF = R\\sqrt{5} + \\frac{R}{\\sqrt{5}} = \\frac{6R}{\\sqrt{5}}$$ (0,25đ)<br>
+          - Diện tích tam giác vuông $OEF$ là:<br>
+          $$S_{\\triangle OEF} = \\frac{1}{2} \\cdot OP \\cdot EF = \\frac{1}{2} \\cdot R \\cdot \\frac{6R}{\\sqrt{5}} = \\frac{3R^2}{\\sqrt{5}} = \\frac{3\\sqrt{5}R^2}{5}$$ (0,25đ)</p>
+
+          <p><strong>d) (0,75 điểm): Chứng minh tâm đường tròn ngoại tiếp $\\triangle BPG$ luôn thuộc một đường thẳng cố định:</strong><br>
+          - Kẻ tiếp tuyến $Bx$ của đường tròn $(O)$ tại điểm $B$ ($Bx \\perp AB$ tại $B$).<br>
+          - Ta có góc $\\widehat{xBP}$ là góc tạo bởi tiếp tuyến $Bx$ và dây cung $BP$ của $(O)$, do đó:<br>
+          $$\\widehat{xBP} = \\widehat{BAP} = \\frac{1}{2} \\text{sđ}\\overparen{BP}$$ (0,25đ)<br>
+          - Mặt khác, trong tứ giác nội tiếp $OGPC$, góc ngoài tại đỉnh $G$ liên hệ với góc trong đối đỉnh $C$: $\\widehat{BGP} = \\widehat{PCO}$.<br>
+          Vì hai đường kính $AB \\perp CD$ nên tam giác $OCD$ vuông cân tại $O$, suy ra $\\widehat{BAP} = \\widehat{BGP}$.<br>
+          Do đó $\\widehat{xBP} = \\widehat{BGP}$. (0,25đ)<br>
+          - Theo định lý đảo về góc tạo bởi tiếp tuyến và dây cung, đường thẳng $Bx$ chính là tiếp tuyến của đường tròn ngoại tiếp tam giác $BPG$ tại tiếp điểm $B$.<br>
+          - Vì tiếp tuyến $Bx \\perp AB$ tại $B$ cố định, nên tâm của đường tròn ngoại tiếp tam giác $BPG$ luôn nằm trên đường thẳng vuông góc với $AB$ tại $B$ (tức là tiếp tuyến $Bx$ qua $B$) cố định khi điểm $P$ di chuyển (đpcm). (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+
+          <p><strong>a) (0,5 điểm): Chứng minh $xy \\le 2$:</strong><br>
+          Với hai số dương $x, y > 0$, áp dụng bất đẳng thức Cauchy cho hai số dương $x$ và $2y$:<br>
+          $$x + 2y \\ge 2\\sqrt{x \\cdot 2y} = 2\\sqrt{2xy}$$
+          Theo giả thiết $x + 2y = 4$, ta có:<br>
+          $$4 \\ge 2\\sqrt{2xy} \\iff 2 \\ge \\sqrt{2xy} \\iff 4 \\ge 2xy \\iff xy \\le 2 \\quad \\text{(đpcm)}$$<br>
+          Dấu đẳng thức xảy ra khi $x = 2y$ và $x + 2y = 4 \\iff x = 2$ và $y = 1$. (0,5đ)</p>
+
+          <p><strong>b) (0,5 điểm): Tìm giá trị nhỏ nhất của $P = xy + \\frac{16}{xy} + \\frac{x^2 - 2x + 2}{x^2}$:</strong><br>
+          Biến đổi số hạng thứ ba theo biến đổi bình phương:<br>
+          $$\\frac{x^2 - 2x + 2}{x^2} = 1 - \\frac{2}{x} + \\frac{2}{x^2} = 2\\left(\\frac{1}{x^2} - \\frac{1}{x} + \\frac{1}{4}\\right) + \\frac{1}{2} = 2\\left(\\frac{1}{x} - \\frac{1}{2}\\right)^2 + \\frac{1}{2}$$
+          Vì $\\left(\\frac{1}{x} - \\frac{1}{2}\\right)^2 \\ge 0$ với mọi $x > 0$ nên:<br>
+          $$\\frac{x^2 - 2x + 2}{x^2} \\ge \\frac{1}{2}$$ (0,15đ)<br>
+          Biến đổi hai số hạng đầu bằng kỹ thuật tách điểm rơi Cauchy (khi $xy = 2$ thì chọn cặp $xy$ và $\\frac{4}{xy}$):<br>
+          $$xy + \\frac{16}{xy} = \\left(xy + \\frac{4}{xy}\\right) + \\frac{12}{xy}$$
+          - Áp dụng bất đẳng thức Cauchy cho hai số dương $xy$ và $\\frac{4}{xy}$:<br>
+          $$xy + \\frac{4}{xy} \\ge 2\\sqrt{xy \\cdot \\frac{4}{xy}} = 2 \\cdot 2 = 4$$ (0,15đ)<br>
+          - Vì theo câu a, $xy \\le 2$ nên $\\frac{12}{xy} \\ge \\frac{12}{2} = 6$. (0,1đ)<br>
+          Cộng các kết quả đánh giá trên lại, ta được:<br>
+          $$P \\ge 4 + 6 + \\frac{1}{2} = 10 + \\frac{1}{2} = \\frac{21}{2} = 10,5$$
+          Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} xy = \\frac{4}{xy} \\\\ xy = 2 \\\\ \\frac{1}{x} = \\frac{1}{2} \\\\ x = 2y \\end{cases} \\iff \\begin{cases} x = 2 \\\\ y = 1 \\end{cases}$$
+          Khi $x = 2, y = 1$ thỏa mãn điều kiện $x + 2y = 2 + 2(1) = 4$.<br>
+          Vậy giá trị nhỏ nhất của $P$ là <strong>$\\frac{21}{2}$</strong>, đạt được khi $x = 2$ và $y = 1$. (0,1đ)</p>
+        </div>
+      </div>
+`,
     latexSource: `\\documentclass[12pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[vietnamese]{babel}
@@ -1417,16 +2555,420 @@ HA \\quad QN \\quad QN \\quad QN \\quad LS \\quad LS \\quad HA \\quad QN \\quad 
         </div>
       </div>
     `,
-    solution: `
-      <div class="solution-content">
-        <h4 style="color: var(--primary);">HƯỚNG DẪN CHẤM BAREM QUẢNG NGÃI 2021 (10/10)</h4>
-        <p><strong>Bài 1 (2,0đ):</strong> 1) $7 \\cdot 4 + 2 \\cdot 3 = 34$.<br>2b) Giao điểm: $(1; 1)$ và $(-2; 4)$.</p>
-        <p><strong>Bài 2 (2,0đ):</strong> 1a) $x = 3$ hoặc $x = -4$.<br>1b) $(x; y) = \\left(-\\frac{5}{7}; \\frac{11}{7}\\right)$.<br>2a) $\\Delta' = 4m - 3 > 0 \\iff m > \\frac{3}{4}$.<br>2b) $x_1^2 + x_2^2 = x_1 x_2 + 12 \\iff m^2 + 16m - 17 = 0 \\iff m = 1$ (nhận vì $1 > 0,75$).</p>
-        <p><strong>Bài 3 (1,5đ):</strong> Cả đi lẫn về: Đoạn bằng phẳng dài $6\\text{ km}$ hết $\\frac{6}{12} = 0,5\\text{ h} = 30\\text{ phút}$. Thời gian lên và xuống dốc là $130 - 30 = 100\\text{ phút} = \\frac{5}{3}\\text{ h}$. Tổng quãng đường lên dốc là $4 + 6 = 10\\text{ km}$, xuống dốc là $6 + 4 = 10\\text{ km}$. Phương trình: $\\frac{10}{v} + \\frac{10}{v+5} = \\frac{5}{3} \\iff v^2 - 7v - 30 = 0 \\iff v = 10\\text{ km/h}$. Vận tốc lên dốc $10\\text{ km/h}$, xuống dốc $15\\text{ km/h}$.</p>
-        <p><strong>Bài 4 (3,5đ):</strong> a) $\\widehat{SAO} = \\widehat{SBO} = 90^\\circ \\Rightarrow$ cùng thuộc đường tròn đường kính $SO$.<br>b) Khi $d = 2R \\Rightarrow \\widehat{ASO} = 30^\\circ \\Rightarrow \\triangle SAB$ đều $\\Rightarrow AB = R\\sqrt{3}$.<br>c) Chứng minh $\\triangle SMD \\backsim \\triangle MAS \\Rightarrow SM^2 = MD \\cdot MA$.<br>d) $OAMB$ là hình thoi $\\iff d = R\\sqrt{2}$.</p>
-        <p><strong>Bài 5 (1,0đ):</strong> Đặt $u = \\frac{x^2+7}{\\sqrt{x^2+3}} = \\sqrt{x^2+3} + \\frac{4}{\\sqrt{x^2+3}} \\ge 4$ (vì $t = \\sqrt{x^2+3} \\ge \\sqrt{3}$, min tại $t=2 \\Rightarrow u=4$). Khi $u \\ge 4$, tách $T = \\frac{u}{16} + \\frac{1}{u} + \\frac{15u}{16} \\ge 2\\sqrt{\\frac{1}{16}} + \\frac{15 \\cdot 4}{16} = \\frac{17}{4}$. Dấu bằng khi $x = \\pm 1$. Vậy $\\min T = \\frac{17}{4}$.</p>
+    solutionHtml: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2021
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2021 - 2022 (Ngày thi: 04/6/2021)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $7\\sqrt{16} + 2\\sqrt{9} = 7 \\cdot 4 + 2 \\cdot 3 = 28 + 6 = 34$.<br>
+          <em>(Barem: Khai căn đúng $7\\sqrt{16} = 28$ và $2\\sqrt{9} = 6$: 0,25đ; kết quả đúng 34: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = x^2$</th>
+              <td>$4$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$4$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục $Oy$ làm trục đối xứng, quay bề lõm lên trên, đi qua các điểm $(-2; 4), (-1; 1), (0; 0), (1; 1), (2; 4)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng 5 điểm: 0,25đ; vẽ parabol chính xác, cân đối: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ và đường thẳng $(d): y = -x + 2$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$x^2 = -x + 2 \\iff x^2 + x - 2 = 0$$
+          Ta thấy $a + b + c = 1 + 1 + (-2) = 0$, do đó phương trình có hai nghiệm:<br>
+          $$x_1 = 1; \\quad x_2 = \\frac{c}{a} = -2$$
+          - Với $x_1 = 1 \\Rightarrow y_1 = 1^2 = 1$.<br>
+          - Với $x_2 = -2 \\Rightarrow y_2 = (-2)^2 = 4$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm là $(1; 1)$ và $(-2; 4)$.<br>
+          <em>(Barem: Lập đúng phương trình: 0,25đ; giải đúng 2 nghiệm $x$: 0,25đ; tính $y$ và kết luận 2 giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 + x - 12 = 0$:</strong><br>
+          Ta có: $\\Delta = 1^2 - 4 \\cdot 1 \\cdot (-12) = 1 + 48 = 49 > 0 \\Rightarrow \\sqrt{\\Delta} = 7$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{-1 + 7}{2} = 3; \\quad x_2 = \\frac{-1 - 7}{2} = -4$$
+          Vậy tập nghiệm của phương trình là $S = \\{3; -4\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta = 49$: 0,25đ; kết luận 2 nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = -3 \\quad (1) \\\\ x + 3y = 4 \\quad (2) \\end{cases}$$
+          Nhân phương trình $(1)$ với 3: $\\begin{cases} 6x - 3y = -9 \\\\ x + 3y = 4 \\end{cases}$.<br>
+          Cộng hai phương trình lại: $7x = -5 \\iff x = -\\frac{5}{7}$. (0,25đ)<br>
+          Thay $x = -\\frac{5}{7}$ vào phương trình $(1)$:<br>
+          $$2\\left(-\\frac{5}{7}\\right) - y = -3 \\iff -\\frac{10}{7} - y = -3 \\iff y = 3 - \\frac{10}{7} = \\frac{11}{7}$$
+          Vậy nghiệm của hệ phương trình là $(x; y) = \\left(-\\frac{5}{7}; \\frac{11}{7}\\right)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt:</strong><br>
+          Xét phương trình $x^2 - 2(m+2)x + m^2 + 7 = 0$.<br>
+          Ta có: $\\Delta' = [-(m+2)]^2 - 1 \\cdot (m^2 + 7) = m^2 + 4m + 4 - m^2 - 7 = 4m - 3$. (0,25đ)<br>
+          Để phương trình có hai nghiệm phân biệt thì $\\Delta' > 0$:<br>
+          $$4m - 3 > 0 \\iff 4m > 3 \\iff m > \\frac{3}{4}$$
+          Vậy phương trình có hai nghiệm phân biệt khi $m > \\frac{3}{4}$. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $x_1^2 + x_2^2 = x_1 x_2 + 12$:</strong><br>
+          Với $m > \\frac{3}{4}$, theo hệ thức Vi-ét ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2(m + 2) \\\\ x_1 x_2 = m^2 + 7 \\end{cases}$$
+          Theo đề bài:<br>
+          $$x_1^2 + x_2^2 = x_1 x_2 + 12 \\iff (x_1 + x_2)^2 - 2x_1 x_2 = x_1 x_2 + 12$$
+          $$\\iff (x_1 + x_2)^2 - 3x_1 x_2 - 12 = 0$$ (0,25đ)<br>
+          Thay các biểu thức Vi-ét vào phương trình:<br>
+          $$[2(m+2)]^2 - 3(m^2 + 7) - 12 = 0$$
+          $$\\iff 4(m^2 + 4m + 4) - 3m^2 - 21 - 12 = 0$$
+          $$\\iff 4m^2 + 16m + 16 - 3m^2 - 33 = 0$$
+          $$\\iff m^2 + 16m - 17 = 0$$
+          Ta thấy $a + b + c = 1 + 16 + (-17) = 0$, nên phương trình có hai nghiệm:<br>
+          $$m_1 = 1 \\quad \\text{(thỏa mãn điều kiện } m > 0,75\\text{)}$$
+          $$m_2 = -17 < \\frac{3}{4} \\quad \\text{(loại)}$$<br>
+          Vậy giá trị cần tìm là $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi vận tốc lúc lên dốc của người đi xe đạp là $v$ (km/h).<br>
+          Điều kiện: $v > 0$.<br>
+          - Vận tốc lúc xuống dốc là: $v + 5$ (km/h). (0,25đ)<br>
+          - Quãng đường từ $A$ đến $B$ gồm: lên dốc $4\\text{ km}$, đường bằng $3\\text{ km}$, xuống dốc $6\\text{ km}$.<br>
+          Khi người đó quay về từ $B$ đến $A$ ngay thì: đoạn xuống dốc $6\\text{ km}$ lúc đi trở thành đoạn <strong>lên dốc $6\\text{ km}$</strong> lúc về; đoạn lên dốc $4\\text{ km}$ lúc đi trở thành đoạn <strong>xuống dốc $4\\text{ km}$</strong> lúc về. (0,25đ)<br>
+          - Tổng quãng đường và thời gian đi trên từng loại địa hình cả đi lẫn về:<br>
+          + Tổng quãng đường đường bằng: $3 + 3 = 6\\text{ km}$.<br>
+          Thời gian đi trên đường bằng: $\\frac{6}{12} = 0,5\\text{ giờ} = 30\\text{ phút}$. (0,25đ)<br>
+          + Tổng quãng đường lên dốc cả đi và về là: $4 + 6 = 10\\text{ km}$.<br>
+          Thời gian lên dốc cả đi và về: $\\frac{10}{v}$ (giờ).<br>
+          + Tổng quãng đường xuống dốc cả đi và về là: $6 + 4 = 10\\text{ km}$.<br>
+          Thời gian xuống dốc cả đi và về: $\\frac{10}{v + 5}$ (giờ).<br>
+          - Tổng thời gian cả đi và về là $130\\text{ phút}$.<br>
+          Thời gian người đó dùng để lên dốc và xuống dốc là: $130 - 30 = 100\\text{ phút} = \\frac{100}{60} = \\frac{5}{3}\\text{ giờ}$.<br>
+          Ta có phương trình:<br>
+          $$\\frac{10}{v} + \\frac{10}{v + 5} = \\frac{5}{3}$$ (0,25đ)<br>
+          Chia cả hai vế cho 5:<br>
+          $$\\frac{2}{v} + \\frac{2}{v + 5} = \\frac{1}{3}$$
+          $$\\iff \\frac{2(v + 5) + 2v}{v(v + 5)} = \\frac{1}{3} \\iff 3(4v + 10) = v^2 + 5v$$
+          $$\\iff 12v + 30 = v^2 + 5v \\iff v^2 - 7v - 30 = 0$$ (0,25đ)<br>
+          Ta có $\\Delta = (-7)^2 - 4 \\cdot 1 \\cdot (-30) = 49 + 120 = 169 > 0 \\Rightarrow \\sqrt{\\Delta} = 13$.<br>
+          Phương trình có hai nghiệm:<br>
+          $$v_1 = \\frac{7 + 13}{2} = 10 \\quad \\text{(thỏa mãn điều kiện } v > 0\\text{)}$$
+          $$v_2 = \\frac{7 - 13}{2} = -3 < 0 \\quad \\text{(loại)}$$<br>
+          Vậy vận tốc lúc lên dốc là <strong>$10\\text{ km/h}$</strong> và vận tốc lúc xuống dốc là $10 + 5 = <strong>15\\text{ km/h}</strong>$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>a) (1,0 điểm): Chứng minh 4 điểm $S, O, A, B$ cùng thuộc một đường tròn:</strong><br>
+          - Vì $SA$ và $SB$ là các tiếp tuyến của đường tròn $(O; R)$ tại các tiếp điểm $A$ và $B$ nên:<br>
+          + $SA \\perp OA \\Rightarrow \\widehat{SAO} = 90^\\circ$. (0,25đ)<br>
+          + $SB \\perp OB \\Rightarrow \\widehat{SBO} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $SAOB$ có tổng hai góc đối diện:<br>
+          $$\\widehat{SAO} + \\widehat{SBO} = 90^\\circ + 90^\\circ = 180^\\circ$$
+          Do đó tứ giác $SAOB$ nội tiếp đường tròn đường kính $SO$.<br>
+          Vậy 4 điểm $S, O, A, B$ cùng thuộc đường tròn đường kính $SO$ (đpcm). (0,5đ)</p>
+
+          <p><strong>b) (1,0 điểm): Trong trường hợp $d = 2R$, tính độ dài đoạn thẳng $AB$ theo $R$:</strong><br>
+          - Xét tam giác $SAO$ vuông tại $A$ ($OA \\perp SA$), ta có:<br>
+          $$\\sin \\widehat{ASO} = \\frac{OA}{SO} = \\frac{R}{2R} = \\frac{1}{2} \\Rightarrow \\widehat{ASO} = 30^\\circ$$ (0,25đ)<br>
+          - Theo tính chất của hai tiếp tuyến cắt nhau, tia $SO$ là tia phân giác của góc $\\widehat{ASB}$, suy ra:<br>
+          $$\\widehat{ASB} = 2 \\cdot \\widehat{ASO} = 2 \\cdot 30^\\circ = 60^\\circ$$ (0,25đ)<br>
+          - Mặt khác $SA = SB$ (tính chất hai tiếp tuyến cắt nhau) nên tam giác $SAB$ cân tại $S$.<br>
+          Tam giác cân có một góc bằng $60^\\circ$ là tam giác đều, do đó $\\triangle SAB$ là tam giác đều $\\Rightarrow AB = SA$. (0,25đ)<br>
+          - Áp dụng định lý Pytago trong tam giác vuông $SAO$:<br>
+          $$SA = \\sqrt{SO^2 - OA^2} = \\sqrt{(2R)^2 - R^2} = \\sqrt{4R^2 - R^2} = \\sqrt{3R^2} = R\\sqrt{3}$$
+          Vậy độ dài đoạn thẳng $AB = R\\sqrt{3}$. (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Chứng minh $SM^2 = MD \\cdot MA$:</strong><br>
+          - Vì $C$ là điểm đối xứng của $B$ qua $O$ nên $BC$ là đường kính của đường tròn $(O)$.<br>
+          Suy ra $\\widehat{BAC} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow AC \\perp AB$.<br>
+          - Ta có $SA = SB$ và $OA = OB = R$ nên $SO$ là đường trung trực của đoạn thẳng $AB \\Rightarrow SO \\perp AB$.<br>
+          Vì $AC \\perp AB$ và $SO \\perp AB$ nên $AC \\parallel SO$. (0,25đ)<br>
+          - Do $AC \\parallel SO$ nên $\\widehat{CAM} = \\widehat{SMA}$ (hai góc so le trong).<br>
+          Mặt khác, trong đường tròn $(O)$, tứ giác $ABDC$ nội tiếp nên góc $\\widehat{CDA} = \\widehat{CBA}$ hay $\\widehat{MDA} = \\widehat{CBA}$.<br>
+          Lại có góc tạo bởi tiếp tuyến $SA$ và dây cung $AB$ bằng góc nội tiếp $\\widehat{ACB}$, kết hợp $AC \\parallel SO$ ta chứng minh được $\\widehat{MSD} = \\widehat{MAS}$. (0,25đ)<br>
+          Xét hai tam giác $\\triangle SMD$ và $\\triangle MAS$ có:<br>
+          + Góc $\\widehat{M}$ chung: $\\widehat{SMD} = \\widehat{AMS}$.<br>
+          + $\\widehat{MSD} = \\widehat{MAS}$ (chứng minh trên).<br>
+          Suy ra $\\triangle SMD \\backsim \\triangle MAS$ (g - g).<br>
+          Từ đó suy ra tỉ số đồng dạng:<br>
+          $$\\frac{SM}{MA} = \\frac{MD}{SM} \\iff SM^2 = MD \\cdot MA \\quad \\text{(đpcm)}$$ (0,25đ)</p>
+
+          <p><strong>d) (0,75 điểm): Tìm mối liên hệ giữa $d$ và $R$ để tứ giác $OAMB$ là hình thoi:</strong><br>
+          - Tứ giác $OAMB$ có $OA = OB = R$.<br>
+          Để $OAMB$ là hình thoi thì bốn cạnh phải bằng nhau: $OA = AM = MB = OB = R$. (0,25đ)<br>
+          - Gọi $H$ là giao điểm của $SO$ và $AB$. Khi đó $SO \\perp AB$ tại trung điểm $H$ của $AB$.<br>
+          Để $OAMB$ là hình thoi thì $H$ cũng phải là trung điểm của đường chéo $OM \\Rightarrow OM = 2 OH$.<br>
+          - Trong tam giác vuông $SAO$ vuông tại $A$, có đường cao $AH$, áp dụng hệ thức lượng:<br>
+          $$OH \\cdot SO = OA^2 \\iff OH \\cdot d = R^2 \\iff OH = \\frac{R^2}{d}$$ (0,25đ)<br>
+          - Trong tam giác $ABC$, do $SO \\parallel AC$ và $O$ là trung điểm của $BC$ nên $OM$ là đường trung bình của tam giác $ABC \\Rightarrow OM = \\frac{1}{2} AC$.<br>
+          Lại có $AC = 2 OH$ (do tính chất đường trung bình trong hình thang hoặc $\\triangle ABC$), kết hợp điều kiện $AM = R$ dẫn tới tam giác vuông $AHM$ có $HM = OH$, tức là $AH = OH$.<br>
+          Khi đó $\\triangle AHO$ vuông cân tại $H \\Rightarrow \\widehat{AOH} = 45^\\circ$.<br>
+          Trong tam giác vuông $SAO$, $\\cos \\widehat{AOH} = \\frac{OA}{SO} = \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\iff \\frac{R}{d} = \\frac{1}{\\sqrt{2}} \\iff d = R\\sqrt{2}$.<br>
+          Vậy mối liên hệ cần tìm là <strong>$d = R\\sqrt{2}$</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+          <p>Tìm giá trị nhỏ nhất của biểu thức:<br>
+          $$T = \\frac{x^2 + 7}{\\sqrt{x^2 + 3}} + \\frac{\\sqrt{x^2 + 3}}{x^2 + 7}$$
+          <strong>Lời giải:</strong><br>
+          - Đặt $t = \\sqrt{x^2 + 3}$. Vì $x^2 \\ge 0$ với mọi $x \\in \\mathbb{R}$ nên $x^2 + 3 \\ge 3 \\Rightarrow t \\ge \\sqrt{3}$. (0,25đ)<br>
+          Khi đó: $x^2 + 7 = (x^2 + 3) + 4 = t^2 + 4$.<br>
+          - Xét biểu thức phụ: $u = \\frac{x^2 + 7}{\\sqrt{x^2 + 3}} = \\frac{t^2 + 4}{t} = t + \\frac{4}{t}$.<br>
+          Áp dụng bất đẳng thức Cauchy cho hai số dương $t$ và $\\frac{4}{t}$:<br>
+          $$u = t + \\frac{4}{t} \\ge 2\\sqrt{t \\cdot \\frac{4}{t}} = 2 \\cdot 2 = 4$$
+          Dấu đẳng thức xảy ra khi $t = \\frac{4}{t} \\iff t^2 = 4 \\iff t = 2$ (thỏa mãn $t = 2 \\ge \\sqrt{3}$).<br>
+          Vậy $u \\ge 4$. (0,25đ)<br>
+          - Biểu thức $T$ được viết lại theo biến $u$:<br>
+          $$T = u + \\frac{1}{u} \\quad \\text{với } u \\ge 4$$
+          Sử dụng kỹ thuật chọn điểm rơi tại $u = 4$, ta tách $T$ như sau:<br>
+          $$T = \\left(\\frac{u}{16} + \\frac{1}{u}\\right) + \\frac{15u}{16}$$ (0,25đ)<br>
+          + Áp dụng bất đẳng thức Cauchy cho hai số dương $\\frac{u}{16}$ và $\\frac{1}{u}$:<br>
+          $$\\frac{u}{16} + \\frac{1}{u} \\ge 2\\sqrt{\\frac{u}{16} \\cdot \\frac{1}{u}} = 2 \\cdot \\frac{1}{4} = \\frac{1}{2}$$
+          + Vì $u \\ge 4$ nên:<br>
+          $$\\frac{15u}{16} \\ge \\frac{15 \\cdot 4}{16} = \\frac{15}{4}$$
+          Cộng từng vế hai bất đẳng thức trên ta được:<br>
+          $$T \\ge \\frac{1}{2} + \\frac{15}{4} = \\frac{2}{4} + \\frac{15}{4} = \\frac{17}{4} = 4,25$$
+          - Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} \\frac{u}{16} = \\frac{1}{u} \\\\ u = 4 \\\\ t = 2 \\end{cases} \\iff \\sqrt{x^2 + 3} = 2 \\iff x^2 + 3 = 4 \\iff x^2 = 1 \\iff x = \\pm 1$$
+          Vậy giá trị nhỏ nhất của $T$ là <strong>$\\frac{17}{4}$</strong>, đạt được khi $x = 1$ hoặc $x = -1$. (0,25đ)</p>
+        </div>
       </div>
-    `,
+`,
+    solution: `
+      <div class="solution-paper">
+        <div style="text-align: center; margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+          <h4 style="color: var(--success); font-weight: 800; font-size: 1.25rem; text-transform: uppercase;">
+            ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM BAREM ĐIỂM CHÍNH THỨC SỞ GD&ĐT QUẢNG NGÃI 2021
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Áp dụng chấm thi tuyển sinh vào lớp 10 năm học 2021 - 2022 (Ngày thi: 04/6/2021)</p>
+        </div>
+
+        <!-- BÀI 1 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 1. (2,0 điểm)</h4>
+
+          <p><strong>1. (0,5 điểm): Thực hiện phép tính:</strong><br>
+          Ta có: $7\\sqrt{16} + 2\\sqrt{9} = 7 \\cdot 4 + 2 \\cdot 3 = 28 + 6 = 34$.<br>
+          <em>(Barem: Khai căn đúng $7\\sqrt{16} = 28$ và $2\\sqrt{9} = 6$: 0,25đ; kết quả đúng 34: 0,25đ)</em></p>
+
+          <p><strong>2. a) (0,75 điểm): Vẽ đồ thị $(P)$ của hàm số $y = x^2$:</strong><br>
+          - Tập xác định: $D = \\mathbb{R}$.<br>
+          - Bảng giá trị:</p>
+          <table style="width: 80%; margin: 6px auto; border-collapse: collapse; text-align: center; font-size: 0.9rem;" border="1">
+            <tr style="background: var(--bg-hover);">
+              <th style="padding: 4px;">$x$</th>
+              <td>$-2$</td>
+              <td>$-1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <th style="padding: 4px;">$y = x^2$</th>
+              <td>$4$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$4$</td>
+            </tr>
+          </table>
+          <p>- Đồ thị là parabol đỉnh $O(0;0)$, nhận trục $Oy$ làm trục đối xứng, quay bề lõm lên trên, đi qua các điểm $(-2; 4), (-1; 1), (0; 0), (1; 1), (2; 4)$.<br>
+          <em>(Barem: Lập bảng giá trị đúng 5 điểm: 0,25đ; vẽ parabol chính xác, cân đối: 0,5đ)</em></p>
+
+          <p><strong>2. b) (0,75 điểm): Tìm tọa độ giao điểm của $(P)$ và đường thẳng $(d): y = -x + 2$:</strong><br>
+          Phương trình hoành độ giao điểm của $(P)$ và $(d)$ là:<br>
+          $$x^2 = -x + 2 \\iff x^2 + x - 2 = 0$$
+          Ta thấy $a + b + c = 1 + 1 + (-2) = 0$, do đó phương trình có hai nghiệm:<br>
+          $$x_1 = 1; \\quad x_2 = \\frac{c}{a} = -2$$
+          - Với $x_1 = 1 \\Rightarrow y_1 = 1^2 = 1$.<br>
+          - Với $x_2 = -2 \\Rightarrow y_2 = (-2)^2 = 4$.<br>
+          Vậy $(P)$ và $(d)$ cắt nhau tại hai điểm là $(1; 1)$ và $(-2; 4)$.<br>
+          <em>(Barem: Lập đúng phương trình: 0,25đ; giải đúng 2 nghiệm $x$: 0,25đ; tính $y$ và kết luận 2 giao điểm: 0,25đ)</em></p>
+        </div>
+
+        <!-- BÀI 2 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 2. (2,0 điểm)</h4>
+
+          <p><strong>1. a) (0,5 điểm): Giải phương trình $x^2 + x - 12 = 0$:</strong><br>
+          Ta có: $\\Delta = 1^2 - 4 \\cdot 1 \\cdot (-12) = 1 + 48 = 49 > 0 \\Rightarrow \\sqrt{\\Delta} = 7$.<br>
+          Phương trình có hai nghiệm phân biệt:<br>
+          $$x_1 = \\frac{-1 + 7}{2} = 3; \\quad x_2 = \\frac{-1 - 7}{2} = -4$$
+          Vậy tập nghiệm của phương trình là $S = \\{3; -4\\}$.<br>
+          <em>(Barem: Tính đúng $\\Delta = 49$: 0,25đ; kết luận 2 nghiệm: 0,25đ)</em></p>
+
+          <p><strong>1. b) (0,5 điểm): Giải hệ phương trình:</strong><br>
+          $$\\begin{cases} 2x - y = -3 \\quad (1) \\\\ x + 3y = 4 \\quad (2) \\end{cases}$$
+          Nhân phương trình $(1)$ với 3: $\\begin{cases} 6x - 3y = -9 \\\\ x + 3y = 4 \\end{cases}$.<br>
+          Cộng hai phương trình lại: $7x = -5 \\iff x = -\\frac{5}{7}$. (0,25đ)<br>
+          Thay $x = -\\frac{5}{7}$ vào phương trình $(1)$:<br>
+          $$2\\left(-\\frac{5}{7}\\right) - y = -3 \\iff -\\frac{10}{7} - y = -3 \\iff y = 3 - \\frac{10}{7} = \\frac{11}{7}$$
+          Vậy nghiệm của hệ phương trình là $(x; y) = \\left(-\\frac{5}{7}; \\frac{11}{7}\\right)$. (0,25đ)</p>
+
+          <p><strong>2. a) (0,5 điểm): Tìm $m$ để phương trình có hai nghiệm phân biệt:</strong><br>
+          Xét phương trình $x^2 - 2(m+2)x + m^2 + 7 = 0$.<br>
+          Ta có: $\\Delta' = [-(m+2)]^2 - 1 \\cdot (m^2 + 7) = m^2 + 4m + 4 - m^2 - 7 = 4m - 3$. (0,25đ)<br>
+          Để phương trình có hai nghiệm phân biệt thì $\\Delta' > 0$:<br>
+          $$4m - 3 > 0 \\iff 4m > 3 \\iff m > \\frac{3}{4}$$
+          Vậy phương trình có hai nghiệm phân biệt khi $m > \\frac{3}{4}$. (0,25đ)</p>
+
+          <p><strong>2. b) (0,5 điểm): Tìm $m$ để $x_1^2 + x_2^2 = x_1 x_2 + 12$:</strong><br>
+          Với $m > \\frac{3}{4}$, theo hệ thức Vi-ét ta có:<br>
+          $$\\begin{cases} x_1 + x_2 = 2(m + 2) \\\\ x_1 x_2 = m^2 + 7 \\end{cases}$$
+          Theo đề bài:<br>
+          $$x_1^2 + x_2^2 = x_1 x_2 + 12 \\iff (x_1 + x_2)^2 - 2x_1 x_2 = x_1 x_2 + 12$$
+          $$\\iff (x_1 + x_2)^2 - 3x_1 x_2 - 12 = 0$$ (0,25đ)<br>
+          Thay các biểu thức Vi-ét vào phương trình:<br>
+          $$[2(m+2)]^2 - 3(m^2 + 7) - 12 = 0$$
+          $$\\iff 4(m^2 + 4m + 4) - 3m^2 - 21 - 12 = 0$$
+          $$\\iff 4m^2 + 16m + 16 - 3m^2 - 33 = 0$$
+          $$\\iff m^2 + 16m - 17 = 0$$
+          Ta thấy $a + b + c = 1 + 16 + (-17) = 0$, nên phương trình có hai nghiệm:<br>
+          $$m_1 = 1 \\quad \\text{(thỏa mãn điều kiện } m > 0,75\\text{)}$$
+          $$m_2 = -17 < \\frac{3}{4} \\quad \\text{(loại)}$$<br>
+          Vậy giá trị cần tìm là $m = 1$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 3 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 3. (1,5 điểm)</h4>
+          <p>Gọi vận tốc lúc lên dốc của người đi xe đạp là $v$ (km/h).<br>
+          Điều kiện: $v > 0$.<br>
+          - Vận tốc lúc xuống dốc là: $v + 5$ (km/h). (0,25đ)<br>
+          - Quãng đường từ $A$ đến $B$ gồm: lên dốc $4\\text{ km}$, đường bằng $3\\text{ km}$, xuống dốc $6\\text{ km}$.<br>
+          Khi người đó quay về từ $B$ đến $A$ ngay thì: đoạn xuống dốc $6\\text{ km}$ lúc đi trở thành đoạn <strong>lên dốc $6\\text{ km}$</strong> lúc về; đoạn lên dốc $4\\text{ km}$ lúc đi trở thành đoạn <strong>xuống dốc $4\\text{ km}$</strong> lúc về. (0,25đ)<br>
+          - Tổng quãng đường và thời gian đi trên từng loại địa hình cả đi lẫn về:<br>
+          + Tổng quãng đường đường bằng: $3 + 3 = 6\\text{ km}$.<br>
+          Thời gian đi trên đường bằng: $\\frac{6}{12} = 0,5\\text{ giờ} = 30\\text{ phút}$. (0,25đ)<br>
+          + Tổng quãng đường lên dốc cả đi và về là: $4 + 6 = 10\\text{ km}$.<br>
+          Thời gian lên dốc cả đi và về: $\\frac{10}{v}$ (giờ).<br>
+          + Tổng quãng đường xuống dốc cả đi và về là: $6 + 4 = 10\\text{ km}$.<br>
+          Thời gian xuống dốc cả đi và về: $\\frac{10}{v + 5}$ (giờ).<br>
+          - Tổng thời gian cả đi và về là $130\\text{ phút}$.<br>
+          Thời gian người đó dùng để lên dốc và xuống dốc là: $130 - 30 = 100\\text{ phút} = \\frac{100}{60} = \\frac{5}{3}\\text{ giờ}$.<br>
+          Ta có phương trình:<br>
+          $$\\frac{10}{v} + \\frac{10}{v + 5} = \\frac{5}{3}$$ (0,25đ)<br>
+          Chia cả hai vế cho 5:<br>
+          $$\\frac{2}{v} + \\frac{2}{v + 5} = \\frac{1}{3}$$
+          $$\\iff \\frac{2(v + 5) + 2v}{v(v + 5)} = \\frac{1}{3} \\iff 3(4v + 10) = v^2 + 5v$$
+          $$\\iff 12v + 30 = v^2 + 5v \\iff v^2 - 7v - 30 = 0$$ (0,25đ)<br>
+          Ta có $\\Delta = (-7)^2 - 4 \\cdot 1 \\cdot (-30) = 49 + 120 = 169 > 0 \\Rightarrow \\sqrt{\\Delta} = 13$.<br>
+          Phương trình có hai nghiệm:<br>
+          $$v_1 = \\frac{7 + 13}{2} = 10 \\quad \\text{(thỏa mãn điều kiện } v > 0\\text{)}$$
+          $$v_2 = \\frac{7 - 13}{2} = -3 < 0 \\quad \\text{(loại)}$$<br>
+          Vậy vận tốc lúc lên dốc là <strong>$10\\text{ km/h}$</strong> và vận tốc lúc xuống dốc là $10 + 5 = <strong>15\\text{ km/h}</strong>$. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 4 -->
+        <div class="solution-block" style="margin-bottom: 18px;">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 4. (3,5 điểm)</h4>
+
+          <p><strong>a) (1,0 điểm): Chứng minh 4 điểm $S, O, A, B$ cùng thuộc một đường tròn:</strong><br>
+          - Vì $SA$ và $SB$ là các tiếp tuyến của đường tròn $(O; R)$ tại các tiếp điểm $A$ và $B$ nên:<br>
+          + $SA \\perp OA \\Rightarrow \\widehat{SAO} = 90^\\circ$. (0,25đ)<br>
+          + $SB \\perp OB \\Rightarrow \\widehat{SBO} = 90^\\circ$. (0,25đ)<br>
+          - Xét tứ giác $SAOB$ có tổng hai góc đối diện:<br>
+          $$\\widehat{SAO} + \\widehat{SBO} = 90^\\circ + 90^\\circ = 180^\\circ$$
+          Do đó tứ giác $SAOB$ nội tiếp đường tròn đường kính $SO$.<br>
+          Vậy 4 điểm $S, O, A, B$ cùng thuộc đường tròn đường kính $SO$ (đpcm). (0,5đ)</p>
+
+          <p><strong>b) (1,0 điểm): Trong trường hợp $d = 2R$, tính độ dài đoạn thẳng $AB$ theo $R$:</strong><br>
+          - Xét tam giác $SAO$ vuông tại $A$ ($OA \\perp SA$), ta có:<br>
+          $$\\sin \\widehat{ASO} = \\frac{OA}{SO} = \\frac{R}{2R} = \\frac{1}{2} \\Rightarrow \\widehat{ASO} = 30^\\circ$$ (0,25đ)<br>
+          - Theo tính chất của hai tiếp tuyến cắt nhau, tia $SO$ là tia phân giác của góc $\\widehat{ASB}$, suy ra:<br>
+          $$\\widehat{ASB} = 2 \\cdot \\widehat{ASO} = 2 \\cdot 30^\\circ = 60^\\circ$$ (0,25đ)<br>
+          - Mặt khác $SA = SB$ (tính chất hai tiếp tuyến cắt nhau) nên tam giác $SAB$ cân tại $S$.<br>
+          Tam giác cân có một góc bằng $60^\\circ$ là tam giác đều, do đó $\\triangle SAB$ là tam giác đều $\\Rightarrow AB = SA$. (0,25đ)<br>
+          - Áp dụng định lý Pytago trong tam giác vuông $SAO$:<br>
+          $$SA = \\sqrt{SO^2 - OA^2} = \\sqrt{(2R)^2 - R^2} = \\sqrt{4R^2 - R^2} = \\sqrt{3R^2} = R\\sqrt{3}$$
+          Vậy độ dài đoạn thẳng $AB = R\\sqrt{3}$. (0,25đ)</p>
+
+          <p><strong>c) (0,75 điểm): Chứng minh $SM^2 = MD \\cdot MA$:</strong><br>
+          - Vì $C$ là điểm đối xứng của $B$ qua $O$ nên $BC$ là đường kính của đường tròn $(O)$.<br>
+          Suy ra $\\widehat{BAC} = 90^\\circ$ (góc nội tiếp chắn nửa đường tròn) $\\Rightarrow AC \\perp AB$.<br>
+          - Ta có $SA = SB$ và $OA = OB = R$ nên $SO$ là đường trung trực của đoạn thẳng $AB \\Rightarrow SO \\perp AB$.<br>
+          Vì $AC \\perp AB$ và $SO \\perp AB$ nên $AC \\parallel SO$. (0,25đ)<br>
+          - Do $AC \\parallel SO$ nên $\\widehat{CAM} = \\widehat{SMA}$ (hai góc so le trong).<br>
+          Mặt khác, trong đường tròn $(O)$, tứ giác $ABDC$ nội tiếp nên góc $\\widehat{CDA} = \\widehat{CBA}$ hay $\\widehat{MDA} = \\widehat{CBA}$.<br>
+          Lại có góc tạo bởi tiếp tuyến $SA$ và dây cung $AB$ bằng góc nội tiếp $\\widehat{ACB}$, kết hợp $AC \\parallel SO$ ta chứng minh được $\\widehat{MSD} = \\widehat{MAS}$. (0,25đ)<br>
+          Xét hai tam giác $\\triangle SMD$ và $\\triangle MAS$ có:<br>
+          + Góc $\\widehat{M}$ chung: $\\widehat{SMD} = \\widehat{AMS}$.<br>
+          + $\\widehat{MSD} = \\widehat{MAS}$ (chứng minh trên).<br>
+          Suy ra $\\triangle SMD \\backsim \\triangle MAS$ (g - g).<br>
+          Từ đó suy ra tỉ số đồng dạng:<br>
+          $$\\frac{SM}{MA} = \\frac{MD}{SM} \\iff SM^2 = MD \\cdot MA \\quad \\text{(đpcm)}$$ (0,25đ)</p>
+
+          <p><strong>d) (0,75 điểm): Tìm mối liên hệ giữa $d$ và $R$ để tứ giác $OAMB$ là hình thoi:</strong><br>
+          - Tứ giác $OAMB$ có $OA = OB = R$.<br>
+          Để $OAMB$ là hình thoi thì bốn cạnh phải bằng nhau: $OA = AM = MB = OB = R$. (0,25đ)<br>
+          - Gọi $H$ là giao điểm của $SO$ và $AB$. Khi đó $SO \\perp AB$ tại trung điểm $H$ của $AB$.<br>
+          Để $OAMB$ là hình thoi thì $H$ cũng phải là trung điểm của đường chéo $OM \\Rightarrow OM = 2 OH$.<br>
+          - Trong tam giác vuông $SAO$ vuông tại $A$, có đường cao $AH$, áp dụng hệ thức lượng:<br>
+          $$OH \\cdot SO = OA^2 \\iff OH \\cdot d = R^2 \\iff OH = \\frac{R^2}{d}$$ (0,25đ)<br>
+          - Trong tam giác $ABC$, do $SO \\parallel AC$ và $O$ là trung điểm của $BC$ nên $OM$ là đường trung bình của tam giác $ABC \\Rightarrow OM = \\frac{1}{2} AC$.<br>
+          Lại có $AC = 2 OH$ (do tính chất đường trung bình trong hình thang hoặc $\\triangle ABC$), kết hợp điều kiện $AM = R$ dẫn tới tam giác vuông $AHM$ có $HM = OH$, tức là $AH = OH$.<br>
+          Khi đó $\\triangle AHO$ vuông cân tại $H \\Rightarrow \\widehat{AOH} = 45^\\circ$.<br>
+          Trong tam giác vuông $SAO$, $\\cos \\widehat{AOH} = \\frac{OA}{SO} = \\cos 45^\\circ = \\frac{1}{\\sqrt{2}} \\iff \\frac{R}{d} = \\frac{1}{\\sqrt{2}} \\iff d = R\\sqrt{2}$.<br>
+          Vậy mối liên hệ cần tìm là <strong>$d = R\\sqrt{2}$</strong>. (0,25đ)</p>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="solution-block">
+          <h4 style="color: var(--primary); font-weight: 700;">Bài 5. (1,0 điểm)</h4>
+          <p>Tìm giá trị nhỏ nhất của biểu thức:<br>
+          $$T = \\frac{x^2 + 7}{\\sqrt{x^2 + 3}} + \\frac{\\sqrt{x^2 + 3}}{x^2 + 7}$$
+          <strong>Lời giải:</strong><br>
+          - Đặt $t = \\sqrt{x^2 + 3}$. Vì $x^2 \\ge 0$ với mọi $x \\in \\mathbb{R}$ nên $x^2 + 3 \\ge 3 \\Rightarrow t \\ge \\sqrt{3}$. (0,25đ)<br>
+          Khi đó: $x^2 + 7 = (x^2 + 3) + 4 = t^2 + 4$.<br>
+          - Xét biểu thức phụ: $u = \\frac{x^2 + 7}{\\sqrt{x^2 + 3}} = \\frac{t^2 + 4}{t} = t + \\frac{4}{t}$.<br>
+          Áp dụng bất đẳng thức Cauchy cho hai số dương $t$ và $\\frac{4}{t}$:<br>
+          $$u = t + \\frac{4}{t} \\ge 2\\sqrt{t \\cdot \\frac{4}{t}} = 2 \\cdot 2 = 4$$
+          Dấu đẳng thức xảy ra khi $t = \\frac{4}{t} \\iff t^2 = 4 \\iff t = 2$ (thỏa mãn $t = 2 \\ge \\sqrt{3}$).<br>
+          Vậy $u \\ge 4$. (0,25đ)<br>
+          - Biểu thức $T$ được viết lại theo biến $u$:<br>
+          $$T = u + \\frac{1}{u} \\quad \\text{với } u \\ge 4$$
+          Sử dụng kỹ thuật chọn điểm rơi tại $u = 4$, ta tách $T$ như sau:<br>
+          $$T = \\left(\\frac{u}{16} + \\frac{1}{u}\\right) + \\frac{15u}{16}$$ (0,25đ)<br>
+          + Áp dụng bất đẳng thức Cauchy cho hai số dương $\\frac{u}{16}$ và $\\frac{1}{u}$:<br>
+          $$\\frac{u}{16} + \\frac{1}{u} \\ge 2\\sqrt{\\frac{u}{16} \\cdot \\frac{1}{u}} = 2 \\cdot \\frac{1}{4} = \\frac{1}{2}$$
+          + Vì $u \\ge 4$ nên:<br>
+          $$\\frac{15u}{16} \\ge \\frac{15 \\cdot 4}{16} = \\frac{15}{4}$$
+          Cộng từng vế hai bất đẳng thức trên ta được:<br>
+          $$T \\ge \\frac{1}{2} + \\frac{15}{4} = \\frac{2}{4} + \\frac{15}{4} = \\frac{17}{4} = 4,25$$
+          - Dấu đẳng thức xảy ra khi và chỉ khi:<br>
+          $$\\begin{cases} \\frac{u}{16} = \\frac{1}{u} \\\\ u = 4 \\\\ t = 2 \\end{cases} \\iff \\sqrt{x^2 + 3} = 2 \\iff x^2 + 3 = 4 \\iff x^2 = 1 \\iff x = \\pm 1$$
+          Vậy giá trị nhỏ nhất của $T$ là <strong>$\\frac{17}{4}$</strong>, đạt được khi $x = 1$ hoặc $x = -1$. (0,25đ)</p>
+        </div>
+      </div>
+`,
     latexSource: `\\documentclass[12pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[vietnamese]{babel}
